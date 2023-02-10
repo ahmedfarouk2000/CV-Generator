@@ -303,14 +303,8 @@ export class HomeComponent implements OnInit {
   }
 
 
-  // public handleFileInput(files: any) {
-  //   // let fileToUpload: File | null = null;
-  //   let fileToUpload = files.files.item(0);
-  //   console.log('in handle file', fileToUpload)
-  //   document.documentElement.style.setProperty('--image', `url(${fileToUpload})`);
 
-  // }
-  public uploadedImage = false;
+  // public uploadedImage = false;
   public handleFileInput = (input: any) => { // workingggggggggg wwwwwwwow
     if (input.files && input.files[0]) {
       const file = input.files[0];
@@ -327,30 +321,50 @@ export class HomeComponent implements OnInit {
 
   public changeElementBackground = (imageUrl: string) => {
     this.togglePopUp()
-    this.uploadedImage = true;
-    const targetElement = document.querySelector(".svgContainer") as HTMLElement;
+    // this.OnlyOnce = false;
+    // this.uploadedImage = true;
+    // const targetElement = document.querySelector(".svgContainer") as HTMLElement;
     // targetElement.style.backgroundImage = `url(${imageUrl})`;
+
+    const parent: any = document.querySelector(".transparentContainer")
+
+    const tempImage: any = document.querySelector(".tempImage")
+    tempImage.style.top = 'auto'
+    tempImage.style.left = 'auto'
+    document.documentElement.style.setProperty('--clippingX', `${50}%`);
+    document.documentElement.style.setProperty('--clippingY', `${50}%`);
+    document.documentElement.style.setProperty('--xLocation', `${50}%`);
+    document.documentElement.style.setProperty('--yLocation', `${50}%`);
+
+    const square: any = document.querySelector('#square')
+    square.style.transform = "";
+    // console.log('the sqr', square.style.transform)
+
+
+
+
+    parent.appendChild(tempImage)
 
     const tmepImgInside: any = document.querySelector(".tmepImgInside");
     tmepImgInside.src = imageUrl
   };
-  public EnteredImage(event: any) {
-    console.log('wwwwwwwwwwww', event.pageX)
+  // public EnteredImage(event: any) {
+  //   console.log('wwwwwwwwwwww', event.pageX)
 
-    const tempImage: any = document.querySelector(".tempImage")
-    event = event || window.event; // IE-ism
-    console.log("Mouse:", event.pageX)
+  //   const tempImage: any = document.querySelector(".tempImage")
+  //   event = event || window.event; // IE-ism
+  //   console.log("Mouse:", event.pageX)
 
-    // const rect = tempImage.getBoundingClientRect();
-    // const pageXParent = rect.left + window.pageXOffset;
-    // const pageYParent = rect.top + window.pageYOffset;
-    // const CenterCropingX = (event.pageX - pageXParent)
-    // const CenterCropingY = (event.pageY - pageYParent)
+  //   // const rect = tempImage.getBoundingClientRect();
+  //   // const pageXParent = rect.left + window.pageXOffset;
+  //   // const pageYParent = rect.top + window.pageYOffset;
+  //   // const CenterCropingX = (event.pageX - pageXParent)
+  //   // const CenterCropingY = (event.pageY - pageYParent)
 
-    // document.documentElement.style.setProperty('--clippingX', `${CenterCropingX}px`);
-    // document.documentElement.style.setProperty('--clippingY', `${CenterCropingY}px`);
+  //   // document.documentElement.style.setProperty('--clippingX', `${CenterCropingX}px`);
+  //   // document.documentElement.style.setProperty('--clippingY', `${CenterCropingY}px`);
 
-  }
+  // }
 
   public Slide1(event: any) {
     console.log(event.target.value)
@@ -383,7 +397,15 @@ export class HomeComponent implements OnInit {
   // (cdkDragMoved)="dragMoved($event)"
   public publicPosX: any;
   public publicPosY: any;
+  // public OnlyOnce = false;
   dragMoved(event: any) {
+    // if (!this.OnlyOnce) {
+    //   const square: any = document.querySelector('#square')
+    //   square.classList.toggle('transform')
+    //   this.OnlyOnce = true;
+    // }
+    event.source._dragRef.reset();
+
     // console.log(event)
     const croppingBox: any = document.querySelector(".croppingBox")
     const tempImage: any = document.querySelector(".tempImage")
@@ -426,7 +448,29 @@ export class HomeComponent implements OnInit {
     this.togglePopUp()
     const parent: any = document.querySelector(".svgContainer")
     const tempImage: any = document.querySelector(".tempImage")
+
+
+    // let OldTempImage = tempImage.cloneNode(true);
+
+
     parent.appendChild(tempImage)
+
+
+
+
+    // const parentNew: any = document.querySelector(".transparentContainer")
+    // parentNew.appendChild(OldTempImage)
+
+
+
+
+    // const hidden: any = document.querySelector(".hidden")
+    // hidden.classList.toggle('hidden')
+
+
+    // const transparentContainer: any = document.querySelector(".transparentContainer")
+    // transparentContainer.appendChild(tempImage)
+
     console.log("eneters")
 
     // tempImage.style.position = "absolute";
@@ -443,13 +487,34 @@ export class HomeComponent implements OnInit {
     document.documentElement.style.setProperty('--radius', `${halfAvatarWidth}px`);
     document.documentElement.style.setProperty('--xLocation', `${this.publicPosX + halfAvatarWidth + SquareBorderRadius}px`);
     document.documentElement.style.setProperty('--yLocation', `${this.publicPosY + halfAvatarWidth + SquareBorderRadius}px`);
+
+
+    // square.transform = "translate3d(0px, 0px, 0px)";
+    // console.log("Aaaaaaaaaa", square)
+    // const square: any = document.querySelector('#square')
+    // square.style.transform = "";
+
+
   }
+
+
 
   public togglePopUp() {
     console.log("wo")
     let popUp = document.querySelector('.popUp')
     popUp?.classList.toggle('ClosePopUp')
+    let popUpTab = document.querySelector('.popUpTab')
+    popUpTab?.classList.toggle('popUpTabAnimation')
+    let transparentContainer = document.querySelector('.transparentContainer')
+    transparentContainer?.classList.toggle('transparentContainerToggle')
 
+  }
+
+  public CLosePopUp(event: any) {
+    // console.log()
+    // console.log(event.target)
+    if (event.target?.id == 'popUp')
+      this.togglePopUp()
   }
 
 

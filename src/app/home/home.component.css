@@ -19,6 +19,7 @@
 
     --theme1: #2feaa8;
     --theme12: #25be89;
+    --dangerColor: #FE004D;
 
     --xLocation: 50%;
     --yLocation: 50%;
@@ -251,7 +252,7 @@ h3[contenteditable]:hover {
     left: 100%;
     right: 0;
     cursor: pointer;
-    background-color: #FE004D;
+    background-color: var(--dangerColor);
     text-align: center;
     border-radius: 16px;
     transition: all 0.4s;
@@ -505,7 +506,7 @@ h3[contenteditable]:hover {
 }
 
 .tempImage {
-    background-color: red;
+    /* background-color: red; */
     /* background-image: url('../../assets/transparentBG.jpg'); */
     opacity: 1;
     position: absolute;
@@ -513,7 +514,7 @@ h3[contenteditable]:hover {
 
     /* left: 200px; 
     top: 100px; */
-    clip-path: circle(var(--radius) at var(--xLocation) var(--yLocation));
+    /* clip-path: circle(var(--radius) at var(--xLocation) var(--yLocation)); */
     width: 400px;
     /* max-height: 300px; */
     /* height: 400px; */
@@ -523,10 +524,12 @@ h3[contenteditable]:hover {
     justify-content: center;
     align-items: center;
 
-
-
-
 }
+
+.hidden {
+    display: none;
+}
+
 
 .blackLayer {
     position: absolute;
@@ -636,8 +639,8 @@ h3[contenteditable]:hover {
 }
 
 .popUpTab {
-    width: 1000px;
-    height: 600px;
+    width: 600px;
+    height: 200px;
     background-color: white;
     border-radius: 16px;
     position: relative;
@@ -645,7 +648,12 @@ h3[contenteditable]:hover {
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+    transition: all 0.4s;
+}
 
+.popUpTabAnimation {
+    width: 1000px;
+    height: 600px;
 }
 
 .popUpButtonLeft,
@@ -671,6 +679,7 @@ h3[contenteditable]:hover {
     position: absolute;
     right: 16px;
     top: 16px;
+    background-color: var(--dangerColor);
 
 }
 
@@ -680,6 +689,12 @@ h3[contenteditable]:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    transition: all 0.2s;
+}
+
+.transparentContainerToggle {
+    opacity: 1;
 }
 
 .transparentBG {
@@ -688,9 +703,17 @@ h3[contenteditable]:hover {
 }
 
 .OpenPopUp {
-    visibility: visible;
+    /* visibility: visible; */
+    opacity: 1;
+    transition: all 0.4s;
 }
 
 .ClosePopUp {
     visibility: hidden;
+    opacity: 0;
+    transition: all 0.4s;
+}
+
+.transform {
+    transform: translate3d(0px, 0px, 0px) !important;
 }
