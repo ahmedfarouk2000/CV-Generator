@@ -4,12 +4,12 @@
 <button (click)="Confirm()" class="button">Confirm</button>
 
 <button (input)="DeleteImage()">toggle img</button>
-<button (click)="togglePopUp()">toggle pop</button>
+<button (click)="togglePopUp(false)">toggle pop</button>
 
 
-<input (change)="Slide1($event)" type="range" class="range rangeBlur">
+<!-- <input (change)="Slide1($event)" type="range" class="range rangeBlur">
 <input (change)="Slide2($event)" type="range" class="range rangeBorder">
-<input (change)="Slide3($event)" type="range" class="range rangeBorder">
+<input (change)="Slide3($event)" type="range" class="range rangeBorder"> -->
 <!-- <button onclick="document.execCommand('italic',false,null);">Italic</button>
 <button onclick="document.execCommand('bold',false,null);">bold</button> -->
 
@@ -22,13 +22,13 @@
 <div class="popUp ClosePopUp" (click)="CLosePopUp($event)" id="popUp">
     <div class="popUpTab">
         <button class="popUpButtonLeft" (click)="Confirm()">Confirm</button>
-        <button class="popUpButtonRight" (click)="togglePopUp()">Discard</button>
+        <button class="popUpButtonRight" (click)="togglePopUp(true)">Discard</button>
         <div class="transparentContainer">
             <img class="transparentBG" src="../../assets/transparentBG.jpg" alt="">
             <div class="tempImage">
                 <img class="tmepImgInside" src="../../assets/test.jpg" alt="">
-                <div id='square' (cdkDragMoved)="dragMoved($event)" class="croppingBox" cdkDragBoundary=".tempImage"
-                    cdkDrag>
+                <div id='square' [cdkDragFreeDragPosition]="ResetBox" (cdkDragMoved)="dragMoved($event)"
+                    class="croppingBox" cdkDragBoundary=".tempImage" cdkDrag>
                 </div>
             </div>
 

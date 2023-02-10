@@ -319,15 +319,21 @@ export class HomeComponent implements OnInit {
     }
   };
 
+  public ResetBox = { x: 0, y: 0 }
+  public onlyOnceReset = true
   public changeElementBackground = (imageUrl: string) => {
-    this.togglePopUp()
-    // this.OnlyOnce = false;
-    // this.uploadedImage = true;
-    // const targetElement = document.querySelector(".svgContainer") as HTMLElement;
-    // targetElement.style.backgroundImage = `url(${imageUrl})`;
+    this.togglePopUp(false)
+    this.ResetImage()
+    const tmepImgInside: any = document.querySelector(".tmepImgInside");
+    tmepImgInside.src = imageUrl
+  };
 
+  public ResetImage() { // to reset the image to be in place of clipping
+    if (this.onlyOnceReset) {
+      this.ResetBoxFun()
+      this.onlyOnceReset = false
+    }
     const parent: any = document.querySelector(".transparentContainer")
-
     const tempImage: any = document.querySelector(".tempImage")
     tempImage.style.top = 'auto'
     tempImage.style.left = 'auto'
@@ -335,59 +341,37 @@ export class HomeComponent implements OnInit {
     document.documentElement.style.setProperty('--clippingY', `${50}%`);
     document.documentElement.style.setProperty('--xLocation', `${50}%`);
     document.documentElement.style.setProperty('--yLocation', `${50}%`);
-
-    const square: any = document.querySelector('#square')
-    square.style.transform = "";
-    // console.log('the sqr', square.style.transform)
-
-
-
-
+    document.documentElement.style.setProperty('--radius', `${100}%`);
     parent.appendChild(tempImage)
+  }
 
-    const tmepImgInside: any = document.querySelector(".tmepImgInside");
-    tmepImgInside.src = imageUrl
-  };
-  // public EnteredImage(event: any) {
-  //   console.log('wwwwwwwwwwww', event.pageX)
+  public ResetBoxFun() {
+    this.ResetBox = { x: 0, y: 0 };
+  }
 
-  //   const tempImage: any = document.querySelector(".tempImage")
-  //   event = event || window.event; // IE-ism
-  //   console.log("Mouse:", event.pageX)
 
-  //   // const rect = tempImage.getBoundingClientRect();
-  //   // const pageXParent = rect.left + window.pageXOffset;
-  //   // const pageYParent = rect.top + window.pageYOffset;
-  //   // const CenterCropingX = (event.pageX - pageXParent)
-  //   // const CenterCropingY = (event.pageY - pageYParent)
-
-  //   // document.documentElement.style.setProperty('--clippingX', `${CenterCropingX}px`);
-  //   // document.documentElement.style.setProperty('--clippingY', `${CenterCropingY}px`);
-
+  // public Slide1(event: any) {
+  //   console.log(event.target.value)
+  //   // event.target.value = 100
+  //   let currentValue = event.target.value
+  //   document.documentElement.style.setProperty('--clippingRadius', `${currentValue}%`);
   // }
 
-  public Slide1(event: any) {
-    console.log(event.target.value)
-    // event.target.value = 100
-    let currentValue = event.target.value
-    document.documentElement.style.setProperty('--clippingRadius', `${currentValue}%`);
-  }
-
-  public Slide2(event: any) {
-    console.log(event.target.value)
-    // event.target.value = 100
-    let currentValue = event.target.value
-    document.documentElement.style.setProperty('--clippingX', `${currentValue}%`);
-  }
+  // public Slide2(event: any) {
+  //   console.log(event.target.value)
+  //   // event.target.value = 100
+  //   let currentValue = event.target.value
+  //   document.documentElement.style.setProperty('--clippingX', `${currentValue}%`);
+  // }
 
 
 
-  public Slide3(event: any) {
-    console.log(event.target.value)
-    // event.target.value = 100
-    let currentValue = event.target.value
-    document.documentElement.style.setProperty('--clippingY', `${currentValue}%`);
-  }
+  // public Slide3(event: any) {
+  //   console.log(event.target.value)
+  //   // event.target.value = 100
+  //   let currentValue = event.target.value
+  //   document.documentElement.style.setProperty('--clippingY', `${currentValue}%`);
+  // }
 
   public DropCroppingBox(event: any) {
     console.log('in drag and drop', event)
@@ -398,13 +382,13 @@ export class HomeComponent implements OnInit {
   public publicPosX: any;
   public publicPosY: any;
   // public OnlyOnce = false;
+  // public funcReset: any;
   dragMoved(event: any) {
     // if (!this.OnlyOnce) {
-    //   const square: any = document.querySelector('#square')
-    //   square.classList.toggle('transform')
-    //   this.OnlyOnce = true;
+    //   this.funcReset = event.source._dragRef.reset();
+    //   this.OnlyOnce = true
     // }
-    event.source._dragRef.reset();
+
 
     // console.log(event)
     const croppingBox: any = document.querySelector(".croppingBox")
@@ -442,10 +426,13 @@ export class HomeComponent implements OnInit {
     // let AvatarWidth = Number(window.getComputedStyle(document.documentElement).getPropertyValue('--AvatarWidth').replace('px', ''));
     // let halfAvatarWidth = AvatarWidth / 2
     // document.documentElement.style.setProperty('--clippingRadius', `${halfAvatarWidth}px`);
+    // this.OnlyOnce = false
+
+
   }
 
   public Confirm() { // this function will confirm the crop
-    this.togglePopUp()
+    this.togglePopUp(false)
     const parent: any = document.querySelector(".svgContainer")
     const tempImage: any = document.querySelector(".tempImage")
 
@@ -493,13 +480,15 @@ export class HomeComponent implements OnInit {
     // console.log("Aaaaaaaaaa", square)
     // const square: any = document.querySelector('#square')
     // square.style.transform = "";
+    this.onlyOnceReset = true
+
 
 
   }
 
 
 
-  public togglePopUp() {
+  public togglePopUp(cond: boolean) { // cond tells me to set or not the box
     console.log("wo")
     let popUp = document.querySelector('.popUp')
     popUp?.classList.toggle('ClosePopUp')
@@ -507,14 +496,20 @@ export class HomeComponent implements OnInit {
     popUpTab?.classList.toggle('popUpTabAnimation')
     let transparentContainer = document.querySelector('.transparentContainer')
     transparentContainer?.classList.toggle('transparentContainerToggle')
+    if (cond)
+      this.ResetBoxFun()
 
   }
 
   public CLosePopUp(event: any) {
     // console.log()
     // console.log(event.target)
-    if (event.target?.id == 'popUp')
-      this.togglePopUp()
+    if (event.target?.id == 'popUp') {
+      this.togglePopUp(false)
+      this.ResetBoxFun()
+    }
+
+
   }
 
 

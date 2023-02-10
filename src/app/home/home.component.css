@@ -514,7 +514,7 @@ h3[contenteditable]:hover {
 
     /* left: 200px; 
     top: 100px; */
-    /* clip-path: circle(var(--radius) at var(--xLocation) var(--yLocation)); */
+    clip-path: circle(var(--radius) at var(--xLocation) var(--yLocation));
     width: 400px;
     /* max-height: 300px; */
     /* height: 400px; */
