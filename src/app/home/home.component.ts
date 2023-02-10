@@ -326,6 +326,7 @@ export class HomeComponent implements OnInit {
   };
 
   public changeElementBackground = (imageUrl: string) => {
+    this.togglePopUp()
     this.uploadedImage = true;
     const targetElement = document.querySelector(".svgContainer") as HTMLElement;
     // targetElement.style.backgroundImage = `url(${imageUrl})`;
@@ -334,28 +335,35 @@ export class HomeComponent implements OnInit {
     tmepImgInside.src = imageUrl
   };
   public EnteredImage(event: any) {
+    console.log('wwwwwwwwwwww', event.pageX)
 
-    // const tempImage: any = document.querySelector(".tempImage")
-    // const width = tempImage.offsetWidth;
-    // const height = tempImage.offsetHeight;
-    // console.log('before:', width, height);
+    const tempImage: any = document.querySelector(".tempImage")
+    event = event || window.event; // IE-ism
+    console.log("Mouse:", event.pageX)
 
-    // console.log('wwwwwwwwwwww', event)
-    // console.log(event.clientX)
+    // const rect = tempImage.getBoundingClientRect();
+    // const pageXParent = rect.left + window.pageXOffset;
+    // const pageYParent = rect.top + window.pageYOffset;
+    // const CenterCropingX = (event.pageX - pageXParent)
+    // const CenterCropingY = (event.pageY - pageYParent)
+
+    // document.documentElement.style.setProperty('--clippingX', `${CenterCropingX}px`);
+    // document.documentElement.style.setProperty('--clippingY', `${CenterCropingY}px`);
+
   }
 
   public Slide1(event: any) {
     console.log(event.target.value)
     // event.target.value = 100
     let currentValue = event.target.value
-    document.documentElement.style.setProperty('--radius', `${currentValue}%`);
+    document.documentElement.style.setProperty('--clippingRadius', `${currentValue}%`);
   }
 
   public Slide2(event: any) {
     console.log(event.target.value)
     // event.target.value = 100
     let currentValue = event.target.value
-    document.documentElement.style.setProperty('--xLocation', `${currentValue}%`);
+    document.documentElement.style.setProperty('--clippingX', `${currentValue}%`);
   }
 
 
@@ -364,7 +372,7 @@ export class HomeComponent implements OnInit {
     console.log(event.target.value)
     // event.target.value = 100
     let currentValue = event.target.value
-    document.documentElement.style.setProperty('--yLocation', `${currentValue}%`);
+    document.documentElement.style.setProperty('--clippingY', `${currentValue}%`);
   }
 
   public DropCroppingBox(event: any) {
@@ -376,27 +384,46 @@ export class HomeComponent implements OnInit {
   public publicPosX: any;
   public publicPosY: any;
   dragMoved(event: any) {
-    console.log(event)
-    // const croppingBox: any = document.querySelector(".croppingBox")
+    // console.log(event)
+    const croppingBox: any = document.querySelector(".croppingBox")
     const tempImage: any = document.querySelector(".tempImage")
     // const width = tempImage.offsetWidth;
     // const height = tempImage.offsetHeight;
     // console.log('before:', width, height);
     const pageXChild = event.event.pageX
     const pageYChild = event.event.pageY
+    console.log("the event :", pageXChild, pageYChild)
+
+
+
 
     // console.log(targetElement);
     const rect = tempImage.getBoundingClientRect();
     const pageXParent = rect.left + window.pageXOffset;
     const pageYParent = rect.top + window.pageYOffset;
-    const CenterCropingX = (pageXChild - pageXParent)
-    const CenterCropingY = (pageYChild - pageYParent)
+
+    const rect2 = croppingBox.getBoundingClientRect();
+    const pageXChild2 = rect2.left + window.pageXOffset;
+    const pageYChild2 = rect2.top + window.pageYOffset;
+
+    const CenterCropingX = (pageXChild2 - pageXParent)
+    const CenterCropingY = (pageYChild2 - pageYParent)
     this.publicPosX = CenterCropingX
     this.publicPosY = CenterCropingY
-    console.log(`start point: ${CenterCropingX}, ${CenterCropingY}`)
+    // console.log(`start point: ${CenterCropingX}, ${CenterCropingY}`)
+
+    let AvatarWidth = Number(window.getComputedStyle(document.documentElement).getPropertyValue('--AvatarWidth').replace('px', ''));
+    let SquareBorderRadius = Number(window.getComputedStyle(document.documentElement).getPropertyValue('--SquareBorderRadius').replace('px', ''));
+    let halfAvatarWidth = AvatarWidth / 2
+    document.documentElement.style.setProperty('--clippingX', `${CenterCropingX + halfAvatarWidth + SquareBorderRadius}px`);
+    document.documentElement.style.setProperty('--clippingY', `${CenterCropingY + halfAvatarWidth + SquareBorderRadius}px`);
+    // let AvatarWidth = Number(window.getComputedStyle(document.documentElement).getPropertyValue('--AvatarWidth').replace('px', ''));
+    // let halfAvatarWidth = AvatarWidth / 2
+    // document.documentElement.style.setProperty('--clippingRadius', `${halfAvatarWidth}px`);
   }
 
   public Confirm() { // this function will confirm the crop
+    this.togglePopUp()
     const parent: any = document.querySelector(".svgContainer")
     const tempImage: any = document.querySelector(".tempImage")
     parent.appendChild(tempImage)
@@ -404,41 +431,29 @@ export class HomeComponent implements OnInit {
 
     // tempImage.style.position = "absolute";
     let AvatarWidth = Number(window.getComputedStyle(document.documentElement).getPropertyValue('--AvatarWidth').replace('px', ''));
-
     let halfAvatarWidth = AvatarWidth / 2
+    let SquareBorderRadius = Number(window.getComputedStyle(document.documentElement).getPropertyValue('--SquareBorderRadius').replace('px', ''));
 
-    let finalX = this.publicPosX - (halfAvatarWidth)
-    let finalY = this.publicPosY - (halfAvatarWidth)
+
+    let finalX = this.publicPosX + SquareBorderRadius
+    let finalY = this.publicPosY + SquareBorderRadius
     tempImage.style.top = `-${finalY}px`;
     tempImage.style.left = `-${finalX}px`;
 
     document.documentElement.style.setProperty('--radius', `${halfAvatarWidth}px`);
-    document.documentElement.style.setProperty('--xLocation', `${this.publicPosX}px`);
-    document.documentElement.style.setProperty('--yLocation', `${this.publicPosY}px`);
+    document.documentElement.style.setProperty('--xLocation', `${this.publicPosX + halfAvatarWidth + SquareBorderRadius}px`);
+    document.documentElement.style.setProperty('--yLocation', `${this.publicPosY + halfAvatarWidth + SquareBorderRadius}px`);
+  }
+
+  public togglePopUp() {
+    console.log("wo")
+    let popUp = document.querySelector('.popUp')
+    popUp?.classList.toggle('ClosePopUp')
+
   }
 
 
-  // (cdkDragEnded)="dragEnded($event)"
-  // dragEnded(event: any) {
-  //   console.log(event)
-  //   // const croppingBox: any = document.querySelector(".croppingBox")
-  //   const tempImage: any = document.querySelector(".tempImage")
-  //   const pageXChild = event.event.pageX
-  //   const pageYChild = event.event.pageY
 
-  //   // console.log(targetElement);
-  //   const rect = tempImage.getBoundingClientRect();
-  //   const pageXParent = rect.left + window.pageXOffset;
-  //   const pageYParent = rect.top + window.pageYOffset;
-  //   const CenterCropingX = (pageXChild - pageXParent) + 100
-  //   const CenterCropingY = (pageYChild - pageYParent) + 100
-  //   console.log(`start point: ${CenterCropingX}, ${CenterCropingY}`)
-
-  //   document.documentElement.style.setProperty('--radius', `${100}px`);
-  //   document.documentElement.style.setProperty('--xLocation', `${CenterCropingX}px`);
-  //   document.documentElement.style.setProperty('--yLocation', `${CenterCropingY}px`);
-
-  // }
 
 
 

@@ -4,6 +4,7 @@
 <button (click)="Confirm()" class="button">Confirm</button>
 
 <button (input)="DeleteImage()">toggle img</button>
+<button (click)="togglePopUp()">toggle pop</button>
 
 
 <input (change)="Slide1($event)" type="range" class="range rangeBlur">
@@ -18,13 +19,30 @@
     </div>
 </div> -->
 
+<div class="popUp ClosePopUp">
+    <div class="popUpTab">
+        <button class="popUpButtonLeft" (click)="Confirm()">Confirm</button>
+        <button class="popUpButtonRight" (click)="togglePopUp()">Discard</button>
+        <div class="transparentContainer">
+            <img class="transparentBG" src="../../assets/transparentBG.jpg" alt="">
+            <div class="tempImage">
+                <img class="tmepImgInside" src="../../assets/test.jpg" alt="">
+                <div (cdkDragMoved)="dragMoved($event)" class="croppingBox" cdkDragBoundary=".tempImage" cdkDrag>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 <div class="currentPage">
-    <div (mousemove)="EnteredImage($event)" class="tempImage">
+    <!-- <div class="tempImage">
         <img class="tmepImgInside" src="../../assets/test.jpg" alt="">
         <div (cdkDragMoved)="dragMoved($event)" class="croppingBox" cdkDragBoundary=".tempImage" cdkDrag>
-            O
         </div>
-    </div>
+    </div> -->
+
+
 
 
     <div class="cover">

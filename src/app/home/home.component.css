@@ -8,7 +8,7 @@
     --titleFontSize: 20px;
     --descFontSize: 20px;
 
-    --AvatarWidth: 160px;
+    --AvatarWidth: 200px;
     /* --image: url('../../assets/test.jpg'); */
 
 
@@ -23,6 +23,12 @@
     --xLocation: 50%;
     --yLocation: 50%;
     --radius: 100%;
+
+    --clippingX: 50%;
+    --clippingY: 50%;
+
+    --SquareBorderRadius: 4px;
+    /* --clippingRadius: 200px; */
 
 
 }
@@ -499,40 +505,70 @@ h3[contenteditable]:hover {
 }
 
 .tempImage {
-    /* background-color: red; */
+    background-color: red;
+    /* background-image: url('../../assets/transparentBG.jpg'); */
     opacity: 1;
     position: absolute;
-    /* width: 500px;
-    height: 500px; */
 
-    left: 0px;
-    top: 0px;
+
+    /* left: 200px; 
+    top: 100px; */
     clip-path: circle(var(--radius) at var(--xLocation) var(--yLocation));
+    width: 400px;
+    /* max-height: 300px; */
+    /* height: 400px; */
+    mask-image: radial-gradient(circle at var(--clippingX) var(--clippingY), black calc(var(--AvatarWidth)/2), rgba(0, 0, 0, 0.5) 0%);
+    -webkit-mask-image: radial-gradient(circle at var(--clippingX) var(--clippingY), black calc(var(--AvatarWidth)/2), rgba(0, 0, 0, 0.5) 0%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
 
 
 }
 
+.blackLayer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 .tmepImgInside {
+    width: 100%;
     /* opacity: 0.5; */
     /* width: 100px;
     height: 100px; */
 }
 
-.addRound {
-    clip-path: circle(50% at 50% 50%);
+.dragHandle {
+    background-color: red;
+    width: 20px;
+    height: 20px;
 }
 
+/* .addRound {
+    clip-path: circle(50% at 50% 50%);
+} */
+
 .croppingBox {
-    height: 200px;
-    width: 200px;
-    background-color: wheat;
-    position: relative;
-    left: 0;
-    top: 0;
+    height: var(--AvatarWidth);
+    width: var(--AvatarWidth);
+    background-color: transparent;
+    position: absolute;
+    left: calc(50% - calc(var(--AvatarWidth)/2) - var(--SquareBorderRadius));
+    top: calc(50% - calc(var(--AvatarWidth)/2) - var(--SquareBorderRadius));
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0.2;
+    border: var(--SquareBorderRadius) green solid;
+    /* background-color: red;
+    opacity: 0.2; */
+    /* box-sizing: border-box; */
+    cursor: all-scroll;
 }
 
 .button {
@@ -584,4 +620,77 @@ h3[contenteditable]:hover {
     height: 400px;
     max-width: 100%;
     border: dotted #ccc 2px;
+}
+
+.popUp {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999999;
+    background-color: rgba(0, 0, 0, 0.403);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popUpTab {
+    width: 1000px;
+    height: 600px;
+    background-color: white;
+    border-radius: 16px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+.popUpButtonLeft,
+.popUpButtonRight {
+    border-radius: 16px;
+    background-color: var(--theme1);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    /* min-width: 100px; */
+
+}
+
+.popUpButtonLeft {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+
+}
+
+.popUpButtonRight {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+
+}
+
+.transparentContainer {
+    width: 75%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.transparentBG {
+    border-radius: 16px;
+    width: 100%;
+}
+
+.OpenPopUp {
+    visibility: visible;
+}
+
+.ClosePopUp {
+    visibility: hidden;
 }
