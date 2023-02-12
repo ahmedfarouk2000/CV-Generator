@@ -324,6 +324,7 @@ export class HomeComponent implements OnInit {
   public changeElementBackground = (imageUrl: string) => {
     this.togglePopUp(false)
     this.ResetImage()
+    this.toggleRods()
     const tmepImgInside: any = document.querySelector(".tmepImgInside");
     tmepImgInside.src = imageUrl
   };
@@ -343,6 +344,14 @@ export class HomeComponent implements OnInit {
     document.documentElement.style.setProperty('--yLocation', `${50}%`);
     document.documentElement.style.setProperty('--radius', `${100}%`);
     parent.appendChild(tempImage)
+  }
+
+  public toggleRods() {
+    let rods = document.querySelectorAll('.rod')
+    rods.forEach(rod => {
+      console.log(rod)
+      rod.classList.toggle('hidden')
+    });
   }
 
   public ResetBoxFun() {
@@ -435,6 +444,8 @@ export class HomeComponent implements OnInit {
     this.togglePopUp(false)
     const parent: any = document.querySelector(".svgContainer")
     const tempImage: any = document.querySelector(".tempImage")
+    const RestImg: any = document.querySelector(".RestImg")
+    RestImg.classList.add('mode2Bottom');
 
 
     // let OldTempImage = tempImage.cloneNode(true);
@@ -471,6 +482,9 @@ export class HomeComponent implements OnInit {
     tempImage.style.top = `-${finalY}px`;
     tempImage.style.left = `-${finalX}px`;
 
+    RestImg.style.top = `-${finalY}px`;
+    RestImg.style.left = `-${finalX}px`;
+
     document.documentElement.style.setProperty('--radius', `${halfAvatarWidth}px`);
     document.documentElement.style.setProperty('--xLocation', `${this.publicPosX + halfAvatarWidth + SquareBorderRadius}px`);
     document.documentElement.style.setProperty('--yLocation', `${this.publicPosY + halfAvatarWidth + SquareBorderRadius}px`);
@@ -481,6 +495,7 @@ export class HomeComponent implements OnInit {
     // const square: any = document.querySelector('#square')
     // square.style.transform = "";
     this.onlyOnceReset = true
+    this.toggleRods()
 
 
 
@@ -496,8 +511,11 @@ export class HomeComponent implements OnInit {
     popUpTab?.classList.toggle('popUpTabAnimation')
     let transparentContainer = document.querySelector('.transparentContainer')
     transparentContainer?.classList.toggle('transparentContainerToggle')
-    if (cond)
+    if (cond) {
       this.ResetBoxFun()
+      this.toggleRods()
+    }
+
 
   }
 
@@ -507,6 +525,7 @@ export class HomeComponent implements OnInit {
     if (event.target?.id == 'popUp') {
       this.togglePopUp(false)
       this.ResetBoxFun()
+      this.toggleRods()
     }
 
 
@@ -516,7 +535,81 @@ export class HomeComponent implements OnInit {
 
 
 
+  public circleMode() {
+    let tempImage = document.querySelector('.tempImage')
+    tempImage?.classList.add('circleMode')
+    tempImage?.classList.remove('squareMode')
 
+  }
+
+
+  public squareMode() {
+    let tempImage = document.querySelector('.tempImage')
+    tempImage?.classList.add('squareMode')
+    tempImage?.classList.remove('circleMode')
+
+  }
+
+
+
+  public mode1RightTop() {
+    let temp: any = document.querySelector('.RestImg')
+    temp.className = ''
+    temp?.classList.add('RestImg')
+    temp.classList.add('mode1RightTop')
+  }
+
+  public mode1LeftTop() {
+    let temp: any = document.querySelector('.RestImg')
+    temp.className = ''
+    temp?.classList.add('RestImg')
+    temp.classList.add('mode1LeftTop')
+  }
+
+  public mode1RightBottom() {
+    let temp: any = document.querySelector('.RestImg')
+    temp.className = ''
+    temp?.classList.add('RestImg')
+    temp.classList.add('mode1RightBottom')
+  }
+
+  public mode1LeftBottom() {
+    let temp: any = document.querySelector('.RestImg')
+    temp.className = ''
+    temp?.classList.add('RestImg')
+    temp.classList.add('mode1LeftBottom')
+  }
+
+
+
+  public mode2Left() {
+    let temp: any = document.querySelector('.RestImg')
+    temp.className = ''
+    temp?.classList.add('RestImg')
+    temp.classList.add('mode2Left')
+  }
+
+  public mode2Right() {
+    let temp: any = document.querySelector('.RestImg')
+    temp.className = ''
+    temp?.classList.add('RestImg')
+    temp.classList.add('mode2Right')
+  }
+
+  public mode2Top() {
+    let temp: any = document.querySelector('.RestImg')
+    temp.className = ''
+    temp?.classList.add('RestImg')
+    temp.classList.add('mode2Top')
+  }
+
+
+  public mode2Bottom() {
+    let temp: any = document.querySelector('.RestImg')
+    temp.className = ''
+    temp?.classList.add('RestImg')
+    temp.classList.add('mode2Bottom')
+  }
 
 
 

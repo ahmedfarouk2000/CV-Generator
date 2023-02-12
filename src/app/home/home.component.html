@@ -3,8 +3,23 @@
 <button (click)="ZoomOut()">zoom out</button>
 <button (click)="Confirm()" class="button">Confirm</button>
 
-<button (input)="DeleteImage()">toggle img</button>
+<button (click)="toggleRods()" class="button">toggle rods</button>
+
+<!-- <button (input)="DeleteImage()">toggle img</button> -->
 <button (click)="togglePopUp(false)">toggle pop</button>
+
+<button (click)="squareMode()">squareMode</button>
+<button (click)="circleMode()">circleMode</button>
+
+<button (click)="mode1LeftBottom()">mode1LeftBottom</button>
+<button (click)="mode1LeftTop()">mode1LeftTop</button>
+<button (click)="mode1RightBottom()">mode1RightBottom</button>
+<button (click)="mode1RightTop()">mode1RightTop</button>
+
+<button (click)="mode2Left()">mode2Left</button>
+<button (click)="mode2Right()">mode2Right</button>
+<button (click)="mode2Top()">mode2Top</button>
+<button (click)="mode2Bottom()">mode2Bottom</button>
 
 
 <!-- <input (change)="Slide1($event)" type="range" class="range rangeBlur">
@@ -25,12 +40,30 @@
         <button class="popUpButtonRight" (click)="togglePopUp(true)">Discard</button>
         <div class="transparentContainer">
             <img class="transparentBG" src="../../assets/transparentBG.jpg" alt="">
-            <div class="tempImage">
+            <div class="tempImage circleMode">
+                <!-- <div class="black"></div> -->
                 <img class="tmepImgInside" src="../../assets/test.jpg" alt="">
                 <div id='square' [cdkDragFreeDragPosition]="ResetBox" (cdkDragMoved)="dragMoved($event)"
                     class="croppingBox" cdkDragBoundary=".tempImage" cdkDrag>
+                    <div class="longRod1Vertical rod "></div>
+                    <div class="longRod2Vertical rod "></div>
+                    <div class="longRod1Horizontal rod "></div>
+                    <div class="longRod2Horizontal rod "></div>
+
+                    <div class="sideLeft"></div>
+                    <div class="sideRight"></div>
+                    <div class="sideTop"></div>
+                    <div class="sideBottom"></div>
+
+                    <div class="leftTopCorner"></div>
+                    <div class="rightTopCorner"></div>
+                    <div class="leftBottomCorner"></div>
+                    <div class="rightBottomCorner"></div>
                 </div>
+
             </div>
+
+
 
             <!-- <div class="tempImage">
                 <img class="tmepImgInside" src="../../assets/test.jpg" alt="">
@@ -103,6 +136,10 @@
 
 
 
+                    </div>
+
+                    <div class="RestImg">
+                        <img class="tmepImgInside" src="../../assets/test.jpg" alt="">
                     </div>
 
                 </div>
