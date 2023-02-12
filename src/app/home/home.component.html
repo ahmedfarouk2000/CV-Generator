@@ -33,6 +33,124 @@
         I can only be dragged within the dotted container
     </div>
 </div> -->
+<!-- <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor">
+    <path d="M50 90 A 40 40 0 0 1 10 50" fill="none" stroke="currentColor" stroke-width="2" />
+</svg> -->
+
+<div class="AvatarOptions">
+
+
+    <div class="op1" (click)="circleMode()">
+        <div class="head">
+            <mat-icon svgIcon="woman" class="svg"></mat-icon>
+        </div>
+
+        <div class="back1 circle">
+            <mat-icon svgIcon="circle" class="svg"></mat-icon>
+        </div>
+    </div>
+
+    <div class="op1" (click)="squareMode()">
+        <div class="head">
+            <mat-icon svgIcon="woman" class="svg"></mat-icon>
+        </div>
+
+        <div class="back1 squre">
+            <mat-icon svgIcon="square" class="svg"></mat-icon>
+        </div>
+    </div>
+
+
+
+
+    <div class="op1" (click)="mode1RightTop()">
+        <div class="head">
+            <mat-icon svgIcon="woman" class="svg"></mat-icon>
+        </div>
+
+        <div class="back1 back4">
+            <mat-icon svgIcon="avatar1" class="svg"></mat-icon>
+        </div>
+    </div>
+
+    <div class="op1" (click)="mode1RightBottom()">
+        <div class="head">
+            <mat-icon svgIcon="woman" class="svg"></mat-icon>
+        </div>
+
+        <div class="back1">
+            <mat-icon svgIcon="avatar1" class="svg"></mat-icon>
+        </div>
+    </div>
+
+    <div class="op1" (click)="mode1LeftBottom()">
+        <div class="head">
+            <mat-icon svgIcon="woman" class="svg"></mat-icon>
+        </div>
+
+        <div class="back1 back2">
+            <mat-icon svgIcon="avatar1" class="svg"></mat-icon>
+        </div>
+    </div>
+
+    <div class="op1" (click)="mode1LeftTop()">
+        <div class="head">
+            <mat-icon svgIcon="woman" class="svg"></mat-icon>
+        </div>
+
+        <div class="back1 back3">
+            <mat-icon svgIcon="avatar1" class="svg"></mat-icon>
+        </div>
+    </div>
+
+
+
+
+    <div class="op1" (click)="mode2Top()">
+        <div class="head">
+            <mat-icon svgIcon="woman" class="svg"></mat-icon>
+        </div>
+
+        <div class="back1 back4">
+            <mat-icon svgIcon="avatar2" class="svg"></mat-icon>
+        </div>
+    </div>
+
+    <div class="op1" (click)="mode2Right()">
+        <div class="head">
+            <mat-icon svgIcon="woman" class="svg"></mat-icon>
+        </div>
+
+        <div class="back1">
+            <mat-icon svgIcon="avatar2" class="svg"></mat-icon>
+        </div>
+    </div>
+
+    <div class="op1" (click)="mode2Bottom()">
+        <div class="head">
+            <mat-icon svgIcon="woman" class="svg"></mat-icon>
+        </div>
+
+        <div class="back1 back2">
+            <mat-icon svgIcon="avatar2" class="svg"></mat-icon>
+        </div>
+    </div>
+
+    <div class="op1" (click)="mode2Left()">
+        <div class="head">
+            <mat-icon svgIcon="woman" class="svg"></mat-icon>
+        </div>
+
+        <div class="back1 back3">
+            <mat-icon svgIcon="avatar2" class="svg"></mat-icon>
+        </div>
+    </div>
+
+
+
+
+
+</div>
 
 <div class="popUp ClosePopUp" (click)="CLosePopUp($event)" id="popUp">
     <div class="popUpTab">
@@ -41,24 +159,23 @@
         <div class="transparentContainer">
             <img class="transparentBG" src="../../assets/transparentBG.jpg" alt="">
             <div class="tempImage circleMode">
-                <!-- <div class="black"></div> -->
                 <img class="tmepImgInside" src="../../assets/test.jpg" alt="">
                 <div id='square' [cdkDragFreeDragPosition]="ResetBox" (cdkDragMoved)="dragMoved($event)"
                     class="croppingBox" cdkDragBoundary=".tempImage" cdkDrag>
-                    <div class="longRod1Vertical rod "></div>
-                    <div class="longRod2Vertical rod "></div>
-                    <div class="longRod1Horizontal rod "></div>
-                    <div class="longRod2Horizontal rod "></div>
+                    <div class="longRod1Vertical rod hidden"></div>
+                    <div class="longRod2Vertical rod hidden"></div>
+                    <div class="longRod1Horizontal rod hidden"></div>
+                    <div class="longRod2Horizontal rod hidden"></div>
 
-                    <div class="sideLeft"></div>
-                    <div class="sideRight"></div>
-                    <div class="sideTop"></div>
-                    <div class="sideBottom"></div>
+                    <div class="sideLeft dot hidden"></div>
+                    <div class="sideRight dot hidden"></div>
+                    <div class="sideTop dot hidden"></div>
+                    <div class="sideBottom dot hidden"></div>
 
-                    <div class="leftTopCorner"></div>
-                    <div class="rightTopCorner"></div>
-                    <div class="leftBottomCorner"></div>
-                    <div class="rightBottomCorner"></div>
+                    <div class="leftTopCorner dot hidden"></div>
+                    <div class="rightTopCorner dot hidden"></div>
+                    <div class="leftBottomCorner dot hidden"></div>
+                    <div class="rightBottomCorner dot hidden"></div>
                 </div>
 
             </div>
@@ -138,8 +255,8 @@
 
                     </div>
 
-                    <div class="RestImg">
-                        <img class="tmepImgInside" src="../../assets/test.jpg" alt="">
+                    <div class="RestImg RestImgHidden">
+                        <img class="tmepImgInsideRest" src="../../assets/test.jpg" alt="">
                     </div>
 
                 </div>

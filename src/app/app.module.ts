@@ -15,6 +15,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { CdkTableModule } from '@angular/cdk/table';
 import { DragDropModule } from '@angular/cdk/drag-drop'
 
+import { MatIconModule } from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 
 
@@ -23,7 +27,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop'
   declarations: [
     AppComponent,
     HomeComponent,
-    BubblesComponent
+    BubblesComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop'
     MatSliderModule,
     MatFormFieldModule,
     DragDropModule,
-    CdkTableModule
+    CdkTableModule,
+    HttpClientModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -512,8 +512,9 @@ h3[contenteditable]:hover {
     /* background-image: url('../../assets/transparentBG.jpg'); */
     opacity: 1;
     position: absolute;
-
-
+    /* 
+    mask-image: radial-gradient(circle at var(--clippingX) var(--clippingY), black calc(var(--AvatarWidth)/2), rgba(0, 0, 0, 0.5) 0%);
+    -webkit-mask-image: radial-gradient(circle at var(--clippingX) var(--clippingY), black calc(var(--AvatarWidth)/2), rgba(0, 0, 0, 0.5) 0%); */
     /* left: 200px; 
     top: 100px; */
     /* clip-path: circle(var(--radius) at var(--xLocation) var(--yLocation));
@@ -522,15 +523,19 @@ h3[contenteditable]:hover {
     width: 400px;
     /* max-height: 300px; */
     /* height: 400px; */
-    mask-image: radial-gradient(circle at var(--clippingX) var(--clippingY), black calc(var(--AvatarWidth)/2), rgba(0, 0, 0, 0.5) 0%);
-    -webkit-mask-image: radial-gradient(circle at var(--clippingX) var(--clippingY), black calc(var(--AvatarWidth)/2), rgba(0, 0, 0, 0.5) 0%);
+
 
 
     display: flex;
     justify-content: center;
     align-items: center;
+    /* transition: 0.4s all; */
 
+}
 
+.selecting {
+    mask-image: radial-gradient(circle at var(--clippingX) var(--clippingY), black calc(var(--AvatarWidth)/2), rgba(0, 0, 0, 0.5) 0%);
+    -webkit-mask-image: radial-gradient(circle at var(--clippingX) var(--clippingY), black calc(var(--AvatarWidth)/2), rgba(0, 0, 0, 0.5) 0%);
 }
 
 /* this selector will set the diff modes of the the selected images */
@@ -548,13 +553,6 @@ h3[contenteditable]:hover {
 /* this will set the avatar of square */
 .squareMode {
     clip-path: inset(calc(var(--yLocation) - var(--radius)) calc(100% - calc(var(--xLocation) + var(--radius))) calc(100% - calc(var(--yLocation) + var(--radius))) calc(var(--xLocation) - var(--radius)));
-    /* border-radius: 10px; */
-    /* border-radius: 50%; */
-    /* border-radius: 75% 0% 25% 75% / 51% 25% 0% 49%; */
-
-
-
-
 }
 
 .circleMode {
@@ -615,7 +613,8 @@ h3[contenteditable]:hover {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.tmepImgInside {
+.tmepImgInside,
+.tmepImgInsideRest {
     width: 100%;
     /* opacity: 0.5; */
     /* width: 100px;
@@ -959,4 +958,71 @@ h3[contenteditable]:hover {
 
 .hidden {
     visibility: hidden;
+}
+
+/* 
+*/
+.AvatarOptions {
+    background-color: red;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 100px;
+
+}
+
+.op1 {
+    position: relative;
+    background-color: #25be89;
+    width: 10%;
+
+}
+
+
+.head {
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+}
+
+.back1,
+.square {
+    width: 100px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.back2 {
+    transform: translate(-50%, -50%) rotateZ(90deg);
+}
+
+.back3 {
+    transform: translate(-50%, -50%) rotateZ(180deg);
+}
+
+.back4 {
+    transform: translate(-50%, -50%) rotateZ(270deg);
+}
+
+/* for the background */
+.mat-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+}
+
+.RestImgHidden {
+    visibility: hidden;
+    transition: none;
+
 }

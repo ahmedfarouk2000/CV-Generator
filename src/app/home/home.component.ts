@@ -325,8 +325,13 @@ export class HomeComponent implements OnInit {
     this.togglePopUp(false)
     this.ResetImage()
     this.toggleRods()
-    const tmepImgInside: any = document.querySelector(".tmepImgInside");
+    this.toggleDots()
+    this.toggleSelectingBox()
+    this.ResetAllModes()
+    let tmepImgInside: any = document.querySelector(".tmepImgInside");
+    let tmepImgInsideRest: any = document.querySelector(".tmepImgInsideRest");
     tmepImgInside.src = imageUrl
+    tmepImgInsideRest.src = imageUrl
   };
 
   public ResetImage() { // to reset the image to be in place of clipping
@@ -352,6 +357,21 @@ export class HomeComponent implements OnInit {
       console.log(rod)
       rod.classList.toggle('hidden')
     });
+  }
+
+  public toggleDots() {
+    let dots = document.querySelectorAll('.dot')
+    dots.forEach(dot => {
+      console.log(dot)
+      dot.classList.toggle('hidden')
+    });
+  }
+
+  public toggleSelectingBox() {
+    let SelectingBox = document.querySelector('.tempImage')
+    SelectingBox?.classList.toggle('selecting')
+    console.log('entered')
+    console.log(SelectingBox)
   }
 
   public ResetBoxFun() {
@@ -407,7 +427,7 @@ export class HomeComponent implements OnInit {
     // console.log('before:', width, height);
     const pageXChild = event.event.pageX
     const pageYChild = event.event.pageY
-    console.log("the event :", pageXChild, pageYChild)
+    // console.log("the event :", pageXChild, pageYChild)
 
 
 
@@ -445,7 +465,6 @@ export class HomeComponent implements OnInit {
     const parent: any = document.querySelector(".svgContainer")
     const tempImage: any = document.querySelector(".tempImage")
     const RestImg: any = document.querySelector(".RestImg")
-    RestImg.classList.add('mode2Bottom');
 
 
     // let OldTempImage = tempImage.cloneNode(true);
@@ -496,6 +515,8 @@ export class HomeComponent implements OnInit {
     // square.style.transform = "";
     this.onlyOnceReset = true
     this.toggleRods()
+    this.toggleDots()
+    this.toggleSelectingBox()
 
 
 
@@ -514,6 +535,8 @@ export class HomeComponent implements OnInit {
     if (cond) {
       this.ResetBoxFun()
       this.toggleRods()
+      this.toggleDots()
+      this.toggleSelectingBox()
     }
 
 
@@ -526,6 +549,8 @@ export class HomeComponent implements OnInit {
       this.togglePopUp(false)
       this.ResetBoxFun()
       this.toggleRods()
+      this.toggleDots()
+      this.toggleSelectingBox()
     }
 
 
@@ -537,6 +562,7 @@ export class HomeComponent implements OnInit {
 
   public circleMode() {
     let tempImage = document.querySelector('.tempImage')
+    this.ResetAllModes()
     tempImage?.classList.add('circleMode')
     tempImage?.classList.remove('squareMode')
 
@@ -545,70 +571,96 @@ export class HomeComponent implements OnInit {
 
   public squareMode() {
     let tempImage = document.querySelector('.tempImage')
+    this.ResetAllModes()
     tempImage?.classList.add('squareMode')
     tempImage?.classList.remove('circleMode')
 
+  }
+  public ResetAllModes() {
+    let temp: any = document.querySelector('.RestImg')
+    temp?.classList.add('RestImgHidden')
+  }
+
+  public UnResetAllModes() {
+    let temp: any = document.querySelector('.RestImg')
+    temp?.classList.remove('RestImgHidden')
   }
 
 
 
   public mode1RightTop() {
+    this.circleMode()
     let temp: any = document.querySelector('.RestImg')
     temp.className = ''
     temp?.classList.add('RestImg')
     temp.classList.add('mode1RightTop')
+    this.UnResetAllModes()
   }
 
   public mode1LeftTop() {
+    this.circleMode()
     let temp: any = document.querySelector('.RestImg')
     temp.className = ''
     temp?.classList.add('RestImg')
     temp.classList.add('mode1LeftTop')
+    this.UnResetAllModes()
   }
 
   public mode1RightBottom() {
+    this.circleMode()
     let temp: any = document.querySelector('.RestImg')
     temp.className = ''
     temp?.classList.add('RestImg')
     temp.classList.add('mode1RightBottom')
+    this.UnResetAllModes()
   }
 
   public mode1LeftBottom() {
+    this.circleMode()
     let temp: any = document.querySelector('.RestImg')
     temp.className = ''
     temp?.classList.add('RestImg')
     temp.classList.add('mode1LeftBottom')
+    this.UnResetAllModes()
   }
 
 
 
   public mode2Left() {
+    this.circleMode()
     let temp: any = document.querySelector('.RestImg')
     temp.className = ''
     temp?.classList.add('RestImg')
     temp.classList.add('mode2Left')
+    this.UnResetAllModes()
   }
 
   public mode2Right() {
+    this.circleMode()
     let temp: any = document.querySelector('.RestImg')
     temp.className = ''
     temp?.classList.add('RestImg')
     temp.classList.add('mode2Right')
+    this.UnResetAllModes()
   }
 
   public mode2Top() {
+    this.circleMode()
     let temp: any = document.querySelector('.RestImg')
     temp.className = ''
     temp?.classList.add('RestImg')
     temp.classList.add('mode2Top')
+    this.UnResetAllModes()
   }
 
 
   public mode2Bottom() {
+    this.circleMode()
     let temp: any = document.querySelector('.RestImg')
     temp.className = ''
     temp?.classList.add('RestImg')
     temp.classList.add('mode2Bottom')
+    this.UnResetAllModes()
   }
 
 
