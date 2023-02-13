@@ -350,6 +350,21 @@ h3[contenteditable]:hover {
     border-bottom-right-radius: 0%;
 } */
 
+.mat-icon.head {
+    width: 25px;
+    height: 25px;
+
+}
+
+
+
+.mat-icon.circle {
+    width: 50px;
+    height: 50px;
+}
+
+
+
 
 .avatar {
     width: 800px;
@@ -369,10 +384,6 @@ h3[contenteditable]:hover {
     width: 100%;
 }
 
-.img:hover .HoverOn {
-    height: 140px;
-    left: -20%;
-}
 
 
 
@@ -384,18 +395,67 @@ h3[contenteditable]:hover {
     background-color: var(--theme1);
     position: absolute;
     left: 0;
+    height: 0px;
+    /* height: 140px;
+    left: -20%; */
     right: 100%;
     top: 50%;
     transform: translate(0%, -50%);
     width: 30px;
-    height: 0px;
-    border-radius: 15px;
+    border-radius: 16px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     transition: all 0.4s;
 }
+
+.HoverOnSetting {
+    background-color: var(--theme1);
+    position: absolute;
+    left: -100%;
+    width: 140px;
+    height: 0px;
+    top: 50%;
+    /* transform: translate(0%, calc(-50% + calc(var(--AvatarWidth)/2))); */
+    border-radius: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+    flex-wrap: wrap;
+    transition: all 0.4s;
+    overflow: hidden;
+}
+
+.HoverOnSettingOpened {
+    height: 300px;
+}
+
+
+
+.op1 {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    transition: 0.4s all;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.op1:hover {
+    background-color: var(--theme12);
+}
+
+
+.img:hover .HoverOn {
+    height: 140px;
+    left: -20%;
+}
+
 
 .inputFile {
     background-color: red;
@@ -1019,12 +1079,6 @@ h3[contenteditable]:hover {
 
 }
 
-.op1 {
-    position: relative;
-    background-color: #25be89;
-    width: 10%;
-
-}
 
 
 .head {
@@ -1049,15 +1103,15 @@ h3[contenteditable]:hover {
 }
 
 .back2 {
-    transform: translate(-50%, -50%) rotateZ(90deg);
+    transform: rotateZ(90deg);
 }
 
 .back3 {
-    transform: translate(-50%, -50%) rotateZ(180deg);
+    transform: rotateZ(180deg);
 }
 
 .back4 {
-    transform: translate(-50%, -50%) rotateZ(270deg);
+    transform: rotateZ(270deg);
 }
 
 /* for the background */

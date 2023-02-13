@@ -1,4 +1,4 @@
-<button (click)="printPara()">Reset to A4 size page</button>
+<!-- <button (click)="printPara()">Reset to A4 size page</button>
 <button (click)="ZoomIn()">zoom in</button>
 <button (click)="ZoomOut()">zoom out</button>
 <button (click)="Confirm()" class="button">Confirm</button>
@@ -7,7 +7,6 @@
 
 <button (click)="toggleRadius()" class="button">toggleRadius</button>
 
-<!-- <button (input)="DeleteImage()">toggle img</button> -->
 <button (click)="togglePopUp(false)">toggle pop</button>
 
 <button (click)="squareMode()">squareMode</button>
@@ -21,132 +20,7 @@
 <button (click)="mode2Left()">mode2Left</button>
 <button (click)="mode2Right()">mode2Right</button>
 <button (click)="mode2Top()">mode2Top</button>
-<button (click)="mode2Bottom()">mode2Bottom</button>
-
-
-<!-- <input (change)="Slide1($event)" type="range" class="range rangeBlur">
-<input (change)="Slide2($event)" type="range" class="range rangeBorder">
-<input (change)="Slide3($event)" type="range" class="range rangeBorder"> -->
-<!-- <button onclick="document.execCommand('italic',false,null);">Italic</button>
-<button onclick="document.execCommand('bold',false,null);">bold</button> -->
-
-<!-- <div class="example-boundary">
-    <div class="example-box" cdkDragBoundary=".example-boundary" cdkDrag>
-        I can only be dragged within the dotted container
-    </div>
-</div> -->
-<!-- <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor">
-    <path d="M50 90 A 40 40 0 0 1 10 50" fill="none" stroke="currentColor" stroke-width="2" />
-</svg> -->
-
-<div class="AvatarOptions">
-
-
-    <div class="op1" (click)="circleMode()">
-        <div class="head">
-            <mat-icon svgIcon="woman"></mat-icon>
-        </div>
-
-        <div class="back1 circle">
-            <mat-icon svgIcon="circle"></mat-icon>
-        </div>
-    </div>
-
-    <div class="op1" (click)="squareMode()">
-        <div class="head">
-            <mat-icon svgIcon="woman"></mat-icon>
-        </div>
-
-        <div class="back1 squre">
-            <mat-icon svgIcon="square"></mat-icon>
-        </div>
-    </div>
-
-
-
-
-    <div class="op1" (click)="mode1RightTop()">
-        <div class="head">
-            <mat-icon svgIcon="woman"></mat-icon>
-        </div>
-
-        <div class="back1 back4">
-            <mat-icon svgIcon="avatar1"></mat-icon>
-        </div>
-    </div>
-
-    <div class="op1" (click)="mode1RightBottom()">
-        <div class="head">
-            <mat-icon svgIcon="woman"></mat-icon>
-        </div>
-
-        <div class="back1">
-            <mat-icon svgIcon="avatar1"></mat-icon>
-        </div>
-    </div>
-
-    <div class="op1" (click)="mode1LeftBottom()">
-        <div class="head">
-            <mat-icon svgIcon="woman"></mat-icon>
-        </div>
-
-        <div class="back1 back2">
-            <mat-icon svgIcon="avatar1"></mat-icon>
-        </div>
-    </div>
-
-    <div class="op1" (click)="mode1LeftTop()">
-        <div class="head">
-            <mat-icon svgIcon="woman"></mat-icon>
-        </div>
-
-        <div class="back1 back3">
-            <mat-icon svgIcon="avatar1"></mat-icon>
-        </div>
-    </div>
-
-
-
-
-    <div class="op1" (click)="mode2Top()">
-        <div class="head">
-            <mat-icon svgIcon="woman"></mat-icon>
-        </div>
-
-        <div class="back1 back4">
-            <mat-icon svgIcon="avatar2"></mat-icon>
-        </div>
-    </div>
-
-    <div class="op1" (click)="mode2Right()">
-        <div class="head">
-            <mat-icon svgIcon="woman"></mat-icon>
-        </div>
-
-        <div class="back1">
-            <mat-icon svgIcon="avatar2"></mat-icon>
-        </div>
-    </div>
-
-    <div class="op1" (click)="mode2Bottom()">
-        <div class="head">
-            <mat-icon svgIcon="woman"></mat-icon>
-        </div>
-
-        <div class="back1 back2">
-            <mat-icon svgIcon="avatar2"></mat-icon>
-        </div>
-    </div>
-
-    <div class="op1" (click)="mode2Left()">
-        <div class="head">
-            <mat-icon svgIcon="woman"></mat-icon>
-        </div>
-
-        <div class="back1 back3">
-            <mat-icon svgIcon="avatar2"></mat-icon>
-        </div>
-    </div>
+<button (click)="mode2Bottom()">mode2Bottom</button> -->
 
 
 
@@ -158,7 +32,17 @@
 
 
 
-</div>
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="popUp ClosePopUp" (click)="CLosePopUp($event)" id="popUp">
     <div class="popUpTab">
@@ -245,9 +129,9 @@
 
 
 
-                        <svg class="upload" width="30" height="30" fill="none" stroke="currentColor"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
+                        <svg (click)="OpenSettings()" class="upload" width="30" height="30" fill="none"
+                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.723 1.723 0 0 0-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066-2.573c-.94-1.543.826-3.31 2.37-2.37 1 .608 2.296.07 2.572-1.065Z">
                             </path>
@@ -261,6 +145,66 @@
                                 d="M10 11v6m4-6v6M4 7h16m-1 0-.867 12.142A2 2 0 0 1 16.138 21H7.862a2 2 0 0 1-1.995-1.858L5 7h14Zm-4 0V4a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v3h6Z">
                             </path>
                         </svg>
+
+
+
+
+                    </div>
+
+
+                    <div class="HoverOnSetting">
+
+                        <div class="op1" (click)="circleMode()">
+                            <mat-icon svgIcon="woman" class="head"></mat-icon>
+                            <mat-icon svgIcon="circle" class="circle"></mat-icon>
+                        </div>
+
+                        <div class="op1" (click)="squareMode()">
+                            <mat-icon svgIcon="woman" class="head"></mat-icon>
+                            <mat-icon svgIcon="square" class="circle"></mat-icon>
+                        </div>
+
+                        <div class="op1" (click)="mode1RightTop()">
+                            <mat-icon svgIcon="woman" class="head"></mat-icon>
+                            <mat-icon svgIcon="avatar1" class="circle back4"></mat-icon>
+                        </div>
+
+                        <div class="op1" (click)="mode1RightBottom()">
+                            <mat-icon svgIcon="woman" class="head"></mat-icon>
+                            <mat-icon svgIcon="avatar1" class="circle"></mat-icon>
+                        </div>
+
+                        <div class="op1" (click)="mode1LeftBottom()">
+                            <mat-icon svgIcon="woman" class="head"></mat-icon>
+                            <mat-icon svgIcon="avatar1" class="circle back2"></mat-icon>
+                        </div>
+                        <div class="op1" (click)="mode1LeftTop()">
+                            <mat-icon svgIcon="woman" class="head"></mat-icon>
+                            <mat-icon svgIcon="avatar1" class="circle back3"></mat-icon>
+                        </div>
+
+                        <div class="op1" (click)="mode2Top()">
+                            <mat-icon svgIcon="woman" class="head"></mat-icon>
+                            <mat-icon svgIcon="avatar2" class="circle back4"></mat-icon>
+                        </div>
+
+                        <div class="op1" (click)="mode2Right()">
+                            <mat-icon svgIcon="woman" class="head"></mat-icon>
+                            <mat-icon svgIcon="avatar2" class="circle"></mat-icon>
+                        </div>
+
+                        <div class="op1" (click)="mode2Bottom()">
+                            <mat-icon svgIcon="woman" class="head"></mat-icon>
+                            <mat-icon svgIcon="avatar2" class="back2 circle"></mat-icon>
+                        </div>
+
+                        <div class="op1" (click)="mode2Left()">
+                            <mat-icon svgIcon="woman" class="head"></mat-icon>
+                            <mat-icon svgIcon="avatar2" class="back3 circle"></mat-icon>
+                        </div>
+
+
+
 
 
 

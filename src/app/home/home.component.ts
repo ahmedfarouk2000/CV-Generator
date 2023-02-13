@@ -709,6 +709,11 @@ export class HomeComponent implements OnInit {
     document.documentElement.style.setProperty('--border-bottom-left-radius', BottomLeft + "%");
   }
 
+  public OpenSettings() {
+    let HoverOnSetting = document.querySelector('.HoverOnSetting')
+    HoverOnSetting?.classList.toggle('HoverOnSettingOpened')
+  }
+
 
 
 
