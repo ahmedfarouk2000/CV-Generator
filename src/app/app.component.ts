@@ -47,5 +47,10 @@ export class AppComponent {
       this.domainSanitizer.bypassSecurityTrustResourceUrl('../assets/circle.svg')
     )
 
+    this.matIconRegistry.addSvgIcon(
+      'p2',
+      this.domainSanitizer.bypassSecurityTrustResourceUrl('../assets/p2.svg')
+    )
+
   }
 }

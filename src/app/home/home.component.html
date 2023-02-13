@@ -5,6 +5,8 @@
 
 <button (click)="toggleRods()" class="button">toggle rods</button>
 
+<button (click)="toggleRadius()" class="button">toggleRadius</button>
+
 <!-- <button (input)="DeleteImage()">toggle img</button> -->
 <button (click)="togglePopUp(false)">toggle pop</button>
 
@@ -42,21 +44,21 @@
 
     <div class="op1" (click)="circleMode()">
         <div class="head">
-            <mat-icon svgIcon="woman" class="svg"></mat-icon>
+            <mat-icon svgIcon="woman"></mat-icon>
         </div>
 
         <div class="back1 circle">
-            <mat-icon svgIcon="circle" class="svg"></mat-icon>
+            <mat-icon svgIcon="circle"></mat-icon>
         </div>
     </div>
 
     <div class="op1" (click)="squareMode()">
         <div class="head">
-            <mat-icon svgIcon="woman" class="svg"></mat-icon>
+            <mat-icon svgIcon="woman"></mat-icon>
         </div>
 
         <div class="back1 squre">
-            <mat-icon svgIcon="square" class="svg"></mat-icon>
+            <mat-icon svgIcon="square"></mat-icon>
         </div>
     </div>
 
@@ -65,41 +67,41 @@
 
     <div class="op1" (click)="mode1RightTop()">
         <div class="head">
-            <mat-icon svgIcon="woman" class="svg"></mat-icon>
+            <mat-icon svgIcon="woman"></mat-icon>
         </div>
 
         <div class="back1 back4">
-            <mat-icon svgIcon="avatar1" class="svg"></mat-icon>
+            <mat-icon svgIcon="avatar1"></mat-icon>
         </div>
     </div>
 
     <div class="op1" (click)="mode1RightBottom()">
         <div class="head">
-            <mat-icon svgIcon="woman" class="svg"></mat-icon>
+            <mat-icon svgIcon="woman"></mat-icon>
         </div>
 
         <div class="back1">
-            <mat-icon svgIcon="avatar1" class="svg"></mat-icon>
+            <mat-icon svgIcon="avatar1"></mat-icon>
         </div>
     </div>
 
     <div class="op1" (click)="mode1LeftBottom()">
         <div class="head">
-            <mat-icon svgIcon="woman" class="svg"></mat-icon>
+            <mat-icon svgIcon="woman"></mat-icon>
         </div>
 
         <div class="back1 back2">
-            <mat-icon svgIcon="avatar1" class="svg"></mat-icon>
+            <mat-icon svgIcon="avatar1"></mat-icon>
         </div>
     </div>
 
     <div class="op1" (click)="mode1LeftTop()">
         <div class="head">
-            <mat-icon svgIcon="woman" class="svg"></mat-icon>
+            <mat-icon svgIcon="woman"></mat-icon>
         </div>
 
         <div class="back1 back3">
-            <mat-icon svgIcon="avatar1" class="svg"></mat-icon>
+            <mat-icon svgIcon="avatar1"></mat-icon>
         </div>
     </div>
 
@@ -108,43 +110,49 @@
 
     <div class="op1" (click)="mode2Top()">
         <div class="head">
-            <mat-icon svgIcon="woman" class="svg"></mat-icon>
+            <mat-icon svgIcon="woman"></mat-icon>
         </div>
 
         <div class="back1 back4">
-            <mat-icon svgIcon="avatar2" class="svg"></mat-icon>
+            <mat-icon svgIcon="avatar2"></mat-icon>
         </div>
     </div>
 
     <div class="op1" (click)="mode2Right()">
         <div class="head">
-            <mat-icon svgIcon="woman" class="svg"></mat-icon>
+            <mat-icon svgIcon="woman"></mat-icon>
         </div>
 
         <div class="back1">
-            <mat-icon svgIcon="avatar2" class="svg"></mat-icon>
+            <mat-icon svgIcon="avatar2"></mat-icon>
         </div>
     </div>
 
     <div class="op1" (click)="mode2Bottom()">
         <div class="head">
-            <mat-icon svgIcon="woman" class="svg"></mat-icon>
+            <mat-icon svgIcon="woman"></mat-icon>
         </div>
 
         <div class="back1 back2">
-            <mat-icon svgIcon="avatar2" class="svg"></mat-icon>
+            <mat-icon svgIcon="avatar2"></mat-icon>
         </div>
     </div>
 
     <div class="op1" (click)="mode2Left()">
         <div class="head">
-            <mat-icon svgIcon="woman" class="svg"></mat-icon>
+            <mat-icon svgIcon="woman"></mat-icon>
         </div>
 
         <div class="back1 back3">
-            <mat-icon svgIcon="avatar2" class="svg"></mat-icon>
+            <mat-icon svgIcon="avatar2"></mat-icon>
         </div>
     </div>
+
+
+
+
+
+
 
 
 
@@ -208,9 +216,13 @@
         <div class="UpperPart">
             <div class="img">
                 <div class="svgContainer">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="white" class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="white" class="bi bi-person-fill" viewBox="0 0 16 16">
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                    </svg>
+                    </svg> -->
+                    <mat-icon svgIcon="p2" class="avatar"></mat-icon>
+
+
+
 
                     <div class="HoverOn">
                         <div class="uploadContainer">
@@ -256,17 +268,19 @@
                     </div>
 
                     <div class="RestImg RestImgHidden">
-                        <img class="tmepImgInsideRest" src="../../assets/test.jpg" alt="">
+                        <img class="tmepImgInsideRest" alt="">
                     </div>
 
                 </div>
             </div>
-            <div class="intro">
+            <div class=" intro">
                 <h3 contenteditable="true" class="name">Lorem, ipsum.</h3>
                 <h3 contenteditable="true" class="title">Lorem ipsum dolor sit amet.</h3>
-                <h3 contenteditable="true" class="desc"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                <h3 contenteditable="true" class="desc"> Lorem ipsum dolor sit, amet consectetur adipisicing
+                    elit.
                     Aspernatur suscipit deleniti sit
-                    minus minima id, at ex labore officiis explicabo vitae dignissimos veritatis, reprehenderit non
+                    minus minima id, at ex labore officiis explicabo vitae dignissimos veritatis, reprehenderit
+                    non
                     beatae
                     inventore perferendis hic voluptatum?</h3>
 
@@ -326,7 +340,8 @@
                     <svg *ngIf="contact.type=='mail'" class="skillSvg" width="30" height="30" fill="none"
                         stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19 19H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2Z"></path>
+                        <path d="M19 19H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2Z">
+                        </path>
                         <path d="m3 8 7.89 5.26a2 2 0 0 0 2.22 0L21 8"></path>
                     </svg>
 
@@ -376,7 +391,8 @@
                         <path
                             d="M9 21h6a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2Zm0 0h6a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H9a2 2 0 0 0-1.414.586">
                         </path>
-                        <path d="M17 17h2a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2"></path>
+                        <path d="M17 17h2a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2">
+                        </path>
                         <path d="M17 5v4H7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2Z"></path>
                     </svg>
 
@@ -447,7 +463,8 @@
                     <svg *ngIf="contact.type=='mail'" class="skillSvg" width="30" height="30" fill="none"
                         stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19 19H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2Z"></path>
+                        <path d="M19 19H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2Z">
+                        </path>
                         <path d="m3 8 7.89 5.26a2 2 0 0 0 2.22 0L21 8"></path>
                     </svg>
 
@@ -497,7 +514,8 @@
                         <path
                             d="M9 21h6a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2Zm0 0h6a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H9a2 2 0 0 0-1.414.586">
                         </path>
-                        <path d="M17 17h2a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2"></path>
+                        <path d="M17 17h2a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2">
+                        </path>
                         <path d="M17 5v4H7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2Z"></path>
                     </svg>
 

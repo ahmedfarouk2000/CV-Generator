@@ -332,6 +332,7 @@ export class HomeComponent implements OnInit {
     let tmepImgInsideRest: any = document.querySelector(".tmepImgInsideRest");
     tmepImgInside.src = imageUrl
     tmepImgInsideRest.src = imageUrl
+
   };
 
   public ResetImage() { // to reset the image to be in place of clipping
@@ -518,6 +519,10 @@ export class HomeComponent implements OnInit {
     this.toggleDots()
     this.toggleSelectingBox()
 
+    if (this.DontHideImg) { // means the mode has changed before selecting a an img
+      this.UnResetAllModes()
+    }
+
 
 
   }
@@ -537,6 +542,9 @@ export class HomeComponent implements OnInit {
       this.toggleRods()
       this.toggleDots()
       this.toggleSelectingBox()
+      this.ResetAllModes()
+      let tmepImgInsideRest: any = document.querySelector(".tmepImgInsideRest");
+      tmepImgInsideRest.src = ''
     }
 
 
@@ -551,6 +559,9 @@ export class HomeComponent implements OnInit {
       this.toggleRods()
       this.toggleDots()
       this.toggleSelectingBox()
+      this.ResetAllModes()
+      let tmepImgInsideRest: any = document.querySelector(".tmepImgInsideRest");
+      tmepImgInsideRest.src = ''
     }
 
 
@@ -559,13 +570,14 @@ export class HomeComponent implements OnInit {
 
 
 
-
+  public DontHideImg = false;
   public circleMode() {
     let tempImage = document.querySelector('.tempImage')
     this.ResetAllModes()
     tempImage?.classList.add('circleMode')
     tempImage?.classList.remove('squareMode')
-
+    this.SetSvgRadius(50, 50, 50, 50)
+    this.DontHideImg = false
   }
 
 
@@ -574,14 +586,16 @@ export class HomeComponent implements OnInit {
     this.ResetAllModes()
     tempImage?.classList.add('squareMode')
     tempImage?.classList.remove('circleMode')
+    this.SetSvgRadius(0, 0, 0, 0)
+    this.DontHideImg = false
 
   }
-  public ResetAllModes() {
+  public ResetAllModes() { // hide the img
     let temp: any = document.querySelector('.RestImg')
     temp?.classList.add('RestImgHidden')
   }
 
-  public UnResetAllModes() {
+  public UnResetAllModes() { // hidden img appears
     let temp: any = document.querySelector('.RestImg')
     temp?.classList.remove('RestImgHidden')
   }
@@ -595,6 +609,8 @@ export class HomeComponent implements OnInit {
     temp?.classList.add('RestImg')
     temp.classList.add('mode1RightTop')
     this.UnResetAllModes()
+    this.SetSvgRadius(50, 0, 50, 50)
+    this.DontHideImg = true
   }
 
   public mode1LeftTop() {
@@ -604,6 +620,8 @@ export class HomeComponent implements OnInit {
     temp?.classList.add('RestImg')
     temp.classList.add('mode1LeftTop')
     this.UnResetAllModes()
+    this.SetSvgRadius(0, 50, 50, 50)
+    this.DontHideImg = true
   }
 
   public mode1RightBottom() {
@@ -613,6 +631,8 @@ export class HomeComponent implements OnInit {
     temp?.classList.add('RestImg')
     temp.classList.add('mode1RightBottom')
     this.UnResetAllModes()
+    this.SetSvgRadius(50, 50, 0, 50)
+    this.DontHideImg = true
   }
 
   public mode1LeftBottom() {
@@ -622,6 +642,8 @@ export class HomeComponent implements OnInit {
     temp?.classList.add('RestImg')
     temp.classList.add('mode1LeftBottom')
     this.UnResetAllModes()
+    this.SetSvgRadius(50, 50, 50, 0)
+    this.DontHideImg = true
   }
 
 
@@ -633,6 +655,8 @@ export class HomeComponent implements OnInit {
     temp?.classList.add('RestImg')
     temp.classList.add('mode2Left')
     this.UnResetAllModes()
+    this.SetSvgRadius(0, 50, 50, 0)
+    this.DontHideImg = true
   }
 
   public mode2Right() {
@@ -642,6 +666,8 @@ export class HomeComponent implements OnInit {
     temp?.classList.add('RestImg')
     temp.classList.add('mode2Right')
     this.UnResetAllModes()
+    this.SetSvgRadius(50, 0, 0, 50)
+    this.DontHideImg = true
   }
 
   public mode2Top() {
@@ -651,6 +677,8 @@ export class HomeComponent implements OnInit {
     temp?.classList.add('RestImg')
     temp.classList.add('mode2Top')
     this.UnResetAllModes()
+    this.SetSvgRadius(0, 0, 50, 50)
+    this.DontHideImg = true
   }
 
 
@@ -661,6 +689,24 @@ export class HomeComponent implements OnInit {
     temp?.classList.add('RestImg')
     temp.classList.add('mode2Bottom')
     this.UnResetAllModes()
+    this.SetSvgRadius(50, 50, 0, 0)
+    this.DontHideImg = true
+  }
+
+  public toggleRadius() {
+    // let test = document.querySelector('.svgContainer')
+    // test?.classList.toggle('testClass')
+    document.documentElement.style.setProperty('--border-bottom-left-radius', 0 + "%");
+    document.documentElement.style.setProperty('--border-bottom-right-radius', 0 + "%");
+    document.documentElement.style.setProperty('--border-top-left-radius', 0 + "%");
+    document.documentElement.style.setProperty('--border-top-right-radius', 0 + "%");
+  }
+
+  public SetSvgRadius(TopLeft: number, TopRight: number, BottomRight: number, BottomLeft: number) {
+    document.documentElement.style.setProperty('--border-top-left-radius', TopLeft + "%");
+    document.documentElement.style.setProperty('--border-top-right-radius', TopRight + "%");
+    document.documentElement.style.setProperty('--border-bottom-right-radius', BottomRight + "%");
+    document.documentElement.style.setProperty('--border-bottom-left-radius', BottomLeft + "%");
   }
 
 
