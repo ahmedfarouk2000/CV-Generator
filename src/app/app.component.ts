@@ -52,5 +52,22 @@ export class AppComponent {
       this.domainSanitizer.bypassSecurityTrustResourceUrl('../assets/p2.svg')
     )
 
+    this.matIconRegistry.addSvgIcon(
+      'zoom-in',
+      this.domainSanitizer.bypassSecurityTrustResourceUrl('../assets/zoom-in.svg')
+    )
+
+
+    this.matIconRegistry.addSvgIcon(
+      'zoom-out',
+      this.domainSanitizer.bypassSecurityTrustResourceUrl('../assets/zoom-out.svg')
+    )
+
+    this.matIconRegistry.addSvgIcon(
+      'rotate',
+      this.domainSanitizer.bypassSecurityTrustResourceUrl('../assets/rotate.svg')
+    )
+
+
   }
 }

@@ -7,7 +7,7 @@
 
 <button (click)="toggleRadius()" class="button">toggleRadius</button>
 
-<button (click)="togglePopUp(false)">toggle pop</button>
+
 
 <button (click)="squareMode()">squareMode</button>
 <button (click)="circleMode()">circleMode</button>
@@ -22,7 +22,7 @@
 <button (click)="mode2Top()">mode2Top</button>
 <button (click)="mode2Bottom()">mode2Bottom</button> -->
 
-
+<button (click)="togglePopUp(false)">toggle pop</button>
 
 
 
@@ -46,28 +46,33 @@
 
 <div class="popUp ClosePopUp" (click)="CLosePopUp($event)" id="popUp">
     <div class="popUpTab">
-        <button class="popUpButtonLeft" (click)="Confirm()">Confirm</button>
-        <button class="popUpButtonRight" (click)="togglePopUp(true)">Discard</button>
+        <button class="popUpButtonLeft contentFontBold" (click)="Confirm()">Confirm</button>
+        <button class="popUpButtonRight contentFontBold" (click)="togglePopUp(true)">Discard</button>
+        <div class="imgEditComponent">
+            <mat-icon (click)="zoomInImg()" svgIcon="zoom-in" class="editImg"></mat-icon>
+            <mat-icon (click)="zoomOutImg()" svgIcon="zoom-out" class="editImg"></mat-icon>
+            <mat-icon (click)="RotateImg()" svgIcon="rotate" class="editImg rotate"></mat-icon>
+        </div>
         <div class="transparentContainer">
             <img class="transparentBG" src="../../assets/transparentBG.jpg" alt="">
             <div class="tempImage circleMode">
                 <img class="tmepImgInside" src="../../assets/test.jpg" alt="">
                 <div id='square' [cdkDragFreeDragPosition]="ResetBox" (cdkDragMoved)="dragMoved($event)"
-                    class="croppingBox" cdkDragBoundary=".tempImage" cdkDrag>
-                    <div class="longRod1Vertical rod hidden"></div>
-                    <div class="longRod2Vertical rod hidden"></div>
-                    <div class="longRod1Horizontal rod hidden"></div>
-                    <div class="longRod2Horizontal rod hidden"></div>
+                    class="croppingBox HidecroppingBox" cdkDragBoundary=".tempImage" cdkDrag>
+                    <div class="longRod1Vertical"></div>
+                    <div class="longRod2Vertical"></div>
+                    <div class="longRod1Horizontal"></div>
+                    <div class="longRod2Horizontal"></div>
 
-                    <div class="sideLeft dot hidden"></div>
-                    <div class="sideRight dot hidden"></div>
-                    <div class="sideTop dot hidden"></div>
-                    <div class="sideBottom dot hidden"></div>
+                    <div class="sideLeft"></div>
+                    <div class="sideRight"></div>
+                    <div class="sideTop"></div>
+                    <div class="sideBottom"></div>
 
-                    <div class="leftTopCorner dot hidden"></div>
-                    <div class="rightTopCorner dot hidden"></div>
-                    <div class="leftBottomCorner dot hidden"></div>
-                    <div class="rightBottomCorner dot hidden"></div>
+                    <div class="leftTopCorner"></div>
+                    <div class="rightTopCorner"></div>
+                    <div class="leftBottomCorner"></div>
+                    <div class="rightBottomCorner"></div>
                 </div>
 
             </div>

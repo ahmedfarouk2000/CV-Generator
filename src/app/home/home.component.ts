@@ -324,10 +324,14 @@ export class HomeComponent implements OnInit {
   public changeElementBackground = (imageUrl: string) => {
     this.togglePopUp(false)
     this.ResetImage()
-    this.toggleRods()
-    this.toggleDots()
+    // this.toggleRods()
+    // this.toggleDots()
     this.toggleSelectingBox()
     this.ResetAllModes()
+    this.ResetZoomSize()
+    this.ResetRotateImg()
+    this.TogglecroppingBox()
+    this.TempImgAbsoluteRemove()
     let tmepImgInside: any = document.querySelector(".tmepImgInside");
     let tmepImgInsideRest: any = document.querySelector(".tmepImgInsideRest");
     tmepImgInside.src = imageUrl
@@ -352,21 +356,21 @@ export class HomeComponent implements OnInit {
     parent.appendChild(tempImage)
   }
 
-  public toggleRods() {
-    let rods = document.querySelectorAll('.rod')
-    rods.forEach(rod => {
-      console.log(rod)
-      rod.classList.toggle('hidden')
-    });
-  }
+  // public toggleRods() {
+  //   let rods = document.querySelectorAll('.rod')
+  //   rods.forEach(rod => {
+  //     console.log(rod)
+  //     rod.classList.toggle('hidden')
+  //   });
+  // }
 
-  public toggleDots() {
-    let dots = document.querySelectorAll('.dot')
-    dots.forEach(dot => {
-      console.log(dot)
-      dot.classList.toggle('hidden')
-    });
-  }
+  // public toggleDots() {
+  //   let dots = document.querySelectorAll('.dot')
+  //   dots.forEach(dot => {
+  //     console.log(dot)
+  //     dot.classList.toggle('hidden')
+  //   });
+  // }
 
   public toggleSelectingBox() {
     let SelectingBox = document.querySelector('.tempImage')
@@ -515,9 +519,12 @@ export class HomeComponent implements OnInit {
     // const square: any = document.querySelector('#square')
     // square.style.transform = "";
     this.onlyOnceReset = true
-    this.toggleRods()
-    this.toggleDots()
+    // this.toggleRods()
+    // this.toggleDots()
     this.toggleSelectingBox()
+    this.TogglecroppingBox()
+    this.TempImgAbsoluteAdd()
+
 
     if (this.DontHideImg) { // means the mode has changed before selecting a an img
       this.UnResetAllModes()
@@ -526,6 +533,13 @@ export class HomeComponent implements OnInit {
 
 
   }
+
+  public TogglecroppingBox() {
+    let croppingBox = document.querySelector('.croppingBox')
+    croppingBox?.classList.toggle('HidecroppingBox')
+    console.log('ENTEEEEEEEEEEEEEEEEEEEED')
+  }
+
 
 
 
@@ -539,10 +553,11 @@ export class HomeComponent implements OnInit {
     transparentContainer?.classList.toggle('transparentContainerToggle')
     if (cond) {
       this.ResetBoxFun()
-      this.toggleRods()
-      this.toggleDots()
+      // this.toggleRods()
+      // this.toggleDots()
       this.toggleSelectingBox()
       this.ResetAllModes()
+      this.TogglecroppingBox()
       let tmepImgInsideRest: any = document.querySelector(".tmepImgInsideRest");
       tmepImgInsideRest.src = ''
     }
@@ -556,10 +571,11 @@ export class HomeComponent implements OnInit {
     if (event.target?.id == 'popUp') {
       this.togglePopUp(false)
       this.ResetBoxFun()
-      this.toggleRods()
-      this.toggleDots()
+      // this.toggleRods()
+      // this.toggleDots()
       this.toggleSelectingBox()
       this.ResetAllModes()
+      this.TogglecroppingBox()
       let tmepImgInsideRest: any = document.querySelector(".tmepImgInsideRest");
       tmepImgInsideRest.src = ''
     }
@@ -713,6 +729,70 @@ export class HomeComponent implements OnInit {
     let HoverOnSetting = document.querySelector('.HoverOnSetting')
     HoverOnSetting?.classList.toggle('HoverOnSettingOpened')
   }
+
+
+  public zoomOutLimit = Number(window.getComputedStyle(document.documentElement).getPropertyValue('--AvatarWidth').replace('px', ''))  // wont be less than the clipping box size
+  public ZoomValue = 100 // zoom by value
+  public zoomInImg() { // fix the problem of zooming in thus the clipping box will not func well as expected
+    let currentWidth = Number(window.getComputedStyle(document.documentElement).getPropertyValue('--imgResize').replace('px', ''));
+    let newWidth = currentWidth + this.ZoomValue
+    document.documentElement.style.setProperty('--imgResize', newWidth + 'px');
+
+    let clippingX: number = Number(window.getComputedStyle(document.documentElement).getPropertyValue('--clippingX').replace('px', ''));
+    let clippingY: number = Number(window.getComputedStyle(document.documentElement).getPropertyValue('--clippingY').replace('px', ''));
+    document.documentElement.style.setProperty('--clippingX', `${clippingX + (this.ZoomValue / 2)}px`);
+    document.documentElement.style.setProperty('--clippingY', `${clippingY + (this.ZoomValue / 2)}px`);
+  }
+
+
+  public zoomOutImg() {
+
+
+    let currentWidth: number = Number(window.getComputedStyle(document.documentElement).getPropertyValue('--imgResize').replace('px', ''));
+    if (this.zoomOutLimit < currentWidth) {
+      let newWidth = currentWidth - this.ZoomValue
+      document.documentElement.style.setProperty('--imgResize', newWidth + 'px');
+
+
+      // to avoid the glitching in the clipping border
+      let clippingX: number = Number(window.getComputedStyle(document.documentElement).getPropertyValue('--clippingX').replace('px', ''));
+      let clippingY: number = Number(window.getComputedStyle(document.documentElement).getPropertyValue('--clippingY').replace('px', ''));
+      document.documentElement.style.setProperty('--clippingX', `${clippingX - (this.ZoomValue / 2)}px`);
+      document.documentElement.style.setProperty('--clippingY', `${clippingY - (this.ZoomValue / 2)}px`);
+    }
+  }
+
+  public ResetZoomSize() { // to set the size of the img for the next img depending on the --imgResize
+    document.documentElement.style.setProperty('--imgResize', 400 + 'px');
+  }
+
+  public ResetRotateImg() { // to set the size of the img for the next img depending on the --imgResize
+    document.documentElement.style.setProperty('--RotationDeg', 0 + 'deg');
+  }
+
+  public RotateImg() {
+    let RotationDeg: number = Number(window.getComputedStyle(document.documentElement).getPropertyValue('--RotationDeg').replace('deg', ''));
+    RotationDeg += 90;
+    document.documentElement.style.setProperty('--RotationDeg', `${RotationDeg}deg`);
+
+
+    let rotateValue: number = Number(window.getComputedStyle(document.documentElement).getPropertyValue('--RotateIconAnimation').replace('deg', ''));
+    rotateValue -= 360
+    document.documentElement.style.setProperty('--RotateIconAnimation', `${rotateValue}deg`);
+
+
+  }
+
+  public TempImgAbsoluteRemove() { // used to make the temp img absolute after confirm
+    let tempImage = document.querySelector('.tempImage')
+    tempImage?.classList.remove('tempImageAbsolute')
+  }
+
+  public TempImgAbsoluteAdd() { // used to make the temp img absolute after confirm
+    let tempImage = document.querySelector('.tempImage')
+    tempImage?.classList.add('tempImageAbsolute')
+  }
+
 
 
 

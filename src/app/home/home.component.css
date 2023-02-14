@@ -2,8 +2,8 @@
     --width: 950px;
     --height: 1300px;
 
-    --boldFont: UBFont;
-    --lightFont: ULFont;
+    --boldFont: font2Bold;
+    --lightFont: font2Regular;
     --nameFontSize: 35px;
     --titleFontSize: 20px;
     --descFontSize: 20px;
@@ -38,12 +38,62 @@
     --border-bottom-right-radius: 50%;
     --border-bottom-left-radius: 50%;
 
-
-
+    /* --size: 0; */
     /* --clippingRadius: 200px; */
 
+    --imgResize: 400px;
+    --RotationDeg: 0deg;
+
+    --RotateIconAnimation: 0deg;
+}
+
+@font-face {
+    font-family: font2Regular;
+    src: url('./../../assets/font/font2/Ubuntu-Light.ttf');
+}
+
+@font-face {
+    font-family: font2Bold;
+    src: url('./../../assets/font/font2/Ubuntu-Bold.ttf');
+}
+
+
+
+@font-face {
+    font-family: font1Regular;
+    src: url('./../../assets/font/font1/IBMPlexSansThaiLooped-Regular.ttf');
+}
+
+@font-face {
+    font-family: font1Bold;
+    src: url('./../../assets/font/font1/IBMPlexSansThaiLooped-SemiBold.ttf');
+}
+
+
+
+@font-face {
+    font-family: font3Regular;
+    src: url('./../../assets/font/font3/Manrope-Medium.ttf');
+}
+
+@font-face {
+    font-family: font3Bold;
+    src: url('./../../assets/font/font3/Manrope-Bold.ttf');
 
 }
+
+.contentFontRegular {
+    font-family: font3Regular;
+}
+
+
+.contentFontBold {
+    font-family: font3Regular;
+}
+
+
+
+
 
 * {
     margin: 0;
@@ -312,15 +362,9 @@ h3[contenteditable]:hover {
 
 
 
-@font-face {
-    font-family: ULFont;
-    src: url('./../../assets/font/Ubuntu-Light.ttf');
-}
 
-@font-face {
-    font-family: UBFont;
-    src: url('./../../assets/font/Ubuntu-Bold.ttf');
-}
+
+
 
 .svgContainer {
     background-color: rgba(128, 128, 128, 0.319);
@@ -340,6 +384,7 @@ h3[contenteditable]:hover {
     align-items: flex-start;
     transition: 0.4s all;
     /* overflow: hidden; */
+    /* background-color: red; */
 
 }
 
@@ -408,6 +453,11 @@ h3[contenteditable]:hover {
     justify-content: space-around;
     align-items: center;
     transition: all 0.4s;
+
+    /* background: rgba(57, 144, 194, 0.35);
+    -webkit-backdrop-filter: blur(11px);
+    backdrop-filter: blur(11px); */
+    /* border: 1px solid rgba(57, 144, 194, 0.175); */
 }
 
 .HoverOnSetting {
@@ -427,6 +477,10 @@ h3[contenteditable]:hover {
     flex-wrap: wrap;
     transition: all 0.4s;
     overflow: hidden;
+
+    /* background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.125); */
 }
 
 .HoverOnSettingOpened {
@@ -619,7 +673,7 @@ h3[contenteditable]:hover {
     /* background-color: red; */
     /* background-image: url('../../assets/transparentBG.jpg'); */
     opacity: 1;
-    position: absolute;
+    /* position: absolute; */
     /* 
     mask-image: radial-gradient(circle at var(--clippingX) var(--clippingY), black calc(var(--AvatarWidth)/2), rgba(0, 0, 0, 0.5) 0%);
     -webkit-mask-image: radial-gradient(circle at var(--clippingX) var(--clippingY), black calc(var(--AvatarWidth)/2), rgba(0, 0, 0, 0.5) 0%); */
@@ -628,7 +682,7 @@ h3[contenteditable]:hover {
     /* clip-path: circle(var(--radius) at var(--xLocation) var(--yLocation));
     clip-path: inset(calc(var(--yLocation) - var(--radius)) calc(100% - calc(var(--xLocation) + var(--radius))) calc(100% - calc(var(--yLocation) + var(--radius))) calc(var(--xLocation) - var(--radius)) round 0%); */
 
-    width: 400px;
+    /* width: var(--imgResize); */
     /* max-height: 300px; */
     /* height: 400px; */
 
@@ -637,8 +691,15 @@ h3[contenteditable]:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* overflow: hidden;
+    background-color: red; */
+
     /* transition: 0.4s all; */
 
+}
+
+.tempImageAbsolute {
+    position: absolute;
 }
 
 .selecting {
@@ -650,7 +711,7 @@ h3[contenteditable]:hover {
 .RestImg {
     opacity: 1;
     position: absolute;
-    width: 400px;
+    width: var(--imgResize);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -723,7 +784,10 @@ h3[contenteditable]:hover {
 
 .tmepImgInside,
 .tmepImgInsideRest {
-    width: 100%;
+    /* width: 100%; */
+    width: var(--imgResize);
+    transform: rotateZ(var(--RotationDeg));
+    transition: 0.3s transform;
     /* opacity: 0.5; */
     /* width: 100px;
     height: 100px; */
@@ -755,6 +819,10 @@ h3[contenteditable]:hover {
     /* box-sizing: border-box; */
     cursor: all-scroll;
 
+}
+
+.HidecroppingBox {
+    visibility: hidden;
 }
 
 
@@ -927,17 +995,6 @@ h3[contenteditable]:hover {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 .example-box {
     width: 200px;
     height: 200px;
@@ -982,19 +1039,28 @@ h3[contenteditable]:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+
+
+
+
 }
 
 .popUpTab {
     width: 600px;
     height: 200px;
-    background-color: white;
+    /* background-color: white; */
     border-radius: 16px;
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-evenly;
     align-items: center;
     transition: all 0.4s;
+    /* gap: 60px; */
+
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 .popUpTabAnimation {
@@ -1014,6 +1080,24 @@ h3[contenteditable]:hover {
 
 }
 
+/* .popUpButtonLeft::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    clip-path: circle(var(--size) at left center);
+    transform: 0.4s all;
+
+}
+
+.popUpButtonLeft::before:hover {
+    --size: 300px;
+    background-color: green;
+} */
+
+
 .popUpButtonLeft {
     position: absolute;
     left: 16px;
@@ -1030,23 +1114,59 @@ h3[contenteditable]:hover {
 }
 
 .transparentContainer {
-    width: 75%;
-    padding: 20px;
+    width: 80%;
+    /* padding: 20px; */
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0;
     transition: all 0.2s;
+    overflow: hidden;
+    /* background-color: red; */
+    position: relative;
+    /* flex: 8; */
+    height: 80%;
+    /* margin: 16px; */
+    /* border-radius: 16px; */
+
+}
+
+.transparentBG {
+    border-radius: 16px;
+    width: 100%;
+    position: absolute;
+}
+
+.imgEditComponent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: cyan; */
+    width: 25%;
+    /* flex: 1; */
+    height: 10%;
+
+
+}
+
+.mat-icon.editImg {
+    /* background-color: red; */
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.rotate {
+    /* transform: rotateY(180deg); */
+    transform: rotateY(180deg) rotateZ(var(--RotateIconAnimation));
+    transition: 1s all;
 }
 
 .transparentContainerToggle {
     opacity: 1;
 }
 
-.transparentBG {
-    border-radius: 16px;
-    width: 100%;
-}
+
 
 .OpenPopUp {
     /* visibility: visible; */
