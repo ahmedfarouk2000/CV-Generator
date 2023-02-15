@@ -336,7 +336,7 @@ export class HomeComponent implements OnInit {
     let tmepImgInsideRest: any = document.querySelector(".tmepImgInsideRest");
     tmepImgInside.src = imageUrl
     tmepImgInsideRest.src = imageUrl
-
+    this.SelectedImg = false; // reset it  
   };
 
   public ResetImage() { // to reset the image to be in place of clipping
@@ -464,7 +464,7 @@ export class HomeComponent implements OnInit {
 
 
   }
-
+  public SelectedImg = false // indicate that img is selcted thus will display the delete img icon
   public Confirm() { // this function will confirm the crop
     this.togglePopUp(false)
     const parent: any = document.querySelector(".svgContainer")
@@ -529,7 +529,7 @@ export class HomeComponent implements OnInit {
     if (this.DontHideImg) { // means the mode has changed before selecting a an img
       this.UnResetAllModes()
     }
-
+    this.SelectedImg = true; // img is selected 
 
 
   }
@@ -581,6 +581,14 @@ export class HomeComponent implements OnInit {
     }
 
 
+  }
+
+  public deleteImg() { // just remove it bro
+    let tmepImgInside: any = document.querySelector(".tmepImgInside");
+    let tmepImgInsideRest: any = document.querySelector(".tmepImgInsideRest");
+    tmepImgInside.src = ''
+    tmepImgInsideRest.src = ''
+    this.SelectedImg = false
   }
 
 
@@ -742,6 +750,16 @@ export class HomeComponent implements OnInit {
     let clippingY: number = Number(window.getComputedStyle(document.documentElement).getPropertyValue('--clippingY').replace('px', ''));
     document.documentElement.style.setProperty('--clippingX', `${clippingX + (this.ZoomValue / 2)}px`);
     document.documentElement.style.setProperty('--clippingY', `${clippingY + (this.ZoomValue / 2)}px`);
+
+
+    document.documentElement.style.setProperty('--zoom-in-Animation', `${1.4}`);
+    setTimeout(() => {
+      document.documentElement.style.setProperty('--zoom-in-Animation', `${1}`);
+    }, 400);
+
+    // rotateValue += 720
+    // document.documentElement.style.setProperty('--RotatediceAnimation', `${rotateValue}deg`);
+
   }
 
 
@@ -759,6 +777,13 @@ export class HomeComponent implements OnInit {
       let clippingY: number = Number(window.getComputedStyle(document.documentElement).getPropertyValue('--clippingY').replace('px', ''));
       document.documentElement.style.setProperty('--clippingX', `${clippingX - (this.ZoomValue / 2)}px`);
       document.documentElement.style.setProperty('--clippingY', `${clippingY - (this.ZoomValue / 2)}px`);
+
+
+      document.documentElement.style.setProperty('--zoom-out-Animation', `${0.6}`);
+      setTimeout(() => {
+        document.documentElement.style.setProperty('--zoom-out-Animation', `${1}`);
+      }, 400);
+
     }
   }
 
@@ -792,6 +817,36 @@ export class HomeComponent implements OnInit {
     let tempImage = document.querySelector('.tempImage')
     tempImage?.classList.add('tempImageAbsolute')
   }
+
+  public LastRandomNumber = 1 // for the circle effect
+  public randomDiceAvatar() {
+
+
+    let rotateValue: number = Number(window.getComputedStyle(document.documentElement).getPropertyValue('--RotatediceAnimation').replace('deg', ''));
+    rotateValue += 720
+    document.documentElement.style.setProperty('--RotatediceAnimation', `${rotateValue}deg`);
+
+
+    let RandomEffect = Math.ceil(Math.random() * 10) // rando num between (1,2)
+    while (this.LastRandomNumber == RandomEffect) {
+      RandomEffect = Math.ceil(Math.random() * 10) // rando num between (1,2)
+    }
+    this.LastRandomNumber = RandomEffect // update it for next iteration
+    switch (RandomEffect) {
+      case 1: this.circleMode(); break
+      case 2: this.squareMode(); break
+      case 3: this.mode1RightTop(); break
+      case 4: this.mode1RightBottom(); break
+      case 5: this.mode1LeftTop(); break
+      case 6: this.mode1LeftBottom(); break
+      case 7: this.mode2Top(); break
+      case 8: this.mode2Bottom(); break
+      case 9: this.mode2Left(); break
+      case 10: this.mode2Right(); break
+    }
+
+  }
+
 
 
 

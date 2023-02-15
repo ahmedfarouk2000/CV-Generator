@@ -49,8 +49,8 @@
         <button class="popUpButtonLeft contentFontBold" (click)="Confirm()">Confirm</button>
         <button class="popUpButtonRight contentFontBold" (click)="togglePopUp(true)">Discard</button>
         <div class="imgEditComponent">
-            <mat-icon (click)="zoomInImg()" svgIcon="zoom-in" class="editImg"></mat-icon>
-            <mat-icon (click)="zoomOutImg()" svgIcon="zoom-out" class="editImg"></mat-icon>
+            <mat-icon (click)="zoomInImg()" svgIcon="zoom-in" class="editImg zoom-in"></mat-icon>
+            <mat-icon (click)="zoomOutImg()" svgIcon="zoom-out" class="editImg zoom-out"></mat-icon>
             <mat-icon (click)="RotateImg()" svgIcon="rotate" class="editImg rotate"></mat-icon>
         </div>
         <div class="transparentContainer">
@@ -108,6 +108,12 @@
                     <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="white" class="bi bi-person-fill" viewBox="0 0 16 16">
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                     </svg> -->
+                    <div class="deleteLayerParent" *ngIf="SelectedImg">
+                        <div class="deleteLayer" (click)="deleteImg()">
+                            <mat-icon svgIcon="x" class="x"></mat-icon>
+                        </div>
+                    </div>
+
                     <mat-icon svgIcon="p2" class="avatar"></mat-icon>
 
 
@@ -208,6 +214,10 @@
                             <mat-icon svgIcon="avatar2" class="back3 circle"></mat-icon>
                         </div>
 
+                        <div class="op1" (click)="randomDiceAvatar()">
+                            <mat-icon svgIcon="roll-dice2" class="roll"></mat-icon>
+                        </div>
+
 
 
 
@@ -222,7 +232,7 @@
 
                 </div>
             </div>
-            <div class=" intro">
+            <div class="intro">
                 <h3 contenteditable="true" class="name">Lorem, ipsum.</h3>
                 <h3 contenteditable="true" class="title">Lorem ipsum dolor sit amet.</h3>
                 <h3 contenteditable="true" class="desc"> Lorem ipsum dolor sit, amet consectetur adipisicing

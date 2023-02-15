@@ -68,6 +68,17 @@ export class AppComponent {
       this.domainSanitizer.bypassSecurityTrustResourceUrl('../assets/rotate.svg')
     )
 
+    this.matIconRegistry.addSvgIcon(
+      'roll-dice2',
+      this.domainSanitizer.bypassSecurityTrustResourceUrl('../assets/roll-dice2.svg')
+    )
+
+    this.matIconRegistry.addSvgIcon(
+      'x',
+      this.domainSanitizer.bypassSecurityTrustResourceUrl('../assets/x.svg')
+    )
+
+
 
   }
 }
