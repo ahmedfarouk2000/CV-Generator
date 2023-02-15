@@ -540,10 +540,21 @@ export class HomeComponent implements OnInit {
     console.log('ENTEEEEEEEEEEEEEEEEEEEED')
   }
 
+  public toggleScrollingScreen() {
+    // document.body.style.overflow = "hidden"; // this will disable the user froll scrolling
+    if (document.body.style.overflow == 'hidden') {
+      document.body.style.overflow = "auto"; // this will disable the user froll scrolling
+    }
+    else {
+      document.body.style.overflow = "hidden"; // this will disable the user froll scrolling
+    }
+  }
+
 
 
 
   public togglePopUp(cond: boolean) { // cond tells me to set or not the box
+    this.toggleScrollingScreen()
     console.log("wo")
     let popUp = document.querySelector('.popUp')
     popUp?.classList.toggle('ClosePopUp')
