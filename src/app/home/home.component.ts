@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { IEduation } from '../models/Education';
 
 
 @Component({
@@ -16,7 +17,27 @@ export class HomeComponent implements OnInit {
   public nuBubbles = 5;
 
 
-  ngOnInit(): void {
+  ngOnInit(): void { // here 
+    // let start = 0.1
+    // let string = ''
+    // for (let i = 0 ;i<=100 ; i+=5){
+    //   if(i < 50){
+    //     let current =`${i}% {background-color: rgba(128, 128, 128, ${start.toFixed(2)});}`
+    //     start+=0.015
+    //     console.log(current)
+    //     string+=current + '\n'
+    //   }
+    //   else{
+    //     let current =`${i}% {background-color: rgba(128, 128, 128, ${start.toFixed(2)});}`
+    //     start-=0.015
+    //     console.log(current)
+    //     string+=current + '\n'
+    //   }
+    //   console.log(string)
+
+
+    // }
+
   }
   public PrintOrNot = false;
   public printPara() {
@@ -858,6 +879,115 @@ export class HomeComponent implements OnInit {
 
   }
 
+
+
+  public EducationList: IEduation[] = [] // initially its empty until i push some into it
+
+  public printContent(event: any, education: any) { // will print the content of the html
+
+    let index: number = this.EducationList.indexOf(education)
+    console.log('the index', index)
+
+    let textObject = { ...this.EducationList[index], [event.target.id]: event.target.innerHTML }
+    this.EducationList[index] = textObject
+    // let att:keyof IEduation = event.target.id 
+    // this.EducationList[index][att as keyof IEduation] = event.target.innerHTML
+    // console.log(this.EducationList, 'the input from the user')
+
+
+  }
+
+
+
+  // public ConfirmInputs() {
+  //   // this.EducationList.push(this.currentRow)
+  //   console.log('pushed to the array', this.EducationList)
+  // }
+
+
+
+  dropEducation(event: CdkDragDrop<IEduation[]>) {
+    console.log("dropped")
+    console.log('pre', event.previousContainer.data)
+    console.log('curre', event.container.data)
+    moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+  }
+
+  public AddNewEducation() {
+    let currentEducation: IEduation = {
+      eduTitle: '',
+      eduPlace: '',
+      eduLocation: '',
+      eduBefore: '',
+      eduAfter: '',
+      eduDesc: '', // optional paramter (contain the bech project )
+      eduGpa: '', // optional paramter (the cum gpa)
+      showFields: true,
+    }
+    this.EducationList.push(currentEducation)
+  }
+
+  public showAllFields = true; // to show all the contents
+  public LastParentFocus: any;
+
+  public LastEducationSelected: any; // the index of the last selected one
+  public testFocus(event: any, education: IEduation) { // will be nofified if the something happed
+    console.log('focus happened ')
+
+    let index = this.EducationList.indexOf(education)
+    this.EducationList[index].showFields = true
+    this.LastEducationSelected = index; // to save its index
+
+    let parentFocus = event.target.parentElement
+    parentFocus.classList.add('pulseAnim')
+
+    this.LastParentFocus = event.target.parentElement
+  }
+
+  public LoseFocus(event: any) { // lose focus for education
+    console.log(event.target.id)
+    let currentId = event.target.id
+
+    let Parent: any = document.querySelector('.EducationContainer')
+    // console.log(event.target)
+    // if (Parent.contains(event.target)) {
+    //   console.log('yess its')
+
+    // }
+    // else {
+    //   console.log('no its does not contan')
+    // }
+    // const isChild = this.isDescendantOf(Parent, event.target as HTMLElement);
+    // console.log('child result', isChild)
+
+    try {
+      if (!Parent.contains(event.target)) {
+
+        this.LastParentFocus.classList.remove('pulseAnim')
+        this.EducationList[this.LastEducationSelected].showFields = false
+        console.log('loseeeeeeeeee')
+      }
+
+    }
+    catch {
+      console.warn('eeeerrrre')
+    }
+
+  }
+
+  // public isDescendantOf(parent: HTMLElement, child: HTMLElement): boolean {
+  //   console.log('all parents', child)
+  //   if (parent === child) {
+  //     // Child is the parent element
+  //     return true;
+  //   } else if (child.parentNode) {
+  //     // Check if the parent element is an ancestor of the child element
+  //     return this.isDescendantOf(parent, child.parentNode as HTMLElement);
+  //   } else {
+  //     // Child element does not have a parent node
+  //     return false;
+  //   }
+  // }
 
 
 
