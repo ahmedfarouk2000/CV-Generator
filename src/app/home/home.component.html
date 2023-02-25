@@ -631,19 +631,16 @@
 
         <div class="LowerPart" cdkDropListGroup>
 
-            <div class="leftCol example-list">
+            <div class="leftCol example-list ">
                 <div cdkDropListConnectedTo="LowerRight" cdkDropList [cdkDropListData]="leftMovies"
                     (cdkDropListDropped)="drop($event)">
                     <div class="row" *ngFor="let movie of leftMovies">{{movie}}
                         
-                        <app-education></app-education>
+                        <app-education [Title]="'Education'"></app-education>
+
+                        <!-- <app-education [Title]="'Experience'"></app-education> -->
                         
                     </div>
-
-
-
-                    <!-- <button (click)="AddNewEducation()"> add new experience</button> -->
-                    <!-- <button (click)="AddNewEducation('wwwwwww')"> add new experience</button> -->
                 </div>
 
             </div>

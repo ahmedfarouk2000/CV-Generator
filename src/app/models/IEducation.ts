@@ -7,5 +7,6 @@ export interface IEduation { // the education
     eduAfter: string,
     eduDesc?: string, // optional paramter (contain the bech project )
     eduGpa?: string, // optional paramter (the cum gpa)
+    eduSystem?: string, // optional paramter (the cum gpa)
     showFields:boolean,
 }

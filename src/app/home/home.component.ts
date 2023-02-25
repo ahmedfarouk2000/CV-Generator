@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { IEduation } from '../models/Education';
+import { IEduation } from '../models/IEducation';
 
 
 @Component({
@@ -9,12 +9,12 @@ import { IEduation } from '../models/Education';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+             
   constructor() { }
   public PrintSize = false;
   public width = 930;  // the inital width (vw)
   public height = 1300; // the inital height (vh)
-  public nuBubbles = 5;
+  public nuBubbles = 5; 
 
 
   ngOnInit(): void { // here 

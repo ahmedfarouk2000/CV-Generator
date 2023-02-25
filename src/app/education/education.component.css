@@ -87,7 +87,7 @@
 @font-face {
     font-family: font3Regular;
     src: url('./../../assets/font/font3/Manrope-Medium.ttf');
-}
+} 
 
 @font-face {
     font-family: font3Bold;
@@ -148,7 +148,7 @@
 .EducationRow {
     position: relative;
     margin-top: 16px;
-
+    /* background-color: green; */
 }
 
 
@@ -371,6 +371,87 @@
 
 
 }
+
+.GpaContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+}
+.gpa{
+    flex: 1;
+    /* background-color: cyan; */
+}
+
+.SelectGpaSystem{
+    outline: none;
+    font-family: var(--lightFont);
+    font-size: 18px;
+    transition: all 0.2s;
+    padding: 5px;
+    border-radius: 16px;
+    border: none;
+    background-color: transparent;
+    font-weight: 700;
+    padding-left: 16px;
+    text-align: center;
+    flex: 0.8;
+    box-shadow: 0 0 0 2px var(--theme1);
+    position: relative;
+    cursor: pointer;
+    
+}
+
+.circleSystem{
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid var(--theme1);
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translate(0,-50%);
+    transition: all 0.2s;
+}
+
+.circleSystmeinside{
+    border-radius: 50%;
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    top: 20%;
+    bottom: 20%;
+    background-color: transparent;
+    /* visibility: hidden; */
+    transition: all 0.2s;
+    /* z-index: 2; */
+}
+
+/* .SelectGpaSystem:hover{
+    background-color: var(--theme1);
+} */
+
+.SelectedGpaSystemOn{
+    background-color: var(--theme1);
+}
+
+.circleSystmeinsideOn{
+    background-color: white;
+}
+.circleSystemOn{
+    border-color: white;
+}
+
+/* .SelectGpaSystem:hover .circleSystmeinside{
+    background-color: white;
+}
+
+.SelectGpaSystem:hover .circleSystem{
+    border-color: white;
+} */
+
+
+
 
 
 

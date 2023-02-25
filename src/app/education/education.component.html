@@ -2,7 +2,7 @@
 (cdkDropListDropped)="dropEducation($event)">
 
 
-<!-- <button (click)="focusTest()">test focus</button> -->
+<!-- <button (click)="AddNewEducation()">test focus</button> -->
 
 <div class="HoverOnEdu addNewEdu">
 
@@ -24,8 +24,8 @@
         </path>
     </svg>
 </div>
-
-<h2 class="ColumnTitle">Education</h2>
+ 
+<h2 class="ColumnTitle">{{Title}}</h2>
 
 <div (click)="testFocus($event,education)" class="EducationRow"
     *ngFor="let education of EducationList" cdkDrag >
@@ -45,12 +45,44 @@
         class="restInput" placeholder="instituation" (focus)="focus($event)" (blur)="blur($event)">{{education.eduPlace}}</h2>
 
 
+    <div class="GpaContainer">
+
+        <h2 id="eduGpa" *ngIf="education.showFields || this.education.eduGpa!=''" 
+        (focusout)="EducationInput($event,education)" contenteditable="true" class="restInput gpa"
+        placeholder="Cumulative GPA" (focus)="focus($event)" (blur)="blur($event)">{{education.eduGpa}}</h2>
+
+      
+        <div class="SelectGpaSystem" id ="US" (click)="SelecGpaSystem('US',education)"
+         [ngClass]="{SelectedGpaSystemOn: education.eduSystem=='US'}" *ngIf="education.showFields">
+            US
+            <div class="circleSystem" id ="USCircle"
+            [ngClass]="{circleSystemOn: education.eduSystem=='US'}">
+                <div class="circleSystmeinside" id ="USCircleInside"
+                [ngClass]="{circleSystmeinsideOn: education.eduSystem=='US'}">
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="SelectGpaSystem" id="German" (click)="SelecGpaSystem('German',education)"
+        [ngClass]="{SelectedGpaSystemOn: education.eduSystem=='German'}" *ngIf="education.showFields">
+            DE
+            <div class="circleSystem" id ="GermanCircle"
+            [ngClass]="{circleSystemOn: education.eduSystem=='German'}">
+                <div class="circleSystmeinside" id ="GermanCircleInside"
+                [ngClass]="{circleSystmeinsideOn: education.eduSystem=='German'}">
+                </div>
+            </div>
+        </div>
+        
+      
+    </div>
+   
 
 
     <h2 id="eduLocation" *ngIf="education.showFields"
         (focusout)="EducationInput($event,education)" contenteditable="true" class="restInput"
         placeholder="Location" (focus)="focus($event)" (blur)="blur($event)">{{education.eduLocation}}</h2>
-
 
 
     <div class="dates" *ngIf="education.showFields">
@@ -76,9 +108,11 @@
 
     </div>
 
-    <h2 *ngIf="education.showFields || this.education.eduDesc!=''" id="eduDesc"
+    <h2 id="eduDesc" *ngIf="education.showFields || this.education.eduDesc!=''" 
         (focusout)="EducationInput($event,education)" contenteditable="true" class="restInput"
         placeholder="Bechelor/Courses" (focus)="focus($event)" (blur)="blur($event)">{{education.eduDesc}}</h2>
+
+        
 
 
 

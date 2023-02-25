@@ -1,7 +1,7 @@
 import { Component,Input } from '@angular/core';
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray, transferArrayItem, } from '@angular/cdk/drag-drop';
 
-import { IEduation } from '../models/Education';
+import { IEduation } from '../models/IEducation';
 
 @Component({
   selector: 'app-education',
@@ -9,7 +9,7 @@ import { IEduation } from '../models/Education';
   styleUrls: ['./education.component.css']
 })
 export class EducationComponent {
- 
+@Input() Title:string =''; // will be sent from parent
 
  ngOnInit():void{
  }
@@ -22,9 +22,19 @@ export class EducationComponent {
   // let textObject = { ...this.EducationList[index], [event.target.id]: event.target.innerText }
   // this.EducationList[index] = textObject
    let att:any= event.target.id
+   console.log('att',att);
    this.EducationList.map((current: IEduation)=>{
     if(current == education){
-      (current as any)[att as keyof IEduation]=event.target.innerText
+      if(att == 'eduGpa' && event.target.innerText!=''){ // 
+        //  console.log('in gpaaaaaa');
+         event.target.innerText = 'GPA: '+ event.target.innerText.replace('GPA: ','');
+        (current as any)[att as keyof IEduation]= event.target.innerText
+      
+      }
+      else{
+        (current as any)[att as keyof IEduation]=event.target.innerText
+      }
+    
     }   
    })
  }
@@ -36,7 +46,7 @@ export class EducationComponent {
    moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
  }
 
- public AddNewEducation() {
+ public AddNewEducation() { // fixx it asap
    let currentEducation: IEduation = {
      eduTitle: '',
      eduPlace: '',
@@ -45,9 +55,28 @@ export class EducationComponent {
      eduAfter: '',
      eduDesc: '', // optional paramter (contain the bech project )
      eduGpa: '', // optional paramter (the cum gpa)
+     eduSystem: '', // optional paramter (the cum gpa)
      showFields: true,
    }
-   this.EducationList.push(currentEducation)
+   console.log("the current list:", this.EducationList)
+   let EducationContainer :any=document.querySelector('.EducationContainer')
+   let leftCol :any=document.querySelector('.leftCol')
+   let EducationRow :any=document.querySelectorAll('.EducationRow')
+    try {
+      if(leftCol.offsetHeight >= EducationContainer.offsetHeight + EducationRow[0].offsetHeight ){ // can add new row peacfully
+        this.EducationList.push(currentEducation)
+       }
+       else{
+        alert("cant addd it :D")
+       }
+    }
+    catch{
+      this.EducationList.push(currentEducation)
+      console.warn("first time cant access it XX")
+    }
+ 
+
+   
  }
 
  public DeleteEducation(education:IEduation) {
@@ -74,7 +103,10 @@ export class EducationComponent {
       parentFocus=parentFocus.parentElement
 
   //  console.log("what is the parent",parentFocus.classList.contains('EducationRow'))
-   parentFocus.classList.add('pulseAnim')
+  console.log(event.target.id)
+  if(event.target.id!='USCircle' && event.target.id!='GermanCircle' && event.target.id!='GermanCircleInside'
+   && event.target.id!='USCircleInside')
+    parentFocus.classList.add('pulseAnim')
 
    this.LastParentFocus = parentFocus
  }
@@ -105,7 +137,8 @@ export class EducationComponent {
   eduBefore: false,
   eduAfter: false,
   eduDesc: false, // optional paramter (contain the bech project )
-  // eduGpa: false, // optional paramter (the cum gpa)
+  eduGpa: false, // optional paramter (the cum gpa)
+  // eduSystem: '', // optional paramter (the cum gpa)
   // showFields: true,
  };
  
@@ -120,10 +153,23 @@ export class EducationComponent {
   event.target.innerText =event.target.innerText // need this to fix the focus problem
   console.log('----------')
   this.isInputActiveEdu[event.target.id]=true
-//   for (const key in this.isInputActiveEdu) {
-//     console.log(key,":",this.isInputActiveEdu[key])
-// }
+
+  // try{
+  //   let eduGpa:any =document.querySelector('#eduGpa')
+  //   eduGpa.innerText =  eduGpa.innerText.replace('GPA: ','');
+  // }
+  // catch{
+  //   console.warn('not found')
+  // }
+ 
  }
+
+//  public focusGpa(id:string){
+//   console.log('hiiiiii man')
+//   this.isInputActiveEdu[id]=true
+
+//  }
+ 
 
  public blur(event:any){ // check if all are false
   setTimeout(() => {
@@ -142,6 +188,29 @@ export class EducationComponent {
     
   }, 100);
 
+ }
+
+ public SelecGpaSystem(type:string,education:IEduation){
+    // console.log("the selected",event.target.id);
+    // console.log(event.target.style)
+    // let Selected:any = document.querySelector(`#${type}`)
+    
+    let index =this.EducationList.indexOf(education)
+    
+    if(this.EducationList[index].eduSystem == type){ // pressed on again
+      this.EducationList[index].eduSystem ='' // just update the type
+    }
+    else{
+      this.EducationList[index].eduSystem =type // just update the type
+    }
+    // this.focusGpa('eduGpa')
+    console.log("all list:",this.EducationList)
+    console.log('type: ',type)
+    console.log(document.querySelector(`#${type}`))
+
+    // document.querySelector(`#${type}`)?.classList.add('SelectedGpaSystemOn')
+    // document.querySelector(`#${type}Circle`)?.classList.add('circleSystemOn')
+    // document.querySelector(`#${type}CircleInside`)?.classList.add('circleSystmeinsideOn')
  }
 
 
