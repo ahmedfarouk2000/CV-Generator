@@ -83,6 +83,11 @@ export class AppComponent {
       this.domainSanitizer.bypassSecurityTrustResourceUrl('../assets/hand.svg')
     )
 
+    this.matIconRegistry.addSvgIcon(
+      'trash',
+      this.domainSanitizer.bypassSecurityTrustResourceUrl('../assets/trash.svg')
+    )
+
 
 
 

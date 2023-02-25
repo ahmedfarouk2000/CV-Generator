@@ -1,115 +1,6 @@
-::ng-deep :root {
-    --width: 950px;
-    --height: 1300px;
-
-    --boldFont: font2Bold;
-    --lightFont: font2Regular;
-    --MediumFont: font2Medium;
-    
-    --nameFontSize: 35px;
-    --titleFontSize: 20px;
-    --descFontSize: 20px;
-
-    --AvatarWidth: 200px;
-    /* --image: url('../../assets/test.jpg'); */
-
-
-    --leftColumnRows: 6;
-    --rightColumnRows: 6;
-
-    --rowSize: 100px;
-
-    --theme1: #2feaa8;
-    --theme12: #25be89;
-    --dangerColor: #FE004D;
-
-    --theme2: #425061;
-
-    --xLocation: 50%;
-    --yLocation: 50%;
-    --radius: 100%;
-
-    --clippingX: 50%;
-    --clippingY: 50%;
-
-    --SquareBorderRadius: 2px;
-
-
-    --border-top-left-radius: 50%;
-    --border-top-right-radius: 50%;
-    --border-bottom-right-radius: 50%;
-    --border-bottom-left-radius: 50%;
-
-    /* --size: 0; */
-    /* --clippingRadius: 200px; */
-
-    --imgResize: 400px;
-    --RotationDeg: 0deg;
-
-    --RotateIconAnimation: 0deg;
-    --RotatediceAnimation: 0deg;
-
-    --zoom-in-Animation: 1;
-    --zoom-out-Animation: 1;
-}
-
-@font-face {
-    font-family: font2Regular;
-    src: url('./../../assets/font/font2/Ubuntu-Light.ttf');
-}
-
-@font-face {
-    font-family: font2Medium;
-    src: url('./../../assets/font/font2/Ubuntu-Medium.ttf');
-}
-
-@font-face {
-    font-family: font2Bold;
-    src: url('./../../assets/font/font2/Ubuntu-Bold.ttf');
-}
 
 
 
-@font-face {
-    font-family: font1Regular;
-    src: url('./../../assets/font/font1/IBMPlexSansThaiLooped-Regular.ttf');
-}
-
-@font-face {
-    font-family: font1Bold;
-    src: url('./../../assets/font/font1/IBMPlexSansThaiLooped-SemiBold.ttf');
-}
-
-
-
-@font-face {
-    font-family: font3Regular;
-    src: url('./../../assets/font/font3/Manrope-Medium.ttf');
-}
-
-@font-face {
-    font-family: font3Bold;
-    src: url('./../../assets/font/font3/Manrope-Bold.ttf');
-
-}
-
-.contentFontRegular {
-    font-family: font3Regular;
-}
-
-
-.contentFontBold {
-    font-family: font3Regular;
-}
-
-
-
-
-
-* {
-    margin: 0;
-    padding: 0;
-}
 
 
 .currentPage {
@@ -328,7 +219,7 @@ h3[contenteditable]:hover {
     left: 100%;
     right: 0;
     cursor: pointer;
-    background-color: var(--dangerColor);
+    background-color: var(--DeleteColor);
     text-align: center;
     border-radius: 16px;
     transition: all 0.4s;
@@ -404,6 +295,34 @@ h3[contenteditable]:hover {
 
 }
 
+.avatarParent{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* background-color: cyan; */
+    border-top-right-radius: var(--border-top-right-radius);
+    border-top-left-radius: var(--border-top-left-radius);
+    border-bottom-right-radius: var(--border-bottom-right-radius);
+    border-bottom-left-radius: var(--border-bottom-left-radius);
+    overflow: hidden;
+    transition: 0.4s all;
+
+}
+
+.avatar {
+    width: 800px;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 .deleteLayerParent {
     position: absolute;
     left: 0;
@@ -431,7 +350,7 @@ h3[contenteditable]:hover {
     justify-content: center;
     align-items: center;
 
-    background: rgba(255, 131, 131, 0.5);
+    background: var(--DeleteColor);
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
     border: 1px solid rgba(255, 131, 131, 0.25);
@@ -478,13 +397,6 @@ h3[contenteditable]:hover {
 
 
 
-.avatar {
-    width: 800px;
-    height: 800px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .mat-icon.avatar {
     /* background-color: #2feaa8; */
@@ -533,13 +445,11 @@ h3[contenteditable]:hover {
 }
 
 
-.HoverOnEdu {
+/* .HoverOnEdu {
     background-color: var(--theme1);
     position: absolute;
     left: 0;
     height: 0px;
-    /* height: 140px;
-    left: -20%; */
     right: 100%;
     top: 10px;
     transform: translate(0%, -50%);
@@ -552,18 +462,14 @@ h3[contenteditable]:hover {
     transition: all 0.4s;
     overflow: hidden;
 
-    /* background: rgba(57, 144, 194, 0.35);
-    -webkit-backdrop-filter: blur(11px);
-    backdrop-filter: blur(11px); */
-    /* border: 1px solid rgba(57, 144, 194, 0.175); */
-}
+} */
 
-.EducationContainer:hover .HoverOnEdu {
+/* .EducationContainer:hover .HoverOnEdu {
     height: 140px;
     left: -10%;
-}
+} */
 
-.addEdu {
+/* .addEdu {
     flex: 1;
     transition: 0.4s all;
 }
@@ -571,7 +477,7 @@ h3[contenteditable]:hover {
 .addEdu:hover {
     background-color: var(--theme12);
 }
-
+ */
 
 
 
@@ -701,7 +607,7 @@ h3[contenteditable]:hover {
     cursor: pointer;
 }
 
-.cdk-drag-preview {
+/* .cdk-drag-preview {
     box-sizing: border-box;
     border-radius: 4px;
     background-color: rgba(128, 128, 128, 0.078);
@@ -722,7 +628,7 @@ h3[contenteditable]:hover {
 
 .example-list.cdk-drop-list-dragging .row:not(.cdk-drag-placeholder) {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
-}
+} */
 
 .addNewSkill {
     display: flex;
@@ -1399,31 +1305,26 @@ h3[contenteditable]:hover {
 
 }
 
-.EducationContainer {
-    /* background-color: cyan; */
+/* .EducationContainer {
     position: relative;
-}
+} */
 
-.EducationRow {
-    /* background-color: cyan; */
+/* .EducationRow {
     position: relative;
     margin-top: 16px;
 
-}
-
-.EducationRow:hover .hand {
-    opacity: 0.5;
-}
+} */
 
 
 
-.ColumnTitle {
+
+/* .ColumnTitle {
     font-family: var(--boldFont);
     font-size: 28px;
     font-weight: 900;
-}
+} */
 
-.Title {
+/* .Title {
     outline: none;
     font-family: var(--MediumFont);
     font-weight: 500;
@@ -1433,7 +1334,6 @@ h3[contenteditable]:hover {
     border-radius: 16px;
     border: none;
     background-color: transparent;
-    /* font-weight: 700; */
     padding-left: 16px;
 
 }
@@ -1449,27 +1349,25 @@ h3[contenteditable]:hover {
 
 .Title:hover {
     background-color: rgba(128, 128, 128, 0.078);
-    /* box-sizing: border-box; */
-}
+} */
 
-.dates {
+/* .dates {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    /* background-color: red; */
 }
 
 .date {
     flex: 1;
-}
+} */
 
 
-[contenteditable=true]:empty:before {
+/* [contenteditable=true]:empty:before {
     content: attr(placeholder);
     pointer-events: none;
     opacity: 0.5;
-}
+} */
 
 
 
@@ -1483,7 +1381,6 @@ h3[contenteditable]:hover {
     border: none;
     background-color: transparent;
     font-weight: 700;
-    /* width: 100%; */
     padding-left: 16px;
 
 }
@@ -1496,19 +1393,37 @@ h3[contenteditable]:hover {
 
 .restInput:hover {
     background-color: rgba(128, 128, 128, 0.078);
-    /* box-sizing: border-box; */
 }
 
-.hand {
+/* .hand {
     width: 30px;
     height: 30px;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    opacity: 0;
-    /* transition: 0.4s all ease; */
+    cursor: grab;
 }
 
+.trashEdu {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+} */
+
+/* .handle{
+    position: absolute;
+    height: 100%;
+    right: 5px;
+    opacity: 0;
+    transition: 0.2s all ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+} */
+
+/* .EducationRow:hover .handle {
+    opacity: 0.5;
+} */
+
+/* 
 .notShow {
     display: flex;
     flex-direction: row;
@@ -1516,10 +1431,9 @@ h3[contenteditable]:hover {
     align-items: center;
     font-family: var(--lightFont);
     font-size: 18px;
-    /* background-color: red; */
-}
+} */
 
-.alignLeft {
+/* .alignLeft {
     display: flex;
     justify-content: flex-start;
     opacity: 0.5;
@@ -1530,9 +1444,9 @@ h3[contenteditable]:hover {
     justify-content: flex-end;
     opacity: 0.5;
     padding-right: 16px;
-}
+} */
 
-.pulseAnim {
+/* .pulseAnim {
     animation: pulse 2s infinite linear;
 }
 
@@ -1622,8 +1536,5 @@ h3[contenteditable]:hover {
     }
 
 
-}
+} */
 
-.handle{
-    cursor: grab;
-}

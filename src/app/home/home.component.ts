@@ -879,32 +879,16 @@ export class HomeComponent implements OnInit {
 
   }
 
-
+ // Education Part here 
 
   public EducationList: IEduation[] = [] // initially its empty until i push some into it
 
-  public printContent(event: any, education: any) { // will print the content of the html
-
+  public EducationInput(event: any, education: any) { // will print the content of the html
     let index: number = this.EducationList.indexOf(education)
     console.log('the index', index)
-
     let textObject = { ...this.EducationList[index], [event.target.id]: event.target.innerHTML }
     this.EducationList[index] = textObject
-    // let att:keyof IEduation = event.target.id 
-    // this.EducationList[index][att as keyof IEduation] = event.target.innerHTML
-    // console.log(this.EducationList, 'the input from the user')
-
-
   }
-
-
-
-  // public ConfirmInputs() {
-  //   // this.EducationList.push(this.currentRow)
-  //   console.log('pushed to the array', this.EducationList)
-  // }
-
-
 
   dropEducation(event: CdkDragDrop<IEduation[]>) {
     console.log("dropped")
@@ -927,7 +911,15 @@ export class HomeComponent implements OnInit {
     this.EducationList.push(currentEducation)
   }
 
-  public showAllFields = true; // to show all the contents
+  public DeleteEducation(education:IEduation) {
+    let NewEducationList = this.EducationList.filter(function (current) {
+      return current != education
+    })
+    this.EducationList = [...NewEducationList]
+  }
+
+
+  // public showAllFields = true; // to show all the contents
   public LastParentFocus: any;
 
   public LastEducationSelected: any; // the index of the last selected one
@@ -944,49 +936,11 @@ export class HomeComponent implements OnInit {
     this.LastParentFocus = event.target.parentElement
   }
 
-  public LoseFocus(event: any) { // lose focus for education
-    console.log(event.target.id)
-    let currentId = event.target.id
+  // public NotifyChild =false; // when below func is called just send to child
 
-    let Parent: any = document.querySelector('.EducationContainer')
-    // console.log(event.target)
-    // if (Parent.contains(event.target)) {
-    //   console.log('yess its')
-
-    // }
-    // else {
-    //   console.log('no its does not contan')
-    // }
-    // const isChild = this.isDescendantOf(Parent, event.target as HTMLElement);
-    // console.log('child result', isChild)
-
-    try {
-      if (!Parent.contains(event.target)) {
-
-        this.LastParentFocus.classList.remove('pulseAnim')
-        this.EducationList[this.LastEducationSelected].showFields = false
-        console.log('loseeeeeeeeee')
-      }
-
-    }
-    catch {
-      console.warn('eeeerrrre')
-    }
-
-  }
-
-  // public isDescendantOf(parent: HTMLElement, child: HTMLElement): boolean {
-  //   console.log('all parents', child)
-  //   if (parent === child) {
-  //     // Child is the parent element
-  //     return true;
-  //   } else if (child.parentNode) {
-  //     // Check if the parent element is an ancestor of the child element
-  //     return this.isDescendantOf(parent, child.parentNode as HTMLElement);
-  //   } else {
-  //     // Child element does not have a parent node
-  //     return false;
-  //   }
+  // public NotifyChildLoseFocus(event: any):boolean { // lose focus for education
+  //   this.NotifyChild=true;
+  //   return this.NotifyChild
   // }
 
 

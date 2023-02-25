@@ -17,6 +17,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop'
 
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
+import { EducationComponent } from './education/education.component';
 
 
 
@@ -28,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     HomeComponent,
     BubblesComponent,
+    EducationComponent,
 
   ],
   imports: [
