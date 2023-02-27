@@ -5,7 +5,7 @@
     --boldFont: font2Bold;
     --lightFont: font2Regular;
     --MediumFont: font2Medium;
-    
+
     --nameFontSize: 35px;
     --titleFontSize: 20px;
     --descFontSize: 20px;
@@ -20,7 +20,8 @@
 
     --theme1: #2feaa8;
     --theme12: #25be89;
-    --DeleteColor:   rgba(255, 131, 131, 0.5);;
+    --DeleteColor: rgba(255, 131, 131, 0.5);
+    ;
 
     --theme2: #425061;
 
@@ -47,10 +48,8 @@
 
     --zoom-in-Animation: 1;
     --zoom-out-Animation: 1;
-    
 
 
-  
 }
 
 
@@ -86,7 +85,7 @@
 @font-face {
     font-family: font3Regular;
     src: url('./../../assets/font/font3/Manrope-Medium.ttf');
-} 
+}
 
 @font-face {
     font-family: font3Bold;
@@ -151,7 +150,7 @@
 }
 
 
-.handle{
+.handle {
     /* background-color: red; */
     position: absolute;
     height: 100%;
@@ -193,10 +192,10 @@
 
 }
 
-/* .Title::after{
-    content: var(--dateProjectBefore);
+.Title::after {
+    content: attr(data-after);
     margin: 10px;
-} */
+}
 
 
 
@@ -375,18 +374,19 @@
 
 }
 
-.GpaContainer{
+.GpaContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap:10px;
+    gap: 10px;
 }
-.gpa{
+
+.gpa {
     flex: 1;
     /* background-color: cyan; */
 }
 
-.SelectGpaSystem{
+.SelectGpaSystem {
     outline: none;
     font-family: var(--lightFont);
     font-size: 18px;
@@ -402,10 +402,10 @@
     box-shadow: 0 0 0 2px var(--theme1);
     position: relative;
     cursor: pointer;
-    
+
 }
 
-.circleSystem{
+.circleSystem {
     width: 16px;
     height: 16px;
     border-radius: 50%;
@@ -413,11 +413,11 @@
     position: absolute;
     left: 10%;
     top: 50%;
-    transform: translate(0,-50%);
+    transform: translate(0, -50%);
     transition: all 0.2s;
 }
 
-.circleSystmeinside{
+.circleSystmeinside {
     border-radius: 50%;
     position: absolute;
     left: 20%;
@@ -434,14 +434,15 @@
     background-color: var(--theme1);
 } */
 
-.SelectedGpaSystemOn{
+.SelectedGpaSystemOn {
     background-color: var(--theme1);
 }
 
-.circleSystmeinsideOn{
+.circleSystmeinsideOn {
     background-color: white;
 }
-.circleSystemOn{
+
+.circleSystemOn {
     border-color: white;
 }
 
@@ -453,20 +454,26 @@
     border-color: white;
 } */
 
-.containerTitle{
+.containerTitle {
     position: relative;
     display: flex;
     justify-content: space-around;
 
 }
 
-.tempBefore{
+.tempBefore {
     position: absolute;
     right: 0;
 }
 
+a {
+    all: unset;
+}
 
-
-
-
-
+.CertificateProve{
+    position: absolute;
+    left: -5%;
+    top: 0;
+    opacity: 0.5;
+    cursor: pointer;
+}

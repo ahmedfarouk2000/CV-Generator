@@ -1,0 +1,144 @@
+.MiddlePart {
+    display: flex;
+    flex-flow: row wrap;
+    background-color: rgba(128, 128, 128, 0.078);
+    justify-content: center;
+}
+
+
+
+.MiddleRow {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    margin: 6px;
+}
+
+.MiddleColumn {
+    flex-basis: 50%;
+}
+
+.AllSkills {
+    flex: 9;
+    position: relative;
+    overflow: hidden;
+    /* background-color: cyan; */
+    height: 100%;
+}
+
+
+
+.AllSkills:hover .trash {
+    left: 85%;
+
+}
+
+
+.skillSvg {
+    flex: 1;
+    cursor: move;
+}
+
+
+.skill {
+    font-family: var(--lightFont);
+    font-size: 18px;
+    transition: all 0.2s;
+    padding: 5px;
+    border-radius: 16px;
+    border: none;
+    background-color: transparent;
+    font-weight: 700;
+    width: 100%;
+    padding-left: 16px;
+
+}
+
+
+
+.skill:focus {
+    outline: none;
+    border-bottom: var(--theme1) 3px solid;
+}
+
+.skill:hover {
+    outline: none;
+    background-color: rgba(128, 128, 128, 0.078);
+    box-sizing: border-box;
+}
+
+
+.addNewSkill {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 20px;
+    background-color: var(--theme1);
+    width: 40px;
+    height: 40px;
+    transition: all 0.4s;
+    /* gap: 10px; */
+}
+
+
+.addNewSkill:hover {
+    width: 50%;
+}
+
+.addNewSkill .skillSvg {
+    cursor: pointer;
+    transition: all 0.4s;
+    /* border-radius: 20px; */
+    height: 100%;
+}
+
+.addNewSkill .skillSvg:nth-child(2) {
+    border-radius: 20px 0 0 20px;
+}
+
+.addNewSkill .skillSvg:nth-last-of-type(1) {
+    border-radius: 0 20px 20px 0;
+}
+
+
+.addNewSkill .skillSvg:not(.disabled):hover {
+    background-color: var(--theme12);
+}
+
+
+.addNewSkill:hover .addIcon {
+    display: none;
+}
+
+.addNewSkill .disabled {
+    background-color: rgb(128, 128, 128);
+    cursor: default;
+}
+
+.RemoveBeforPrint {
+    display: none;
+}
+
+
+.trash {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    right: 0;
+    cursor: pointer;
+    background-color: var(--DeleteColor);
+    text-align: center;
+    border-radius: 16px;
+    transition: all 0.4s;
+
+}
+
+
+a {
+    all: unset;
+}

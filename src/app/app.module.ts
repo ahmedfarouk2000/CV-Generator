@@ -18,6 +18,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop'
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { EducationComponent } from './education/education.component';
+import { ProjectComponent } from './project/project.component';
+import { ContactComponent } from './contact/contact.component';
+import { ExperienceComponent } from './experience/experience.component';
 // import { ExperienceComponent } from './experience/experience.component';
 
 
@@ -30,7 +33,10 @@ import { EducationComponent } from './education/education.component';
     AppComponent,
     HomeComponent,
     BubblesComponent,
-    EducationComponent,  
+    EducationComponent,
+    ProjectComponent,
+    ContactComponent,
+    ExperienceComponent,  
   
   ],
   imports: [

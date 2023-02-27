@@ -47,8 +47,6 @@
 
     --zoom-in-Animation: 1;
     --zoom-out-Animation: 1;
-    
-
 
   
 }
@@ -193,10 +191,10 @@
 
 }
 
-/* .Title::after{
-    content: var(--dateProjectBefore);
+.Title::after{
+    content:  attr(data-after) ;
     margin: 10px;
-} */
+}
 
 
 
@@ -463,6 +461,18 @@
 .tempBefore{
     position: absolute;
     right: 0;
+}
+
+.CertificateProve{
+    position: absolute;
+    left: -5%;
+    top: 0;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+a{
+    all: unset;
 }
 
 

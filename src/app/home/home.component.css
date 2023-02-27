@@ -1,8 +1,3 @@
-
-
-
-
-
 .currentPage {
     background-color: white;
     margin-bottom: 0.5cm;
@@ -70,19 +65,31 @@
 
 .LowerPart {
     display: flex;
-    flex: row;
+    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: space-between;
-    flex: 8;
+    /* flex: 8;  causing alot of problem*/
+    height: 80%;
+
     /* background-color: blue; */
 
 }
 
-.MiddlePart {
+.section {
+    /* background-color: green; */
+    /* height: 50%; */
+    flex-basis: 40%;
+    padding: 16px;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+/* .MiddlePart {
     display: flex;
     flex-flow: row wrap;
     background-color: rgba(128, 128, 128, 0.078);
     justify-content: center;
-}
+} */
 
 .blue {
     background-color: blue;
@@ -96,22 +103,22 @@
     background-color: yellow;
 }
 
-.MiddleRow {
+/* .MiddleRow {
     flex: 1;
     display: flex;
     flex-direction: row;
     margin: 6px;
-}
+} */
 
-.MiddleColumn {
+/* .MiddleColumn {
     flex-basis: 50%;
-}
+} */
 
 .leftCol {
     /* background-color: red; */
     /* flex: 1; */
     /* height: 500px; */
-    
+
 
 }
 
@@ -194,21 +201,20 @@ h3[contenteditable]:hover {
 
 
 
-.AllSkills {
+/* .AllSkills {
     flex: 9;
-    /* background-color: red; */
     position: relative;
     overflow: hidden;
 
-}
+} */
 
 
-
+/* 
 .AllSkills:hover .trash {
     left: 85%;
 
 }
-
+ */
 
 .trash {
     display: flex;
@@ -233,13 +239,13 @@ h3[contenteditable]:hover {
     background-color: red;
 }
 
-.skillSvg {
+/* .skillSvg {
     flex: 1;
     cursor: move;
-}
+} */
 
 
-.skill {
+/* .skill {
     font-family: var(--lightFont);
     font-size: 18px;
     transition: all 0.2s;
@@ -264,7 +270,7 @@ h3[contenteditable]:hover {
     outline: none;
     background-color: rgba(128, 128, 128, 0.078);
     box-sizing: border-box;
-}
+} */
 
 
 
@@ -296,7 +302,7 @@ h3[contenteditable]:hover {
 
 }
 
-.avatarParent{
+.avatarParent {
     position: absolute;
     left: 0;
     right: 0;
@@ -538,19 +544,12 @@ h3[contenteditable]:hover {
 
 
 .example-list {
-    /* width: 500px; */
-    /* max-width: 100%; */
     border: solid 1px #ccc;
-    /* height: 100%; */
     display: block;
     background: white;
     border-radius: 10px;
-    /* overflow: hidden; */
-    /* display: flex; */
-    /* background-color: black; */
     flex: 1;
     width: 50%;
-
 }
 
 .row {
@@ -569,7 +568,7 @@ h3[contenteditable]:hover {
 }
 
 
-.addNewSkill {
+/* .addNewSkill {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -579,18 +578,16 @@ h3[contenteditable]:hover {
     width: 40px;
     height: 40px;
     transition: all 0.4s;
-    /* gap: 10px; */
 }
 
 
 .addNewSkill:hover {
     width: 50%;
-}
+} */
 
-.addNewSkill .skillSvg {
+/* .addNewSkill .skillSvg {
     cursor: pointer;
     transition: all 0.4s;
-    /* border-radius: 20px; */
     height: 100%;
 }
 
@@ -600,27 +597,26 @@ h3[contenteditable]:hover {
 
 .addNewSkill .skillSvg:nth-last-of-type(1) {
     border-radius: 0 20px 20px 0;
-}
+} */
 
 
-.addNewSkill .skillSvg:not(.disabled):hover {
+/* .addNewSkill .skillSvg:not(.disabled):hover {
     background-color: var(--theme12);
-}
+} */
 
-.addIcon {
-    /* opacity: 1;
-    transition: all 0.2s; */
-}
+/* .addIcon {
+   
+} */
 
-
+/* 
 .addNewSkill:hover .addIcon {
     display: none;
-}
+} */
 
-.addNewSkill .disabled {
+/* .addNewSkill .disabled {
     background-color: rgb(128, 128, 128);
     cursor: default;
-}
+} */
 
 .RemoveBeforPrint {
     display: none;
@@ -1246,6 +1242,6 @@ h3[contenteditable]:hover {
     background-color: rgba(128, 128, 128, 0.078);
 }
 
-
-
-
+a {
+    all: unset;
+}

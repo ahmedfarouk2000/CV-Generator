@@ -1,11 +1,11 @@
-<!-- <button (click)="printPara()">Reset to A4 size page</button>
-<button (click)="ZoomIn()">zoom in</button>
+<button (click)="printPara()">Reset to A4 size page</button>
+<!-- <button (click)="ZoomIn()">zoom in</button>
 <button (click)="ZoomOut()">zoom out</button>
-<button (click)="Confirm()" class="button">Confirm</button>
+<button (click)="Confirm()" class="button">Confirm</button> -->
 
-<button (click)="toggleRods()" class="button">toggle rods</button>
+<!-- <button (click)="toggleRods()" class="button">toggle rods</button> -->
 
-<button (click)="toggleRadius()" class="button">toggleRadius</button>
+<!-- <button (click)="toggleRadius()" class="button">toggleRadius</button>
 
 
 
@@ -20,9 +20,9 @@
 <button (click)="mode2Left()">mode2Left</button>
 <button (click)="mode2Right()">mode2Right</button>
 <button (click)="mode2Top()">mode2Top</button>
-<button (click)="mode2Bottom()">mode2Bottom</button> -->
+<button (click)="mode2Bottom()">mode2Bottom</button>
 
-<button (click)="togglePopUp(false)">toggle pop</button>
+<button (click)="togglePopUp(false)">toggle pop</button> -->
 <!-- <button (click)="ConfirmInputs()">confrim</button> -->
 <!-- <button (click)="printContent(event)">print it</button> -->
 
@@ -80,28 +80,12 @@
             </div>
 
 
-
-            <!-- <div class="tempImage">
-                <img class="tmepImgInside" src="../../assets/test.jpg" alt="">
-                <div (cdkDragMoved)="dragMoved($event)" class="croppingBox" cdkDragBoundary=".tempImage" cdkDrag>
-                </div>
-            </div> -->
-
         </div>
 
     </div>
 </div>
 
 <div class="currentPage">
-    <!-- <div class="tempImage">
-        <img class="tmepImgInside" src="../../assets/test.jpg" alt="">
-        <div (cdkDragMoved)="dragMoved($event)" class="croppingBox" cdkDragBoundary=".tempImage" cdkDrag>
-        </div>
-    </div> -->
-
-
-
-
     <div class="cover">
 
         <div class="UpperPart">
@@ -115,7 +99,7 @@
                     <div class="avatarParent">
                         <mat-icon svgIcon="p2" class="avatar"></mat-icon>
                     </div>
-                   
+
 
 
 
@@ -248,419 +232,30 @@
 
         </div>
 
-        <div class="MiddlePart" cdkDropListGroup>
 
-            <div id="MiddleLeft" cdkDropListConnectedTo="MiddleRight" class="MiddleColumn" cdkDropList
-                [cdkDropListData]="leftContacts" (cdkDropListDropped)="dropSkills($event)">
-                <div class="MiddleRow" *ngFor="let contact of leftContacts" cdkDrag>
-
-                    <svg *ngIf="contact.type=='github'" class="skillSvg" width="30" height="30" fill="none"
-                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M16 22.027v-2.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7a5.44 5.44 0 0 0-1.5-3.75 5.07 5.07 0 0 0-.09-3.77s-1.18-.35-3.91 1.48a13.38 13.38 0 0 0-7 0c-2.73-1.83-3.91-1.48-3.91-1.48A5.07 5.07 0 0 0 5 5.797a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7a3.37 3.37 0 0 0-.94 2.58v2.87">
-                        </path>
-                        <path d="M9 20.023c-3 .974-5.5 0-7-3"></path>
-                    </svg>
-
-                    <svg *ngIf="contact.type=='linkedin'" class="skillSvg" width="30" height="30" fill="none"
-                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 8v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5Z"></path>
-                        <path d="M7 17v-7"></path>
-                        <path d="M11 13.75c0-3.75 6-3.75 6 0V17"></path>
-                        <path d="M7 7.011 7.01 7"></path>
-                        <path d="M11 17v-7"></path>
-                    </svg>
-
-                    <svg *ngIf="contact.type=='website'" class="skillSvg" width="28" height="28" fill="currentColor"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M22.5 1.5h-3v3h3v-3Z"></path>
-                        <path d="M22.5 6h-3v3h3V6Z"></path>
-                        <path d="M18 1.5h-3v3h3v-3Z"></path>
-                        <path d="M18 6h-3v3h3V6Z"></path>
-                        <path
-                            d="M21 12v4.5H3v-12h9V3H3a1.5 1.5 0 0 0-1.5 1.5v12A1.5 1.5 0 0 0 3 18h6v3H6v1.5h12V21h-3v-3h6a1.5 1.5 0 0 0 1.5-1.5V12H21Zm-7.5 9h-3v-3h3v3Z">
-                        </path>
-                    </svg>
-
-                    <svg *ngIf="contact.type=='location'" class="skillSvg" width="32" height="32" fill="currentColor"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M8.25 9a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM12 6.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z"
-                            clip-rule="evenodd"></path>
-                        <path fill-rule="evenodd"
-                            d="M5.456 8.127a6.403 6.403 0 0 1 6.382-5.877h.324a6.403 6.403 0 0 1 6.382 5.877 6.895 6.895 0 0 1-1.534 4.931l-3.595 4.396a1.828 1.828 0 0 1-2.83 0L6.99 13.058a6.895 6.895 0 0 1-1.534-4.93Zm6.382-4.377a4.903 4.903 0 0 0-4.887 4.5 5.395 5.395 0 0 0 1.2 3.859l3.595 4.396c.131.16.377.16.508 0l3.595-4.396a5.395 5.395 0 0 0 1.2-3.859 4.903 4.903 0 0 0-4.887-4.5h-.324Z"
-                            clip-rule="evenodd"></path>
-                        <path
-                            d="M7.67 16.335a.75.75 0 1 0-1.34-.67l-2 4A.75.75 0 0 0 5 20.75h14a.75.75 0 0 0 .67-1.085l-2-4a.75.75 0 1 0-1.34.67l1.457 2.915H6.213l1.457-2.915Z">
-                        </path>
-                    </svg>
-
-                    <svg *ngIf="contact.type=='mail'" class="skillSvg" width="30" height="30" fill="none"
-                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19 19H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2Z">
-                        </path>
-                        <path d="m3 8 7.89 5.26a2 2 0 0 0 2.22 0L21 8"></path>
-                    </svg>
-
-                    <svg *ngIf="contact.type=='phone'" class="skillSvg" width="30" height="30" fill="none"
-                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 14.001V14"></path>
-                        <path
-                            d="M10 3H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2m-4 0h4m-4 0v1m4-1v1m0 0a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1m4 0h-4">
-                        </path>
-                        <path d="M9 8.001V8"></path>
-                        <path d="M9 11.001V11"></path>
-                        <path d="M12 11.001V11"></path>
-                        <path d="M12 8.001V8"></path>
-                        <path d="M15 8.001V8"></path>
-                        <path d="M15 11.001V11"></path>
-                        <path d="M9 14.001V14"></path>
-                    </svg>
-
-                    <svg *ngIf="contact.type=='codepen'" class="skillSvg" width="30" height="30" fill="none"
-                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="m12 2 10 6.5v7L12 22 2 15.5v-7L12 2z"></path>
-                        <path d="M12 22v-6.5"></path>
-                        <path d="m22 8.5-10 7-10-7"></path>
-                        <path d="m2 15.5 10-7 10 7"></path>
-                        <path d="M12 2v6.5"></path>
-                    </svg>
-
-                    <svg *ngIf="contact.type=='facebook'" class="skillSvg" width="30" height="30" fill="none"
-                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                    </svg>
-
-                    <svg *ngIf="contact.type=='twitter'" class="skillSvg" width="30" height="30" fill="none"
-                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5 0-.278-.028-.556-.08-.83A7.72 7.72 0 0 0 23 3Z">
-                        </path>
-                    </svg>
-
-                    <svg *ngIf="contact.type=='fax'" class="skillSvg" width="30" height="30" fill="none"
-                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M9 21h6a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2Zm0 0h6a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H9a2 2 0 0 0-1.414.586">
-                        </path>
-                        <path d="M17 17h2a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2">
-                        </path>
-                        <path d="M17 5v4H7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2Z"></path>
-                    </svg>
-
-
-                    <div class="AllSkills">
-                        <input (change)="updateText(contact,$event)" class="skill" value="{{contact.text}}"
-                            placeholder="Enter Your Info">
-                        <div class="trash" (click)="deleteContact(contact)">
-                            <svg width="30" height="30" fill="none" stroke="currentColor" stroke-linecap="round"
-                                stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M10 11v6m4-6v6M4 7h16m-1 0-.867 12.142A2 2 0 0 1 16.138 21H7.862a2 2 0 0 1-1.995-1.858L5 7h14Zm-4 0V4a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v3h6Z">
-                                </path>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="MiddleRight" cdkDropListConnectedTo="MiddleLeft" class="MiddleColumn" cdkDropList
-                [cdkDropListData]="rightContacts" (cdkDropListDropped)="dropSkills($event)">
-                <div class="MiddleRow" *ngFor="let contact of rightContacts" cdkDrag>
-
-                    <svg *ngIf="contact.type=='github'" class="skillSvg" width="30" height="30" fill="none"
-                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M16 22.027v-2.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7a5.44 5.44 0 0 0-1.5-3.75 5.07 5.07 0 0 0-.09-3.77s-1.18-.35-3.91 1.48a13.38 13.38 0 0 0-7 0c-2.73-1.83-3.91-1.48-3.91-1.48A5.07 5.07 0 0 0 5 5.797a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7a3.37 3.37 0 0 0-.94 2.58v2.87">
-                        </path>
-                        <path d="M9 20.023c-3 .974-5.5 0-7-3"></path>
-                    </svg>
-
-                    <svg *ngIf="contact.type=='linkedin'" class="skillSvg" width="30" height="30" fill="none"
-                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 8v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5Z"></path>
-                        <path d="M7 17v-7"></path>
-                        <path d="M11 13.75c0-3.75 6-3.75 6 0V17"></path>
-                        <path d="M7 7.011 7.01 7"></path>
-                        <path d="M11 17v-7"></path>
-                    </svg>
-
-                    <svg *ngIf="contact.type=='website'" class="skillSvg" width="28" height="28" fill="currentColor"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M22.5 1.5h-3v3h3v-3Z"></path>
-                        <path d="M22.5 6h-3v3h3V6Z"></path>
-                        <path d="M18 1.5h-3v3h3v-3Z"></path>
-                        <path d="M18 6h-3v3h3V6Z"></path>
-                        <path
-                            d="M21 12v4.5H3v-12h9V3H3a1.5 1.5 0 0 0-1.5 1.5v12A1.5 1.5 0 0 0 3 18h6v3H6v1.5h12V21h-3v-3h6a1.5 1.5 0 0 0 1.5-1.5V12H21Zm-7.5 9h-3v-3h3v3Z">
-                        </path>
-                    </svg>
-
-                    <svg *ngIf="contact.type=='location'" class="skillSvg" width="32" height="32" fill="currentColor"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M8.25 9a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM12 6.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z"
-                            clip-rule="evenodd"></path>
-                        <path fill-rule="evenodd"
-                            d="M5.456 8.127a6.403 6.403 0 0 1 6.382-5.877h.324a6.403 6.403 0 0 1 6.382 5.877 6.895 6.895 0 0 1-1.534 4.931l-3.595 4.396a1.828 1.828 0 0 1-2.83 0L6.99 13.058a6.895 6.895 0 0 1-1.534-4.93Zm6.382-4.377a4.903 4.903 0 0 0-4.887 4.5 5.395 5.395 0 0 0 1.2 3.859l3.595 4.396c.131.16.377.16.508 0l3.595-4.396a5.395 5.395 0 0 0 1.2-3.859 4.903 4.903 0 0 0-4.887-4.5h-.324Z"
-                            clip-rule="evenodd"></path>
-                        <path
-                            d="M7.67 16.335a.75.75 0 1 0-1.34-.67l-2 4A.75.75 0 0 0 5 20.75h14a.75.75 0 0 0 .67-1.085l-2-4a.75.75 0 1 0-1.34.67l1.457 2.915H6.213l1.457-2.915Z">
-                        </path>
-                    </svg>
-
-                    <svg *ngIf="contact.type=='mail'" class="skillSvg" width="30" height="30" fill="none"
-                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19 19H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2Z">
-                        </path>
-                        <path d="m3 8 7.89 5.26a2 2 0 0 0 2.22 0L21 8"></path>
-                    </svg>
-
-                    <svg *ngIf="contact.type=='phone'" class="skillSvg" width="30" height="30" fill="none"
-                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 14.001V14"></path>
-                        <path
-                            d="M10 3H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2m-4 0h4m-4 0v1m4-1v1m0 0a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1m4 0h-4">
-                        </path>
-                        <path d="M9 8.001V8"></path>
-                        <path d="M9 11.001V11"></path>
-                        <path d="M12 11.001V11"></path>
-                        <path d="M12 8.001V8"></path>
-                        <path d="M15 8.001V8"></path>
-                        <path d="M15 11.001V11"></path>
-                        <path d="M9 14.001V14"></path>
-                    </svg>
-
-                    <svg *ngIf="contact.type=='codepen'" class="skillSvg" width="30" height="30" fill="none"
-                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="m12 2 10 6.5v7L12 22 2 15.5v-7L12 2z"></path>
-                        <path d="M12 22v-6.5"></path>
-                        <path d="m22 8.5-10 7-10-7"></path>
-                        <path d="m2 15.5 10-7 10 7"></path>
-                        <path d="M12 2v6.5"></path>
-                    </svg>
-
-                    <svg *ngIf="contact.type=='facebook'" class="skillSvg" width="30" height="30" fill="none"
-                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                    </svg>
-
-                    <svg *ngIf="contact.type=='twitter'" class="skillSvg" width="30" height="30" fill="none"
-                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5 0-.278-.028-.556-.08-.83A7.72 7.72 0 0 0 23 3Z">
-                        </path>
-                    </svg>
-
-                    <svg *ngIf="contact.type=='fax'" class="skillSvg" width="30" height="30" fill="none"
-                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M9 21h6a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2Zm0 0h6a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H9a2 2 0 0 0-1.414.586">
-                        </path>
-                        <path d="M17 17h2a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2">
-                        </path>
-                        <path d="M17 5v4H7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2Z"></path>
-                    </svg>
-
-                    <div class="AllSkills">
-                        <input (change)="updateText(contact,$event)" class="skill" value="{{contact.text}}"
-                            placeholder="Enter Your Info">
-                        <div class="trash" (click)="deleteContact(contact)">
-                            <svg width="30" height="30" fill="none" stroke="currentColor" stroke-linecap="round"
-                                stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M10 11v6m4-6v6M4 7h16m-1 0-.867 12.142A2 2 0 0 1 16.138 21H7.862a2 2 0 0 1-1.995-1.858L5 7h14Zm-4 0V4a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v3h6Z">
-                                </path>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-
-            <div [ngClass]="{'RemoveBeforPrint':PrintOrNot}" (mouseenter)="toggleShowContacts()"
-                (mouseleave)="toggleShowContacts()" class="addNewSkill">
-                <!-- <h2>Add new button</h2> -->
-                <svg class="addIcon" width="32" height="32" fill="none" stroke="currentColor" stroke-linecap="round"
-                    stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 12v7m-7-7h7-7Zm14 0h-7 7Zm-7 0V5v7Z"></path>
-                </svg>
-
-                <svg [ngClass]="{'disabled':this.SelectedOrNotFun('github')}" (click)="AddContact('github')"
-                    *ngIf="ShowContactsOrNot" class="skillSvg" width="30" height="30" fill="none" stroke="currentColor"
-                    stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M16 22.027v-2.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7a5.44 5.44 0 0 0-1.5-3.75 5.07 5.07 0 0 0-.09-3.77s-1.18-.35-3.91 1.48a13.38 13.38 0 0 0-7 0c-2.73-1.83-3.91-1.48-3.91-1.48A5.07 5.07 0 0 0 5 5.797a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7a3.37 3.37 0 0 0-.94 2.58v2.87">
-                    </path>
-                    <path d="M9 20.023c-3 .974-5.5 0-7-3"></path>
-                </svg>
-
-                <svg [ngClass]="{'disabled':this.SelectedOrNotFun('linkedin')}" (click)="AddContact('linkedin')"
-                    *ngIf="ShowContactsOrNot" class="skillSvg" width="30" height="30" fill="none" stroke="currentColor"
-                    stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M21 8v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5Z"></path>
-                    <path d="M7 17v-7"></path>
-                    <path d="M11 13.75c0-3.75 6-3.75 6 0V17"></path>
-                    <path d="M7 7.011 7.01 7"></path>
-                    <path d="M11 17v-7"></path>
-                </svg>
-
-                <svg [ngClass]="{'disabled':this.SelectedOrNotFun('website')}" (click)="AddContact('website')"
-                    *ngIf="ShowContactsOrNot" class="skillSvg" width="28" height="28" fill="currentColor"
-                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22.5 1.5h-3v3h3v-3Z"></path>
-                    <path d="M22.5 6h-3v3h3V6Z"></path>
-                    <path d="M18 1.5h-3v3h3v-3Z"></path>
-                    <path d="M18 6h-3v3h3V6Z"></path>
-                    <path
-                        d="M21 12v4.5H3v-12h9V3H3a1.5 1.5 0 0 0-1.5 1.5v12A1.5 1.5 0 0 0 3 18h6v3H6v1.5h12V21h-3v-3h6a1.5 1.5 0 0 0 1.5-1.5V12H21Zm-7.5 9h-3v-3h3v3Z">
-                    </path>
-                </svg>
-
-                <svg [ngClass]="{'disabled':this.SelectedOrNotFun('location')}" (click)="AddContact('location')"
-                    *ngIf="ShowContactsOrNot" class="skillSvg" width="32" height="32" fill="currentColor"
-                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M8.25 9a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM12 6.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z"
-                        clip-rule="evenodd"></path>
-                    <path fill-rule="evenodd"
-                        d="M5.456 8.127a6.403 6.403 0 0 1 6.382-5.877h.324a6.403 6.403 0 0 1 6.382 5.877 6.895 6.895 0 0 1-1.534 4.931l-3.595 4.396a1.828 1.828 0 0 1-2.83 0L6.99 13.058a6.895 6.895 0 0 1-1.534-4.93Zm6.382-4.377a4.903 4.903 0 0 0-4.887 4.5 5.395 5.395 0 0 0 1.2 3.859l3.595 4.396c.131.16.377.16.508 0l3.595-4.396a5.395 5.395 0 0 0 1.2-3.859 4.903 4.903 0 0 0-4.887-4.5h-.324Z"
-                        clip-rule="evenodd"></path>
-                    <path
-                        d="M7.67 16.335a.75.75 0 1 0-1.34-.67l-2 4A.75.75 0 0 0 5 20.75h14a.75.75 0 0 0 .67-1.085l-2-4a.75.75 0 1 0-1.34.67l1.457 2.915H6.213l1.457-2.915Z">
-                    </path>
-                </svg>
-
-                <svg [ngClass]="{'disabled':this.SelectedOrNotFun('mail')}" (click)="AddContact('mail')"
-                    *ngIf="ShowContactsOrNot" class="skillSvg" width="30" height="30" fill="none" stroke="currentColor"
-                    stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19 19H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2Z"></path>
-                    <path d="m3 8 7.89 5.26a2 2 0 0 0 2.22 0L21 8"></path>
-                </svg>
-
-                <svg [ngClass]="{'disabled':this.SelectedOrNotFun('phone')}" (click)="AddContact('phone')"
-                    *ngIf="ShowContactsOrNot" class="skillSvg" width="30" height="30" fill="none" stroke="currentColor"
-                    stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 14.001V14"></path>
-                    <path
-                        d="M10 3H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2m-4 0h4m-4 0v1m4-1v1m0 0a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1m4 0h-4">
-                    </path>
-                    <path d="M9 8.001V8"></path>
-                    <path d="M9 11.001V11"></path>
-                    <path d="M12 11.001V11"></path>
-                    <path d="M12 8.001V8"></path>
-                    <path d="M15 8.001V8"></path>
-                    <path d="M15 11.001V11"></path>
-                    <path d="M9 14.001V14"></path>
-                </svg>
-
-                <svg [ngClass]="{'disabled':this.SelectedOrNotFun('codepen')}" (click)="AddContact('codepen')"
-                    *ngIf="ShowContactsOrNot" class="skillSvg" width="30" height="30" fill="none" stroke="currentColor"
-                    stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="m12 2 10 6.5v7L12 22 2 15.5v-7L12 2z"></path>
-                    <path d="M12 22v-6.5"></path>
-                    <path d="m22 8.5-10 7-10-7"></path>
-                    <path d="m2 15.5 10-7 10 7"></path>
-                    <path d="M12 2v6.5"></path>
-                </svg>
-
-                <svg [ngClass]="{'disabled':this.SelectedOrNotFun('twitter')}" (click)="AddContact('twitter')"
-                    *ngIf="ShowContactsOrNot" class="skillSvg" width="30" height="30" fill="none" stroke="currentColor"
-                    stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5 0-.278-.028-.556-.08-.83A7.72 7.72 0 0 0 23 3Z">
-                    </path>
-                </svg>
-
-                <svg [ngClass]="{'disabled':this.SelectedOrNotFun('facebook')}" (click)="AddContact('facebook')"
-                    *ngIf="ShowContactsOrNot" class="skillSvg" width="30" height="30" fill="none" stroke="currentColor"
-                    stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                </svg>
-
-                <svg [ngClass]="{'disabled':this.SelectedOrNotFun('fax')}" (click)="AddContact('fax')"
-                    *ngIf="ShowContactsOrNot" class="skillSvg" width="30" height="30" fill="none" stroke="currentColor"
-                    stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M9 21h6a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2Zm0 0h6a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H9a2 2 0 0 0-1.414.586">
-                    </path>
-                    <path d="M17 17h2a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2"></path>
-                    <path d="M17 5v4H7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2Z"></path>
-                </svg>
+        <app-contact></app-contact>
 
 
 
 
+        <div class="LowerPart">
+            <!-- <div class="text" style="background-color: red; width: 200px; height: 1200px;"></div> -->
 
 
 
-            </div>
-
-
-        </div>
+            <app-education [Title]="'Education'" class="section"></app-education>
 
 
 
+            <app-experience [Title]="'Experience'" class="section"></app-experience>
 
-        <div class="LowerPart" cdkDropListGroup>
+            <app-project [Title]="'Academic Projects'" class="section"></app-project>
 
-            <div class="leftCol example-list ">
-                <div cdkDropListConnectedTo="LowerRight" cdkDropList [cdkDropListData]="leftMovies"
-                    (cdkDropListDropped)="drop($event)">
-                    <div class="row" *ngFor="let movie of leftMovies">{{movie}}
-                        
-                        <app-education [Title]="'Education'"></app-education>
-
-                        <!-- <app-education [Title]="'Experience'"></app-education> -->
-                        
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="rightCol example-list">
-                <div id="LowerRight" cdkDropListConnectedTo="LowerLeft" cdkDropList [cdkDropListData]="rightMovies"
-                    (cdkDropListDropped)="drop($event)">
-                    <div class="row" *ngFor="let movie of rightMovies" cdkDrag>{{movie}}</div>
-                    <button (click)="AddNewRight()"> add new experience</button>
-                </div>
-            </div>
 
 
 
 
         </div>
-
-
-
-
     </div>
 
 

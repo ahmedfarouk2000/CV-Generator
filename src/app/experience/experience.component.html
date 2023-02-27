@@ -1,0 +1,91 @@
+<div class="EducationContainer" cdkDropList [cdkDropListData]="EducationList"
+    (cdkDropListDropped)="dropEducation($event)">
+
+
+    <!-- <button (click)="AddNewEducation()">test focus</button> -->
+
+    <div class="HoverOnEdu addNewEdu">
+
+        <svg (click)="AddNewEducation()" class="addEdu" width="32" height="32" fill="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 20.75a8.75 8.75 0 1 1 0-17.5 8.75 8.75 0 0 1 0 17.5ZM12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z">
+            </path>
+            <path
+                d="M12 7a.625.625 0 0 1 .625.625v3.75h3.75a.624.624 0 1 1 0 1.25h-3.75v3.75a.624.624 0 1 1-1.25 0v-3.75h-3.75a.625.625 0 1 1 0-1.25h3.75v-3.75A.625.625 0 0 1 12 7Z">
+            </path>
+        </svg>
+
+        <svg class="addEdu" width="30" height="30" fill="none" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M10 11v6m4-6v6M4 7h16m-1 0-.867 12.142A2 2 0 0 1 16.138 21H7.862a2 2 0 0 1-1.995-1.858L5 7h14Zm-4 0V4a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v3h6Z">
+            </path>
+        </svg>
+    </div>
+
+    <h2 class="ColumnTitle">{{Title}}</h2>
+
+
+    
+    <div (click)="testFocus($event,education)" class="EducationRow" *ngFor="let education of EducationList" cdkDrag>
+
+
+        <a [href]="education.exCertificate" target="_blank" class="CertificateProve" id="link" *ngIf="education.exCertificate!=''"> 
+            <svg width="34" height="34" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.2 19.2V7.8l-5.4-5.4H7.2a2.4 2.4 0 0 0-2.4 2.4v14.4a2.4 2.4 0 0 0 2.4 2.4h9.6a2.4 2.4 0 0 0 2.4-2.4ZM13.8 6a1.8 1.8 0 0 0 1.8 1.8H18v11.4a1.2 1.2 0 0 1-1.2 1.2H7.2A1.2 1.2 0 0 1 6 19.2V4.8a1.2 1.2 0 0 1 1.2-1.2h6.6V6Z"></path>
+                <path d="M7.923 19.305a.972.972 0 0 1-.525-.504c-.234-.465-.156-.931.096-1.322.237-.369.631-.682 1.076-.945a9.213 9.213 0 0 1 1.779-.774 23.64 23.64 0 0 0 1.274-2.672 8.729 8.729 0 0 1-.516-1.554c-.103-.48-.143-.955-.055-1.363.09-.425.329-.807.78-.988.23-.092.48-.144.722-.092a.84.84 0 0 1 .573.438c.105.197.144.427.152.645a3.86 3.86 0 0 1-.056.737c-.101.612-.324 1.361-.624 2.153.33.708.724 1.385 1.176 2.023a6.9 6.9 0 0 1 1.6.06c.437.08.881.234 1.152.558.144.173.232.384.24.622.009.23-.056.458-.165.675a1.25 1.25 0 0 1-.425.5 1.028 1.028 0 0 1-.612.165c-.397-.017-.785-.235-1.12-.5a6.86 6.86 0 0 1-1.093-1.14 14 14 0 0 0-2.396.487 13.56 13.56 0 0 1-1.224 1.812c-.35.42-.731.787-1.113.944a.952.952 0 0 1-.696.035Zm1.655-2.281a6.02 6.02 0 0 0-.55.286c-.394.232-.65.46-.777.656-.113.174-.115.3-.048.433a.273.273 0 0 0 .031.053.343.343 0 0 0 .042-.014c.165-.068.426-.282.762-.687a9.84 9.84 0 0 0 .54-.727Zm1.968-1.596c.4-.094.805-.17 1.212-.232a14.096 14.096 0 0 1-.612-1.03c-.188.426-.388.846-.6 1.26v.002Zm2.935.54c.18.195.356.36.523.492.287.228.488.304.597.307a.128.128 0 0 0 .084-.018.368.368 0 0 0 .113-.15.522.522 0 0 0 .07-.24.114.114 0 0 0-.03-.075c-.063-.075-.24-.183-.622-.251a4.645 4.645 0 0 0-.735-.064v-.001Zm-2.388-4.207a8.03 8.03 0 0 0 .24-.994 2.77 2.77 0 0 0 .046-.558.738.738 0 0 0-.038-.237.62.62 0 0 0-.174.048c-.105.042-.19.127-.236.34-.048.23-.036.562.056.986.028.133.065.272.108.415h-.002Z"></path>
+              </svg>
+        </a>
+
+        <div class="handle">
+            <mat-icon svgIcon="hand" class="hand" cdkDragHandle></mat-icon>
+            <mat-icon svgIcon="trash" class="trashEdu" (click)="DeleteEducation(education)"></mat-icon>
+        </div>
+
+        <!-- <div class="containerTitle"> -->
+        <h2 data-after="" id="exTitle" (focusout)="EducationInput($event,education)" contenteditable="true"
+            class="Title" placeholder="Experience Title" (focus)="focus($event)" (blur)="blur($event)">{{education.exTitle}}</h2>
+           
+
+        <h2 id="exPlace" (focusout)="EducationInput($event,education)" contenteditable="true"
+        class="restInput" placeholder="Institution" (focus)="focus($event)" (blur)="blur($event)">{{education.exPlace}}</h2>
+        <!--    
+    <h2 class="tempBefore">{{education.exBefore}}</h2>
+</div> -->
+
+
+
+
+
+        <div class="dates" *ngIf="education.showFields">
+            <h2 id="exBefore" (focusout)="EducationInput($event,education)" contenteditable="true"
+                class="restInput date" placeholder="Date From" (focus)="focus($event)" (blur)="blur($event)">{{education.exBefore}}</h2>
+             
+
+
+            <h2 id="exAfter" (focusout)="EducationInput($event,education)" contenteditable="true"
+                class="restInput date" placeholder="Date To" (focus)="focus($event)" (blur)="blur($event)">{{education.exAfter}}</h2>
+             
+        </div>
+
+
+        <h2 id="exDesc" (focusout)="EducationInput($event,education)" contenteditable="true" class="restInput"
+            placeholder="Description of the Experience" (focus)="focus($event)" (blur)="blur($event)">{{education.exDesc}}</h2>
+       
+
+            
+        <h2 *ngIf="education.showFields" id="exCertificate" (focusout)="EducationInput($event,education)" contenteditable="true" class="restInput"
+        placeholder="Certificate Link" (focus)="focus($event)" (blur)="blur($event)">{{education.exCertificate}}</h2>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+</div>

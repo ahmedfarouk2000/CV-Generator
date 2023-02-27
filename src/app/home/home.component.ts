@@ -9,34 +9,14 @@ import { IEduation } from '../models/IEducation';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-             
+
   constructor() { }
-  public PrintSize = false;
   public width = 930;  // the inital width (vw)
   public height = 1300; // the inital height (vh)
-  public nuBubbles = 5; 
+  // public nuBubbles = 5; 
 
 
   ngOnInit(): void { // here 
-    // let start = 0.1
-    // let string = ''
-    // for (let i = 0 ;i<=100 ; i+=5){
-    //   if(i < 50){
-    //     let current =`${i}% {background-color: rgba(128, 128, 128, ${start.toFixed(2)});}`
-    //     start+=0.015
-    //     console.log(current)
-    //     string+=current + '\n'
-    //   }
-    //   else{
-    //     let current =`${i}% {background-color: rgba(128, 128, 128, ${start.toFixed(2)});}`
-    //     start-=0.015
-    //     console.log(current)
-    //     string+=current + '\n'
-    //   }
-    //   console.log(string)
-
-
-    // }
 
   }
   public PrintOrNot = false;
@@ -405,28 +385,7 @@ export class HomeComponent implements OnInit {
   }
 
 
-  // public Slide1(event: any) {
-  //   console.log(event.target.value)
-  //   // event.target.value = 100
-  //   let currentValue = event.target.value
-  //   document.documentElement.style.setProperty('--clippingRadius', `${currentValue}%`);
-  // }
 
-  // public Slide2(event: any) {
-  //   console.log(event.target.value)
-  //   // event.target.value = 100
-  //   let currentValue = event.target.value
-  //   document.documentElement.style.setProperty('--clippingX', `${currentValue}%`);
-  // }
-
-
-
-  // public Slide3(event: any) {
-  //   console.log(event.target.value)
-  //   // event.target.value = 100
-  //   let currentValue = event.target.value
-  //   document.documentElement.style.setProperty('--clippingY', `${currentValue}%`);
-  // }
 
   public DropCroppingBox(event: any) {
     console.log('in drag and drop', event)
@@ -879,7 +838,7 @@ export class HomeComponent implements OnInit {
 
   }
 
- // Education Part here 
+  // Education Part here 
 
   public EducationList: IEduation[] = [] // initially its empty until i push some into it
 
@@ -911,7 +870,7 @@ export class HomeComponent implements OnInit {
     this.EducationList.push(currentEducation)
   }
 
-  public DeleteEducation(education:IEduation) {
+  public DeleteEducation(education: IEduation) {
     let NewEducationList = this.EducationList.filter(function (current) {
       return current != education
     })

@@ -36,13 +36,16 @@
         <mat-icon svgIcon="trash" class="trashEdu" (click)="DeleteEducation(education)"></mat-icon>
     </div>
 
-
+    <!-- <div class="containerTitle"> -->
     <h2 id="eduTitle" (focusout)="EducationInput($event,education)" contenteditable="true"
-        class="Title" placeholder="Study Program" (focus)="focus($event)" (blur)="blur($event)">{{education.eduTitle}}</h2>
+        class="Title" placeholder="Study Program" (focus)="focus($event)" (blur)="blur($event)">{{education.eduTitle}}</h2>   
+<!--    
+    <h2 class="tempBefore">{{education.eduBefore}}</h2>
+</div> -->
 
 
     <h2 id="eduPlace" (focusout)="EducationInput($event,education)" contenteditable="true"
-        class="restInput" placeholder="instituation" (focus)="focus($event)" (blur)="blur($event)">{{education.eduPlace}}</h2>
+        class="restInput" placeholder="Institution" (focus)="focus($event)" (blur)="blur($event)">{{education.eduPlace}}</h2>
 
 
     <div class="GpaContainer">
@@ -87,12 +90,12 @@
 
     <div class="dates" *ngIf="education.showFields">
         <h2 id="eduBefore" (focusout)="EducationInput($event,education)"
-            contenteditable="true" class="restInput date" placeholder="from" 
+            contenteditable="true" class="restInput date" placeholder="Date From" 
             (focus)="focus($event)" (blur)="blur($event)">{{education.eduBefore}}</h2>
           
 
         <h2 id="eduAfter" (focusout)="EducationInput($event,education)" contenteditable="true"
-            class="restInput date" placeholder="To" 
+            class="restInput date" placeholder="Date To" 
             (focus)="focus($event)" (blur)="blur($event)">{{education.eduAfter}}</h2>
     </div>
 
