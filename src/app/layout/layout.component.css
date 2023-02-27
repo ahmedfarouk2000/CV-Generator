@@ -1,0 +1,110 @@
+.chooseTheme {
+    background-color: white;
+    border-radius: 40px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    transition: 0.4s all ease;
+    box-shadow: 0 0 0.5cm rgb(0 0 0 / 50%);
+}
+
+
+.chooseTheme:hover {
+    height: 500px;
+    width: 150px;
+}
+
+.chooseTheme:hover .layoutTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+}
+
+.chooseTheme:hover .arrow {
+    display: none;
+}
+
+.arrow {
+    /* background-color: red; */
+    width: 35px;
+    height: 35px;
+}
+
+.chooseTheme:hover .color {
+    display: block;
+}
+
+.color {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: none;
+    transition: 0.4s transform ease;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.color1 {
+    background-color: rgb(183, 180, 180);
+}
+
+
+.color2 {
+    background-color: coral;
+}
+
+.color3 {
+    background-color: rgb(255, 83, 83);
+}
+
+.color4 {
+    background-color: gold;
+}
+
+.color:hover {
+    transform: scale(1.1, 1.1);
+    box-shadow: 0 0 0 3px black;
+    border: solid white 3px;
+}
+
+.layoutTitle {
+    font-family: var(--boldFont);
+    /* background-color: var(--theme1); */
+    flex: 1;
+    width: 100%;
+    display: none;
+    opacity: 0;
+    cursor: pointer;
+    transition: all 0.4s;
+
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+     user-select: none; /* Standard syntax */
+}
+
+.layoutTitle:nth-last-of-type(1) {
+    border-radius: 0 0 40px 40px;
+}
+
+.layoutTitle:nth-child(2) {
+    border-radius: 40px 40px 0 0;
+}
+
+
+
+.layoutTitle:not(.disabled):hover {
+    background-color: var(--theme12);
+}
+
+
+.disabled {
+    background-color: rgb(128, 128, 128);
+}
+
+.Notdisabled {
+    background-color: var(--theme1);
+}

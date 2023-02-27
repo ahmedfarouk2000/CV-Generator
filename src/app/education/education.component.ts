@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem, } from '@angular/cdk/drag-drop';
+import { GlobalConstants } from '../global';
 
 import { IEduation } from '../models/IEducation';
 
@@ -10,6 +11,7 @@ import { IEduation } from '../models/IEducation';
 })
 export class EducationComponent {
   @Input() Title: string = ''; // will be sent from parent
+  public VisiableOrNot = GlobalConstants
 
   ngOnInit(): void {
     this.AddNewEducation()
@@ -213,6 +215,11 @@ export class EducationComponent {
     // document.querySelector(`#${type}`)?.classList.add('SelectedGpaSystemOn')
     // document.querySelector(`#${type}Circle`)?.classList.add('circleSystemOn')
     // document.querySelector(`#${type}CircleInside`)?.classList.add('circleSystmeinsideOn')
+  }
+
+
+  public DeleteEducationAll() {
+    this.VisiableOrNot.toggleVisiable('Education')
   }
 
 

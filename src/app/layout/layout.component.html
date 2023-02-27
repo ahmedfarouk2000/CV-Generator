@@ -1,0 +1,43 @@
+<div class="chooseTheme" *ngIf="this.VisiableOrNot.getVisible('layout')">
+
+
+    <mat-icon class="arrow" svgIcon="layout"></mat-icon>
+
+
+    <h2 class="layoutTitle"
+        [ngClass]="{Notdisabled:this.VisiableOrNot.getVisible('Education'),disabled:!this.VisiableOrNot.getVisible('Education')}"
+        (click)="ChooseFont('Education')">Education</h2>
+
+    <h2 class="layoutTitle"
+        [ngClass]="{Notdisabled:this.VisiableOrNot.getVisible('Experience'),disabled:!this.VisiableOrNot.getVisible('Experience')}"
+        (click)="ChooseFont('Experience')">Experience</h2>
+
+
+    <h2 class="layoutTitle"
+        [ngClass]="{Notdisabled:this.VisiableOrNot.getVisible('Project'),disabled:!this.VisiableOrNot.getVisible('Project')}"
+        (click)="ChooseFont('Project')">Project</h2>
+
+
+    <h2 class="layoutTitle"
+        [ngClass]="{Notdisabled:this.VisiableOrNot.getVisible('Skill'),disabled:!this.VisiableOrNot.getVisible('Skill')}"
+        (click)="ChooseFont('Skill')">Skill</h2>
+
+
+
+    <h2 class="layoutTitle"
+        [ngClass]="{Notdisabled:this.VisiableOrNot.getVisible('Avatar'),disabled:!this.VisiableOrNot.getVisible('Avatar')}"
+        (click)="ChooseFont('Avatar')">Avatar</h2>
+
+        <h2 class="layoutTitle"
+        [ngClass]="{Notdisabled:this.VisiableOrNot.getVisible('Contact'),disabled:!this.VisiableOrNot.getVisible('Contact')}"
+        (click)="ChooseFont('Contact')">Contact</h2>
+
+
+    <!-- <mat-icon class="color color1" svgIcon="font-type" (click)="ChooseFont('Education')"></mat-icon> -->
+
+    <!-- <mat-icon class="color color2" svgIcon="font-type" (click)="ChooseFont('Experience')"></mat-icon>
+    <mat-icon class="color color3" svgIcon="font-type" (click)="ChooseFont('Project')"></mat-icon>
+    <mat-icon class="color color4" svgIcon="font-type" (click)="ChooseFont('Skill')"></mat-icon> -->
+
+
+</div>

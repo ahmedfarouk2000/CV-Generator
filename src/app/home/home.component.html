@@ -1,4 +1,4 @@
-<button (click)="printPara()">Reset to A4 size page</button>
+<!-- <button (click)="printPara()">Reset to A4 size page</button> -->
 <!-- <button (click)="ZoomIn()">zoom in</button>
 <button (click)="ZoomOut()">zoom out</button>
 <button (click)="Confirm()" class="button">Confirm</button> -->
@@ -89,7 +89,7 @@
     <div class="cover">
 
         <div class="UpperPart">
-            <div class="img">
+            <div class="img" *ngIf="this.VisiableOrNot.getVisible('Avatar')">
                 <div class="svgContainer">
                     <div class="deleteLayerParent" *ngIf="SelectedImg">
                         <div class="deleteLayer" (click)="deleteImg()">
@@ -233,24 +233,24 @@
         </div>
 
 
-        <app-contact></app-contact>
+        <app-contact *ngIf="this.VisiableOrNot.getVisible('Contact')"></app-contact>
 
 
 
 
         <div class="LowerPart">
-            <!-- <div class="text" style="background-color: red; width: 200px; height: 1200px;"></div> -->
+
+            <app-education [Title]="'Education'" class="section"
+                *ngIf="this.VisiableOrNot.getVisible('Education')"></app-education>
 
 
+            <app-experience [Title]="'Experience'" class="section"
+                *ngIf="this.VisiableOrNot.getVisible('Experience')"></app-experience>
 
-            <app-education [Title]="'Education'" class="section"></app-education>
+            <app-project [Title]="'Front End Projects'" class="section"
+                *ngIf="this.VisiableOrNot.getVisible('Project')"></app-project>
 
-
-
-            <app-experience [Title]="'Experience'" class="section"></app-experience>
-
-            <app-project [Title]="'Academic Projects'" class="section"></app-project>
-
+            <app-skill [Title]="'Skills'" class="section" *ngIf="this.VisiableOrNot.getVisible('Skill')"></app-skill>
 
 
 

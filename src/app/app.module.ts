@@ -21,6 +21,11 @@ import { EducationComponent } from './education/education.component';
 import { ProjectComponent } from './project/project.component';
 import { ContactComponent } from './contact/contact.component';
 import { ExperienceComponent } from './experience/experience.component';
+import { SkillComponent } from './skill/skill.component';
+import { ThemeComponent } from './theme/theme.component';
+import { FontComponent } from './font/font.component';
+import { LayoutComponent } from './layout/layout.component';
+import { PrintComponent } from './print/print.component';
 // import { ExperienceComponent } from './experience/experience.component';
 
 
@@ -36,7 +41,12 @@ import { ExperienceComponent } from './experience/experience.component';
     EducationComponent,
     ProjectComponent,
     ContactComponent,
-    ExperienceComponent,  
+    ExperienceComponent,
+    SkillComponent,
+    ThemeComponent,
+    FontComponent,
+    LayoutComponent,
+    PrintComponent,  
   
   ],
   imports: [

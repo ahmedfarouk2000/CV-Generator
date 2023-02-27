@@ -1,0 +1,64 @@
+.chooseTheme{
+    background-color: white;
+    border-radius: 40px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    transition: 0.4s all ease;
+    box-shadow: 0 0 0.5cm rgb(0 0 0 / 50%);
+}
+
+.chooseTheme:hover{
+    height: 300px;
+}
+
+.chooseTheme:hover .arrow{
+    display: none;
+}
+
+.chooseTheme:hover .color {
+    display: block;
+}
+.color{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: none;
+    transition: 0.4s transform ease;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.color1{
+    background-color: var(--Color11);
+}
+
+
+.color2{
+    background-color: var(--Color21);
+}
+
+.color3{
+    background-color: var(--Color31);
+}
+
+.color4{
+    background-color: var(--Color41);
+}
+
+.color:hover{ 
+    transform: scale(1.1,1.1);
+    box-shadow: 0 0 0 3px black;
+    border: solid white 3px;
+}
+
+
+.arrow{
+    /* background-color: red; */
+    width: 35px;
+    height: 35px;
+}
+

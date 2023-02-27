@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { IExperience } from '../models/IExperience';
 import { CdkDragDrop, moveItemInArray, transferArrayItem, } from '@angular/cdk/drag-drop';
+import { GlobalConstants } from '../global';
 
 @Component({
   selector: 'app-experience',
@@ -9,6 +10,8 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem, } from '@angular/cdk/d
 })
 export class ExperienceComponent {
   @Input() Title: string = ''; // will be sent from parent
+  public VisiableOrNot = GlobalConstants
+
   ngOnInit(): void {
     this.AddNewEducation()
   }
@@ -227,5 +230,10 @@ export class ExperienceComponent {
   //    // document.querySelector(`#${type}Circle`)?.classList.add('circleSystemOn')
   //    // document.querySelector(`#${type}CircleInside`)?.classList.add('circleSystmeinsideOn')
   // }
+
+
+  public DeleteEducationAll() {
+    this.VisiableOrNot.toggleVisiable('Experience')
+  }
 
 }

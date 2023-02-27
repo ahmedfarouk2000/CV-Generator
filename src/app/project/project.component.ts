@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem, } from '@angular/cdk/drag-drop';
 import { IProject } from '../models/IProject';
+import { GlobalConstants } from '../global';
 
 @Component({
   selector: 'app-project',
@@ -9,6 +10,7 @@ import { IProject } from '../models/IProject';
 })
 export class ProjectComponent {
   @Input() Title: string = ''; // will be sent from parent
+  public VisiableOrNot = GlobalConstants
 
   ngOnInit(): void {
     this.AddNewEducation()
@@ -226,5 +228,10 @@ export class ProjectComponent {
   //    // document.querySelector(`#${type}Circle`)?.classList.add('circleSystemOn')
   //    // document.querySelector(`#${type}CircleInside`)?.classList.add('circleSystmeinsideOn')
   // }
+
+  public DeleteEducationAll() {
+    this.VisiableOrNot.toggleVisiable('Project')
+  }
+
 
 }

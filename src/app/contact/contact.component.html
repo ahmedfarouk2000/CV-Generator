@@ -273,8 +273,7 @@
 
     </div>
 
-    <div [ngClass]="{'RemoveBeforPrint':PrintOrNot}" (mouseenter)="toggleShowContacts()"
-        (mouseleave)="toggleShowContacts()" class="addNewSkill">
+    <div *ngIf="this.VisiableOrNot.getVisible('AddContact')" (mouseenter)="toggleShowContacts()" (mouseleave)="toggleShowContacts()" class="addNewSkill">
         <!-- <h2>Add new button</h2> -->
         <svg class="addIcon" width="32" height="32" fill="none" stroke="currentColor" stroke-linecap="round"
             stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

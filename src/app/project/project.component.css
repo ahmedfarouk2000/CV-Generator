@@ -1,4 +1,4 @@
-::ng-deep :root {
+/* ::ng-deep :root {
     --width: 950px;
     --height: 1300px;
 
@@ -49,9 +49,9 @@
     --zoom-out-Animation: 1;
 
   
-}
+} */
 
-
+/* 
 @font-face {
     font-family: font2Regular;
     src: url('./../../assets/font/font2/Ubuntu-Light.ttf');
@@ -90,7 +90,7 @@
     font-family: font3Bold;
     src: url('./../../assets/font/font3/Manrope-Bold.ttf');
 
-}
+} */
 
 
 .EducationContainer {

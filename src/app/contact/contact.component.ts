@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { GlobalConstants } from '../global';
 
 @Component({
   selector: 'app-contact',
@@ -7,6 +8,7 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
+  public VisiableOrNot = GlobalConstants
 
 
 

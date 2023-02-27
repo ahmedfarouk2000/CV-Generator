@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { IEduation } from '../models/IEducation';
-
+import { GlobalConstants } from '../global';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +9,7 @@ import { IEduation } from '../models/IEducation';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  public VisiableOrNot = GlobalConstants
   constructor() { }
   public width = 930;  // the inital width (vw)
   public height = 1300; // the inital height (vh)
@@ -297,10 +297,9 @@ export class HomeComponent implements OnInit {
     return false;
   }
 
-  public DeleteImage() {
-    console.log("delete the img");
-    const img = document.querySelector('.img');
-    img!.classList.toggle('imgToggle');
+  public DeleteImage() { // must be fixed
+    // this.deleteImg()
+    this.VisiableOrNot.toggleVisiable('Avatar')
   }
 
 

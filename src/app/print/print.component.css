@@ -1,0 +1,19 @@
+.chooseTheme {
+    background-color: white;
+    border-radius: 40px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    transition: 0.4s all ease;
+    box-shadow: 0 0 0.5cm rgb(0 0 0 / 50%);
+    cursor: pointer;
+}
+
+.arrow {
+    /* background-color: red; */
+    width: 35px;
+    height: 35px;
+}

@@ -88,8 +88,38 @@ export class AppComponent {
       this.domainSanitizer.bypassSecurityTrustResourceUrl('../assets/trash.svg')
     )
 
+    this.matIconRegistry.addSvgIcon(
+      'color',
+      this.domainSanitizer.bypassSecurityTrustResourceUrl('../assets/color.svg')
+    )
+
+
+    this.matIconRegistry.addSvgIcon(
+      'font',
+      this.domainSanitizer.bypassSecurityTrustResourceUrl('../assets/font.svg')
+    )
+
+    this.matIconRegistry.addSvgIcon(
+      'font-type',
+      this.domainSanitizer.bypassSecurityTrustResourceUrl('../assets/font-type.svg')
+    )
+
+    this.matIconRegistry.addSvgIcon(
+      'layout',
+      this.domainSanitizer.bypassSecurityTrustResourceUrl('../assets/layout.svg')
+    )
+
+    this.matIconRegistry.addSvgIcon(
+      'printer',
+      this.domainSanitizer.bypassSecurityTrustResourceUrl('../assets/printer.svg')
+    )
+
+
+      
 
 
 
   }
+
+  // public EducationVisiable =false;
 }

@@ -1,0 +1,248 @@
+/* 
+::ng-deep :root {
+    --width: 950px;
+    --height: 1300px;
+
+    --boldFont: font2Bold;
+    --lightFont: font2Regular;
+    --MediumFont: font2Medium;
+    
+    --nameFontSize: 35px;
+    --titleFontSize: 20px;
+    --descFontSize: 20px;
+
+    --AvatarWidth: 200px;
+
+
+    --leftColumnRows: 6;
+    --rightColumnRows: 6;
+
+    --rowSize: 100px;
+
+    --theme1: #2feaa8;
+    --theme12: #25be89;
+    --DeleteColor:   rgba(255, 131, 131, 0.5);;
+
+    --theme2: #425061;
+
+    --xLocation: 50%;
+    --yLocation: 50%;
+    --radius: 100%;
+
+    --clippingX: 50%;
+    --clippingY: 50%;
+
+    --SquareBorderRadius: 2px;
+
+
+    --border-top-left-radius: 50%;
+    --border-top-right-radius: 50%;
+    --border-bottom-right-radius: 50%;
+    --border-bottom-left-radius: 50%;
+
+    --imgResize: 400px;
+    --RotationDeg: 0deg;
+
+    --RotateIconAnimation: 0deg;
+    --RotatediceAnimation: 0deg;
+
+    --zoom-in-Animation: 1;
+    --zoom-out-Animation: 1;
+
+  
+}
+
+
+@font-face {
+    font-family: font2Regular;
+    src: url('./../../assets/font/font2/Ubuntu-Light.ttf');
+}
+
+@font-face {
+    font-family: font2Medium;
+    src: url('./../../assets/font/font2/Ubuntu-Medium.ttf');
+}
+
+@font-face {
+    font-family: font2Bold;
+    src: url('./../../assets/font/font2/Ubuntu-Bold.ttf');
+}
+
+
+
+@font-face {
+    font-family: font1Regular;
+    src: url('./../../assets/font/font1/IBMPlexSansThaiLooped-Regular.ttf');
+}
+
+@font-face {
+    font-family: font1Bold;
+    src: url('./../../assets/font/font1/IBMPlexSansThaiLooped-SemiBold.ttf');
+}
+
+
+
+@font-face {
+    font-family: font3Regular;
+    src: url('./../../assets/font/font3/Manrope-Medium.ttf');
+} 
+
+@font-face {
+    font-family: font3Bold;
+    src: url('./../../assets/font/font3/Manrope-Bold.ttf');
+
+}
+ */
+
+
+
+.EducationContainer {
+    /* background-color: cyan; */
+    position: relative;
+    /* background-color: cyan; */
+}
+
+.EducationContainer:hover .HoverOnEdu {
+    height: 140px;
+    left: -10%;
+}
+
+.ColumnTitle {
+    font-family: var(--boldFont);
+    font-size: 28px;
+    font-weight: 900;
+}
+
+
+
+.EducationRow:hover .handle {
+    opacity: 0.5;
+}
+
+.EducationRow {
+    position: relative;
+    margin-top: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    /* background-color: green; */
+}
+
+
+.AllEducations{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    /* background-color: red; */
+
+}
+
+.Title {
+    outline: none;
+    font-family: var(--MediumFont);
+    font-weight: 500;
+    font-size: 22px;
+    /* text-align: center; */
+    transition: all 0.2s;
+    padding: 5px 16px;
+    border-radius: 16px;
+    border: none;
+    /* background-color: rgba(128, 128, 128, 0.319); */
+   
+    
+    /* font-weight: 700; */
+    /* padding-left: 16px; */
+    /* background-color: cyan; */
+    /* width: 30%; */
+    /* flex: 1; */
+
+}
+
+
+.closed{
+    background-color: rgba(128, 128, 128, 0.319); 
+    /* background-color: #989da6; */
+}
+
+
+
+
+
+.Title:focus {
+    border-bottom: var(--theme1) 3px solid;
+}
+
+.Title:hover {
+    background-color: rgba(128, 128, 128, 0.078);
+    /* box-sizing: border-box; */
+}
+
+
+.EducationContainer:hover .HoverOnEdu {
+    height: 140px;
+    left: -10%;
+}
+
+.HoverOnEdu {
+    background-color: var(--theme1);
+    position: absolute;
+    left: 0;
+    height: 0px;
+    right: 100%;
+    top: 10px;
+    transform: translate(0%, -50%);
+    width: 30px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    transition: all 0.4s;
+    overflow: hidden;
+
+}
+
+.addEdu {
+    flex: 1;
+    transition: 0.4s all;
+}
+
+.addEdu:hover {
+    background-color: var(--theme12);
+}
+
+.addNewEdu {
+    cursor: pointer;
+}
+
+[contenteditable=true]:empty:before {
+    content: attr(placeholder);
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.x{
+    /* width: 10px;
+    height: 10px; */
+    /* background-color: red; */
+    position: absolute;
+    left: -5px;
+    top: -5px;
+    background-color: var(--DeleteColor);
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0;
+    transition: 0.4s all;
+}
+.EducationRow:hover .x{
+    opacity: 0.8;
+}
+
+
+
+
