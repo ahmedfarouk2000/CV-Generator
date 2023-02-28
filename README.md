@@ -1,6 +1,4 @@
 # CV-Generator
-
-website that fetches Movies from TMDB data base Apis.
 Live-Demo: https://cv-generator-e3881.web.app/
 
 ## Technologies
