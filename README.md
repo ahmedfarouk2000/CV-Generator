@@ -10,7 +10,7 @@ Project is created with:
 - Angular Material
 
 ## Features
-his platform is designed to assist job seekers in creating professional and polished CVs easily. The user-friendly interface allows you to fill in your education, experience, skills, contacts, and projects with ease.
+This platform is designed to assist job seekers in creating professional and polished CVs easily. The user-friendly interface allows you to fill in your education, experience, skills, contacts, and projects with ease.
 
 One of the unique features of this CV generator is the ability to drag and drop information between different sections. This feature makes it easy for users to customize their CVs and arrange information in a way that best suits their needs.
 
