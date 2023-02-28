@@ -1,7 +1,7 @@
 # CV-Generator
 
 website that fetches Movies from TMDB data base Apis.
-Live-Demo: https://movieapi-af.netlify.app/
+Live-Demo: https://cv-generator-e3881.web.app/
 
 ## Technologies
 
@@ -20,9 +20,7 @@ This CV generator is a valuable tool for anyone looking to create a strong and c
 
 ## Visual Representation
 
-
-
-
 ![screencapture-cv-generator-e3881-web-app-2023-02-28-17_06_33](https://user-images.githubusercontent.com/93868173/221895563-8ca91dca-a679-49e0-b45a-562a705e8d35.png)
-
+![Screenshot 2023-02-28 171202](https://user-images.githubusercontent.com/93868173/221896757-2f8e706c-1c13-4a83-b2d1-b61e47dabb53.png)
+![Screenshot 2023-02-28 171603](https://user-images.githubusercontent.com/93868173/221896789-847e31f3-fd44-4a7d-88f5-e12529c55322.png)
 
