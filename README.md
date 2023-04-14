@@ -25,8 +25,11 @@ This CV generator is a valuable tool for anyone looking to create a strong and c
 ![Screenshot 2023-02-28 171202](https://user-images.githubusercontent.com/93868173/221896757-2f8e706c-1c13-4a83-b2d1-b61e47dabb53.png)
 ![Screenshot 2023-02-28 171603](https://user-images.githubusercontent.com/93868173/221896789-847e31f3-fd44-4a7d-88f5-e12529c55322.png)
 
+![Ahmed Farouk CV 2023 Compressed_pages-to-jpg-0001](https://user-images.githubusercontent.com/93868173/232138383-5303cbbf-072d-48b7-af57-db2f10cb146a.png)
 
 ![Ahmed Farouk CV 2023 Compressed_pages-to-jpg-0002](https://user-images.githubusercontent.com/93868173/232137186-8fc0287a-a175-482f-8ec6-eacd1c9a0d70.png)
 
+
+<img src="https://user-images.githubusercontent.com/93868173/232137186-8fc0287a-a175-482f-8ec6-eacd1c9a0d70.png" data-canonical-src="https://user-images.githubusercontent.com/93868173/196001713-d73dc9bc-f256-49eb-b52d-e2dd42589c6a.jpg" width="400" height="800"/>
 
 
