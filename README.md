@@ -22,3 +22,4 @@ This CV generator is a valuable tool for anyone looking to create a strong and c
 ![Screenshot 2023-02-28 171202](https://user-images.githubusercontent.com/93868173/221896757-2f8e706c-1c13-4a83-b2d1-b61e47dabb53.png)
 ![Screenshot 2023-02-28 171603](https://user-images.githubusercontent.com/93868173/221896789-847e31f3-fd44-4a7d-88f5-e12529c55322.png)
 
+[Ahmed Farouk CV 2023.pdf](https://github.com/ahmedfarouk2000/CV-Generator/files/11236229/Ahmed.Farouk.CV.2023.pdf)
