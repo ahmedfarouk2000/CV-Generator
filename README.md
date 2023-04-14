@@ -34,7 +34,7 @@ This CV generator is a valuable tool for anyone looking to create a strong and c
 
 
 <div align="center">
-   <img src="https://user-images.githubusercontent.com/93868173/232137186-8fc0287a-a175-482f-8ec6-eacd1c9a0d70.png" data-canonical-src="https://user-images.githubusercontent.com/93868173/222461648-1f92b8d7-48da-4e33-9de0-612c879746bb.gif" width="800" />
+   <img src="https://user-images.githubusercontent.com/93868173/232137186-8fc0287a-a175-482f-8ec6-eacd1c9a0d70.png" data-canonical-src="https://user-images.githubusercontent.com/93868173/222461648-1f92b8d7-48da-4e33-9de0-612c879746bb.gif" width="400" />
 </div>
 
 
