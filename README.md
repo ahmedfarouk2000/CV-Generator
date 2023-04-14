@@ -24,6 +24,9 @@ This CV generator is a valuable tool for anyone looking to create a strong and c
 ![screencapture-cv-generator-e3881-web-app-2023-02-28-17_06_33](https://user-images.githubusercontent.com/93868173/221895563-8ca91dca-a679-49e0-b45a-562a705e8d35.png)
 ![Screenshot 2023-02-28 171202](https://user-images.githubusercontent.com/93868173/221896757-2f8e706c-1c13-4a83-b2d1-b61e47dabb53.png)
 ![Screenshot 2023-02-28 171603](https://user-images.githubusercontent.com/93868173/221896789-847e31f3-fd44-4a7d-88f5-e12529c55322.png)
-![Uploading Ahmed Farouk CV 2023 Compressed_pages-to-jpg-0001.jpg…]()
+
+
+![Ahmed Farouk CV 2023 Compressed_pages-to-jpg-0002](https://user-images.githubusercontent.com/93868173/232137186-8fc0287a-a175-482f-8ec6-eacd1c9a0d70.png)
+
 
 
