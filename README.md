@@ -1,6 +1,8 @@
 # CV-Generator
 - Live-Demo: https://cv-generator-e3881.web.app/
-- I Even Created my own demo CV Here [Ahmed Farouk CV 2023.pdf(https://github.com/ahmedfarouk2000/CVGenerator/files/11236229/Ahmed.Farouk.CV.2023.pdf)
+- I Even Created my own demo CV Here :point_right: [Ahmed Farouk CV 2023.pdf](https://github.com/ahmedfarouk2000/CV-Generator/files/11236292/Ahmed.Farouk.CV.2023.pdf)
+
+
 ## Technologies
 
 
